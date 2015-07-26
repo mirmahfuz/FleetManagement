@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="About" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:spacer height="5" id="s1"/>
+        <amx:outputText value="The hello world application for MAF demonstrates the basic structure of the framework. This basic application has a single application feature that is implemented with a local HTML file. Use this application to ascertain that the development environment is set up correctly to compile and deploy an application."
+                        id="ot3"/>
+        <amx:outputText value="Local HTML" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="This feature demonstrates how to build a feature with local html. It also demonstrates how to import all the base javascript libraries"
+                        id="ot2"/>
+    </amx:panelPage>
+</amx:view>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Manage Charts" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary"/>
+        <amx:panelFormLayout id="pfl1" labelPosition="center">
+            <amx:selectBooleanSwitch label="Status Meter Vertical" id="sbs1"
+                                     value="#{preferenceScope.application.verticalMeter}"/>
+            <amx:selectBooleanSwitch label="Circle LED" id="sbs2" value="#{preferenceScope.application.circleled}"/>
+            <amx:selectBooleanSwitch label="Dial Guage" id="sbs3" value="#{preferenceScope.application.dialguage}"/>
+            <amx:selectBooleanSwitch label="Status Meter Horizontal" id="sbs4"
+                                     value="#{preferenceScope.application.horizontalMeter}"/>
+        </amx:panelFormLayout>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb1" action="detail" text="Charts"/>
+        </amx:facet>
+    </amx:panelPage>
+</amx:view>

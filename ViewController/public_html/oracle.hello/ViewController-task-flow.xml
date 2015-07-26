@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="ViewController-task-flow">
+    <default-activity>ManageDVT</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name>ManagedBean</managed-bean-name>
+      <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.model.ManagedBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <view id="Hello_World">
+      <page>/oracle.hello/Hello_World.amx</page>
+    </view>
+    <view id="ManageDVT">
+      <page>/oracle.hello/ManageDVT.amx</page>
+    </view>
+    <control-flow-rule id="__4">
+      <from-activity-id>ManageDVT</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>detail</from-outcome>
+        <to-activity-id>Hello_World</to-activity-id>
+        <transition>flipLeft</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>Hello_World</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>manage</from-outcome>
+        <to-activity-id>ManageDVT</to-activity-id>
+        <transition>flipRight</transition>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

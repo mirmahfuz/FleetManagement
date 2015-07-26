@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Change this if you want to allow scaling -->
+        <meta name="viewport" content="width=user-scalable=no, device-width"/>
+        <script type="text/javascript">
+          if (!window.adf)
+              window.adf = {
+              };
+          adf.wwwPath = "../../../../www/";
+        </script>
+        <script type="text/javascript" src="../js/mqtt.js"></script>
+        <script type="text/javascript">
+          var showingNavBar;
+
+          function onPageComplete() {
+              showingNavBar = false;
+          }
+
+          function onToggleNavBar() {
+              if (showingNavBar) {
+                  adf.mf.api.hideNavigationBar();
+                  showingNavBar = false;
+              }
+              else {
+                  adf.mf.api.showNavigationBar();
+                  showingNavBar = true;
+              }
+          }
+
+
+          function onToggleSpringboard() {
+              // Navigate to springboard
+              adf.mf.api.gotoSpringboard();
+          }
+
+
+          function onConSuccess(contacts) {
+              alert('Found ' + contacts.length + ' contacts.');
+          };
+
+          function onConError(contactError) {
+              alert('onError!');
+          };
+
+          document.addEventListener("showpagecomplete", onPageComplete, false);
+        </script>
+        <title>Hello World</title>
+    </head>
+    <body>
+    <table >
+    <tr>
+    <td>
+    <a href="#" onclick="onToggleSpringboard()">
+    <img alt="Springboard" width="16" height="16" src="../images/springboard.png">
+    </a>
+    </td>
+    </tr>
+    </table>
+        <h3>Hello World</h3>
+        <table>
+            <tr>
+                <td>
+                    <button type="button" onclick="onToggleNavBar()">Toggle Nav Bar</button>
+                </td>
+                <td>
+                    <button type="button" onclick="mqtt.subscribe()">Subscribe</button>
+
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

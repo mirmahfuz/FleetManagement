@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Header" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton text="Manage" id="cb1" action="manage"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton text="Publish Message" id="cb4" actionListener="#{viewScope.ManagedBean.publish}"/>
+            <amx:commandButton id="cb2" text="Subscribe" actionListener="#{viewScope.ManagedBean.subscribe}"/>
+        </amx:facet>
+        <amx:tableLayout id="tl1" borderWidth="1" halign="center" styleClass="dvtm-gallery-container-table">
+            <amx:rowLayout id="rl6">
+                <amx:cellFormat id="cf5" halign="center">
+                    <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                        <amx:outputText value="Subscribed Value :" id="ot3"/>
+                        <amx:spacer id="s1" width="10"/>
+                        <amx:outputText value="#{viewScope.ManagedBean.inputMessage}" id="ot2"/>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl2" rendered="#{preferenceScope.application.verticalMeter}">
+                <amx:cellFormat id="cf1" styleClass="dvtm-gallery-component-verticalGauge-cell" halign="center">
+                    <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
+                                           value="#{viewScope.ManagedBean.inputMessage}" inlineStyle="width: 50px;"
+                                           minValue="0" maxValue="100" thresholdDisplay="all" plotArea="on"
+                                           visualEffects="auto" labelDisplay="on" borderColor="#E0E0E0" color="#267db3"
+                                           indicatorSize="0.4">
+                        <dvtm:threshold text="Super Hot" color="#ed6647" maxValue="100" id="t2"/>
+                        <dvtm:threshold text="Cool" color="#fad55c" maxValue="60" id="t1"/>
+                        <dvtm:referenceLine color="#888888" value="70" id="rl1"/>
+                    </dvtm:statusMeterGauge>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl3" rendered="#{preferenceScope.application.circleled}">
+                <amx:cellFormat id="cf2" styleClass="dvtm-gallery-component-verticalGauge-cell" halign="center">
+                    <dvtm:ledGauge id="ledGauge1" type="circle" rotation="270"
+                                   value="#{viewScope.ManagedBean.inputMessage}" maxValue="0" minValue="100">
+                        <dvtm:threshold id="t3" maxValue="50" color="#fad55c"/>
+                        <dvtm:threshold id="t4" maxValue="100" color="#ed6647"/>
+                    </dvtm:ledGauge>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl4" rendered="#{preferenceScope.application.dialguage}">
+                <amx:cellFormat id="cf3" styleClass="dvtm-gallery-component-verticalGauge-cell" halign="center">
+                    <dvtm:dialGauge id="dialGauge1" minValue="0" maxValue="100" indicator="needleAntique"
+                                    background="domeAntique" value="#{viewScope.ManagedBean.inputMessage}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl5" rendered="#{preferenceScope.application.horizontalMeter}">
+                <amx:cellFormat id="cf4" styleClass="dvtm-gallery-component-horizontalGauge-cell" halign="center">
+                    <dvtm:statusMeterGauge id="statusMeterGauge2" value="#{viewScope.ManagedBean.inputMessage}"
+                                           minValue="0" maxValue="100" thresholdDisplay="all" plotArea="on"
+                                           visualEffects="auto" indicatorSize="0.6" color="#267db3"
+                                           orientation="horizontal" labelDisplay="on"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+    </amx:panelPage>
+</amx:view>

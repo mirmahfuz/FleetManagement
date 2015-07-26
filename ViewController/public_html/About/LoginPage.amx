@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+    </amx:facet>
+    <amx:panelStretchLayout>
+    <amx:facet name="top">
+      <amx:tableLayout width="100%">
+      <amx:rowLayout>
+      <amx:cellFormat width="30%"/>
+      <amx:cellFormat width="40%">
+      <amx:inputText value="Username"/>
+      <amx:inputText value="Password"/>
+              <amx:commandButton text="Login" id="cb1" action="signin"/>
+              <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                <amx:commandLink text="Forgot username/password?" id="cl1"/>
+                <amx:commandLink text="New user? Sign up" id="cl2" action="signup"/>
+              </amx:panelGroupLayout>
+            </amx:cellFormat>
+      <amx:cellFormat width="30%"/>
+      
+      </amx:rowLayout>
+      </amx:tableLayout>
+      </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

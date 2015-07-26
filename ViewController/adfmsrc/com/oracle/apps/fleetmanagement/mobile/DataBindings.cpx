@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.13.52" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.oracle.apps.fleetmanagement.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/Springboard/springboard.amx" usageId="com_oracle_apps_fleetmanagement_mobile_springboardPageDef"/>
+    <page path="/About/about.amx" usageId="com_oracle_apps_fleetmanagement_mobile_aboutPageDef"/>
+    <page path="/userDetails/userDetailsList.amx"
+          usageId="com_oracle_apps_fleetmanagement_mobile_pageDefs_userDetailsListPageDef"/>
+    <page path="/userDetails/userDetails.amx"
+          usageId="com_oracle_apps_fleetmanagement_mobile_pageDefs_userDetailsPageDef"/>
+    <page path="/About/Signup.amx" usageId="com_oracle_apps_fleetmanagement_mobile_SignupPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_oracle_apps_fleetmanagement_mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_aboutPageDef" path="About.aboutPageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_pageDefs_userDetailsListPageDef"
+          path="com.oracle.apps.fleetmanagement.mobile.pageDefs.userDetailsListPageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_pageDefs_userDetailsPageDef"
+          path="com.oracle.apps.fleetmanagement.mobile.pageDefs.userDetailsPageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_SignupPageDef" path="About.SignupPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="DeviceFeatures" path="com.oracle.apps.fleetmanagement.application.DeviceFeatures"/>
+    <dc id="userDetailsServiceDataControl" path="com.oracle.apps.fleetmanagement.mobile.userDetailsServiceDataControl"/>
+    <dc id="ApplicationFeatures" path="com.oracle.apps.fleetmanagement.application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

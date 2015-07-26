@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.52" id="SignupPageDef" Package="About">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="userDetailsServiceDataControlIterator" Binds="root" DataControl="userDetailsServiceDataControl"
+              RangeSize="25"/>
+    <accessorIterator id="userDetailsIterator" MasterBinding="userDetailsServiceDataControlIterator" Binds="userDetails"
+                      BeanClass="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
+                      DataControl="userDetailsServiceDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues id="hasuserDetailsDataSynchActions" IterBinding="userDetailsServiceDataControlIterator">
+      <AttrNames>
+        <Item Value="hasUserDetailsDataSynchActions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="isNewEntity" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="isNewEntity"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="saveuserDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="saveUserDetails"
+                  DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider" IsViewObjectMethod="false">
+      <NamedData NDName="entity" NDValue="#{bindings.userDetailsIterator.currentRow.dataProvider}"
+                 NDType="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"/>
+    </methodAction>
+    <attributeValues id="zip" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="zip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="lastName" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="username" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="phone" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="address" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="email" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="userId" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="userId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="firstName" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="password" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="city" IterBinding="userDetailsIterator">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="synchronizeuserDetails" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="synchronizeUserDetails" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider" IsViewObjectMethod="false">
+      <NamedData NDName="inBackground" NDValue="true" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>
+

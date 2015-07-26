@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+
+
+
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+ 
+      <amx:outputText value="Registration" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
+       <amx:commandButton action="__back" id="cbbck" text="Back"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
+            <amx:commandLink actionListener="#{bindings.saveuserDetails.execute}" 
+              action="__back"
+                           id="cb2">
+          <amx:image id="isave" source="/images/ic_action_save.png" inlineStyle="height:32px; width:32px;"/>
+      </amx:commandLink>       
+                
+          <amx:image id="bgRunImg" source="/images/reloading.gif" inlineStyle="margin-right:5px;" 
+            rendered="#{applicationScope.ampa_bgtask_running}"/>
+      </amx:panelGroupLayout>
+
+    </amx:facet>
+    <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
+      <amx:facet name="top">
+      
+      <amx:outputText value="Enter your registration information: "/>
+      
+     <!--  <amx:panelFormLayout id="pfl1" fieldHalign="start" labelWidth="40%" fieldWidth="60%" labelPosition="end">
+        -->
+        <amx:tableLayout width="100%">
+          <amx:rowLayout>
+          <amx:cellFormat width="50%">
+                    <amx:outputText value="Contact Information" />
+                                             <amx:inputText value="#{bindings.firstName.inputValue}" label="First name" readOnly="false"                        id="it8">
+                  </amx:inputText>                                            
+                                                     <amx:inputText value="#{bindings.lastName.inputValue}" label="Last name" readOnly="false"                        id="it2">
+                  </amx:inputText>
+                                                      <amx:inputText value="#{bindings.email.inputValue}" label="Email" readOnly="false"                        id="it6">
+                  </amx:inputText>                                                  
+                                                     <amx:inputText value="#{bindings.address.inputValue}" label="Address" readOnly="false"                        id="it5">
+                  </amx:inputText>
+                                                    <amx:inputText value="#{bindings.city.inputValue}" label="City" readOnly="false"                        id="it10">
+                  </amx:inputText>
+                                                    <amx:inputText value="#{bindings.zip.inputValue}" label="Zip code" readOnly="false"                        id="it1">
+                  </amx:inputText>
+                                                   
+                                                     <amx:inputText value="#{bindings.phone.inputValue}" label="Phone no" readOnly="false"                        id="it4">
+                  </amx:inputText> 
+                  </amx:cellFormat>
+                  <amx:cellFormat width="50%">
+                   <amx:outputText value="Login Information"/>
+                                                      <amx:inputText value="#{bindings.username.inputValue}" label="Create a user id" readOnly="false"                        id="it3">
+                  </amx:inputText>                                                     
+                                                     <amx:inputText value="#{bindings.password.inputValue}" label="Password" readOnly="false"                        id="it9">
+                  </amx:inputText>
+                                                     <amx:inputText value="" label="Re-enter password" readOnly="false"                        id="it19">
+                  </amx:inputText>
+                                                    <amx:inputText value="#{bindings.userId.inputValue}" label="#{bindings.userId.hints.label}" readOnly="false"                        id="it7">
+                  </amx:inputText>
+                   <amx:outputText value="Terms and conditions"/>
+              <amx:selectManyCheckbox label="" id="smc1">
+                <amx:selectItem id="si1"
+                label="I have read, understood and agree to the Terms of Use"/>
+                <amx:selectItem id="si2"
+                label="I would like to receive information, special offers and promotional information."/>
+              </amx:selectManyCheckbox>
+              <amx:commandButton text="Register" id="cb1" actionListener="#{bindings.saveuserDetails.execute}" 
+              action="registrationDone"/>
+            </amx:cellFormat>
+                  </amx:rowLayout>
+                  </amx:tableLayout>
+                                                
+      </amx:facet>
+      <amx:facet name="center">
+            </amx:facet>
+    </amx:panelStretchLayout>
+  </amx:panelPage>
+</amx:view>

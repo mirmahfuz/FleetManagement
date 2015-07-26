@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.52" id="userDetailsListPageDef"
+                Package="com.oracle.apps.fleetmanagement.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="userDetailsServiceDataControlIterator" Binds="root" DataControl="userDetailsServiceDataControl"
+              RangeSize="25"/>
+    <accessorIterator id="userDetailsIterator" MasterBinding="userDetailsServiceDataControlIterator" Binds="userDetails"
+                      BeanClass="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
+                      DataControl="userDetailsServiceDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues id="hasuserDetailsDataSynchActions" IterBinding="userDetailsServiceDataControlIterator">
+      <AttrNames>
+        <Item Value="hasUserDetailsDataSynchActions"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="CreateuserDetails" RequiresUpdateModel="true" Action="createRow" IterBinding="userDetailsIterator"/>
+    <tree id="userDetails" IterBinding="userDetailsIterator">
+      <nodeDefinition Name="userDetails0" DefName="com.oracle.apps.fleetmanagement.mobile.model.UserDetails">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="username"/>
+          <Item Value="email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="findAlluserDetailsRemote" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findAllUserDetailsRemote" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider" IsViewObjectMethod="false"/>
+    <methodAction id="synchronizeuserDetails" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="synchronizeUserDetails" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider" IsViewObjectMethod="false">
+      <NamedData NDName="inBackground" NDValue="true" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+  </bindings>
+</pageDefinition>
