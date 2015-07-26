@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="FleetManagement" id="com.company.FleetManagement"
+                   appControllerFolder="ApplicationController"
+                   listener-class="oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener">
+  <adfmf:featureReference refId="About" id="fr6"/>
+  <adfmf:featureReference refId="oracle.hello" id="fr7"/>
+  <adfmf:featureReference refId="MyProfile" id="fr4"/>
+  <adfmf:featureReference refId="Springboard" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="Create_Shipment" id="fr2"/>
+  <adfmf:featureReference refId="Track_Shipment" id="fr5"/>
+  <adfmf:featureReference refId="History" id="fr3"/>
+  <adfmf:featureReference refId="userDetails" id="fr8"/>
+  <adfmf:featureReference refId="oracle.ateam.sample.mobile.datasynch" id="oracle.ateam.sample.mobile.datasynch"
+                          showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="oracle.ateam.sample.mobile.wscalls" id="fr9" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="250">
+      <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
+</adfmf:application>

@@ -1,0 +1,20 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="demo" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="demo">
+        <Contents>
+          <restconnection name="demo" url="http://demo4724244.mockable.io"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="MCS" className="oracle.adf.model.connection.rest.RestConnection" partial="true"
+             manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+  </Reference>
+  <Reference name="PC" className="oracle.adf.model.connection.rest.RestConnection" partial="true"
+             manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+  </Reference>
+</References>
