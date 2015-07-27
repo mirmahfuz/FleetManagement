@@ -7,8 +7,16 @@
         </amx:facet>
         <amx:facet name="primary">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
-                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+                  <!--  <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>-->
+                    <amx:image source="/images/func_menu24@2x.png" styleClass="navigator"
+                           shortDesc="springboard_Image" id="i1"/>
             </amx:commandLink>
+        </amx:facet>
+         <amx:facet name="secondary">
+            <amx:panelGroupLayout id="pgl48" layout="horizontal">
+                <amx:spacer width="10"/>
+                <amx:image id="i13" source="/images/headshot04.png" styleClass="headerPersonImage"/>
+            </amx:panelGroupLayout>
         </amx:facet>
         <amx:spacer height="5" id="s1"/>
         <amx:outputText value="The hello world application for MAF demonstrates the basic structure of the framework. This basic application has a single application feature that is implemented with a local HTML file. Use this application to ascertain that the development environment is set up correctly to compile and deploy an application."

@@ -5,14 +5,22 @@
       <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow"/>
     </adfmf:content>
   </adfmf:feature>
-  <adfmf:feature id="About" name="About">
+  <adfmf:feature id="Home" name="Home">
     <adfmf:content id="About.1">
-      <adfmf:amx file="About/About-task-flow.xml#About-task-flow"/>
+      <adfmf:amx file="About/About-task-flow.xml#About-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i3"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
  <adfmf:feature id="MyProfile" name="My Profile" securityEnabled="false">
     <adfmf:content id="MyProfile.1">
-      <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow"/>
+      <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i4"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="Create_Shipment" name="Create Shipment">
