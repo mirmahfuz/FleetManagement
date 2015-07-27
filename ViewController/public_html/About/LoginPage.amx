@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
+  <amx:panelPage id="pp1" styleClass="loginBackground" >
     <amx:facet name="header">
       <amx:outputText value="" id="ot1"/>
     </amx:facet>
@@ -17,14 +17,14 @@
       <amx:spacer id="s2" height="120"/>
                 <amx:outputText value="Fleet Management" inlineStyle="font-size: 180%"/>
                  <amx:spacer id="s44" height="30"/>
-                <amx:inputText label="Username" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
+                <amx:inputText label="Username:" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
        <amx:spacer id="s3" height="10"/>
-      <amx:inputText label="Password" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
+      <amx:inputText label="Password:" secret="true" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
       
-              <amx:commandButton text="Login" id="cb1" action="signin"/>
+              <amx:commandButton text="Login" id="cb1" action="signin" styleClass="newAltaButton"/>
               <amx:panelGroupLayout id="pgl1" layout="horizontal">
                 <amx:commandLink text="Forgot username/password?" id="cl1"/>
-                  <amx:spacer id="s1" width="30"/>
+                  <amx:spacer id="s1" width="60"/>
                 <amx:commandLink text="New user? Sign up" id="cl2" actionListener="#{bindings.CreateuserDetails.execute}" action="signup"/>
               </amx:panelGroupLayout>
         </amx:panelGroupLayout>

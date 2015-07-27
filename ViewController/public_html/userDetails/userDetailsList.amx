@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-
-
-
   <amx:panelPage id="firstPage">
     <amx:facet name="header">
       <amx:outputText value="My Profile" id="ot1"/>
     </amx:facet>
     <amx:facet name="primary">
       <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
-                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+                 <!--   <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+           -->
+            <amx:image source="/images/func_menu24@2x.png" styleClass="navigator"
+                           shortDesc="springboard_Image" id="i10"/>
             </amx:commandLink>
           </amx:facet>
     <amx:facet name="secondary">
       <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
-     <amx:commandLink text="Edit"/> 
+     <amx:commandButton text="Edit" styleClass="white"/> 
+         <amx:spacer width="10"/>
+         <amx:image id="i13" source="/images/headshot04.png" styleClass="headerPersonImage"/>           
       </amx:panelGroupLayout>
     </amx:facet>
     <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">

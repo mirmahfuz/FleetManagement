@@ -10,13 +10,11 @@
       <amx:outputText value="Registration" id="ot1"/>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
-                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
-            </amx:commandLink>
-       <amx:commandButton action="__back" id="cbbck" text="Back"/>
+      
+     <!--  <amx:commandButton action="__back" id="cbbck" text="Back"/>-->
     </amx:facet>
     <amx:facet name="secondary">
-      <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
+     <!-- <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
             <amx:commandLink actionListener="#{bindings.saveuserDetails.execute}" 
               action="__back"
                            id="cb2">
@@ -25,21 +23,35 @@
                 
           <amx:image id="bgRunImg" source="/images/reloading.gif" inlineStyle="margin-right:5px;" 
             rendered="#{applicationScope.ampa_bgtask_running}"/>
-      </amx:panelGroupLayout>
+      </amx:panelGroupLayout>-->
 
     </amx:facet>
     <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
       <amx:facet name="top">
       
-      <amx:outputText value="Enter your registration information: "/>
+      
       
      <!--  <amx:panelFormLayout id="pfl1" fieldHalign="start" labelWidth="40%" fieldWidth="60%" labelPosition="end">
         -->
+      
         <amx:tableLayout width="100%">
           <amx:rowLayout>
-          <amx:cellFormat width="50%">
+          <amx:cellFormat halign="center" width="100%">
+                  <amx:spacer height="50"/>
+                <amx:outputText value="Enter your registration information: "/>
+                 <amx:spacer height="30"/>
+          </amx:cellFormat>
+          </amx:rowLayout>
+          <amx:rowLayout>
+          
+          <amx:cellFormat>
+          <amx:tableLayout width="100%">
+                <amx:rowLayout>
+                    <amx:cellFormat width="50%">
+                    <amx:spacer width="40"/>
                     <amx:outputText value="Contact Information" styleClass="adfmf-outputText-sectionTitle"/>
-                                             <amx:inputText value="#{bindings.firstName.inputValue}" label="First name" readOnly="false"                        id="it8">
+                    <amx:panelGroupLayout inlineStyle="margin-left:50px;">
+                    <amx:inputText value="#{bindings.firstName.inputValue}" label="First name" readOnly="false" id="it8">
                   </amx:inputText>                                            
                                                      <amx:inputText value="#{bindings.lastName.inputValue}" label="Last name" readOnly="false"                        id="it2">
                   </amx:inputText>
@@ -54,8 +66,9 @@
                                                    
                                                      <amx:inputText value="#{bindings.phone.inputValue}" label="Phone no" readOnly="false"                        id="it4">
                   </amx:inputText> 
+                  </amx:panelGroupLayout>
                   </amx:cellFormat>
-                  <amx:cellFormat width="50%">
+                <amx:cellFormat width="50%">
                    <amx:outputText value="Login Information" styleClass="adfmf-outputText-sectionTitle"/>
                                                       <amx:inputText value="#{bindings.username.inputValue}" label="Create a user id" readOnly="false"                        id="it3">
                   </amx:inputText>                                                     
@@ -69,13 +82,25 @@
                 <amx:selectItem id="si1"
                 label="I have read, understood and agree to the Terms of Use"/>
                 <amx:selectItem id="si2"
-                label="I would like to receive information, special offers and promotional information."/>
+                label="I would like to receive information, special offers and    promotional information."/>
               </amx:selectManyCheckbox>
-              <amx:commandButton text="Register" id="cb1" actionListener="#{bindings.saveuserDetails.execute}" 
-              action="registrationDone"/>
+             
             </amx:cellFormat>
                   </amx:rowLayout>
                   </amx:tableLayout>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        <amx:rowLayout>
+            <amx:cellFormat halign="center">
+                <amx:panelGroupLayout layout="horizontal" halign="center">
+                 <amx:commandButton text="Cancel" action="__back" styleClass="newAltaButton"/>
+                 <amx:spacer width="30"/>
+                <amx:commandButton text="Register" id="cb1" actionListener="#{bindings.saveuserDetails.execute}" 
+              action="registrationDone" styleClass="newAltaButton"/>
+              </amx:panelGroupLayout>
+            </amx:cellFormat>
+        </amx:rowLayout>
+        </amx:tableLayout>
                                                 
       </amx:facet>
       <amx:facet name="center">

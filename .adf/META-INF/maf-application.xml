@@ -3,7 +3,7 @@
                    version="1.0" name="FleetManagement" id="com.company.FleetManagement"
                    appControllerFolder="ApplicationController"
                    listener-class="oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener">
-  <adfmf:featureReference refId="About" id="fr6"/>
+  <adfmf:featureReference refId="Home" id="fr6"/>
   <adfmf:featureReference refId="oracle.hello" id="fr7"/>
   <adfmf:featureReference refId="MyProfile" id="fr4"/>
   <adfmf:featureReference refId="Springboard" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
