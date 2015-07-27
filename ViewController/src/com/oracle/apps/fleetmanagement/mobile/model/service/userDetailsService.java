@@ -10,6 +10,12 @@ import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
 
 import com.oracle.apps.fleetmanagement.mobile.model.UserDetails;
 
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+
+import oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager;
+import oracle.ateam.sample.mobile.v2.persistence.metadata.AttributeMapping;
+import oracle.ateam.sample.mobile.v2.persistence.metadata.ClassMappingDescriptor;
+
 
 /**
  *  Service class that provides CRUD and custom operations against the userDetails data object.
@@ -21,6 +27,7 @@ import com.oracle.apps.fleetmanagement.mobile.model.UserDetails;
 public class userDetailsService extends EntityCRUDService<UserDetails> {
     
     public List<UserDetails> userDetails;
+    public String userLoggedIn;
 
     /**
      * Default constructor. If autoQuery is set to true in the classMappingDescriptor in persistence-mapping.xml, then
@@ -64,7 +71,42 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
     }
 
     public List<UserDetails> getUserDetails() {
-        return getEntityList();
+       
+    return getEntityList();
+    }
+    
+    public List<UserDetails> getUserDetailsForLoggedInUser(){
+        //Read from DB
+        List<UserDetails> result=null;
+        DBPersistenceManager pm = getLocalPersistenceManager();
+        List<String> attrNamesToSearch = new ArrayList<String>();
+        attrNamesToSearch.add("username");
+             if(pm!=null){
+                 //String tempUser = getUserLoggedIn();
+              result = pm.find(this.getEntityClass(), getUserLoggedIn() , attrNamesToSearch);
+             }
+        return result;
+    }
+
+
+    public void setUserLoggedIn(String userLoggedIn) {
+        this.userLoggedIn = userLoggedIn;
+        AdfmfJavaUtilities.setELValue("#{applicationScope.userLoggedIn}", userLoggedIn);
+        
+    }
+
+    public String getUserLoggedIn() {
+        String userLogged = null;
+        try{
+             userLogged = (String)AdfmfJavaUtilities.getELValue("#{applicationScope.userLoggedIn}");
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            if(userLogged!=null)
+                return  userLogged;
+            else 
+                return "";
+        }
     }
 
     /**
@@ -99,6 +141,7 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
      * @param userDetails
      */
     public void saveUserDetails(UserDetails userDetails) {
+        userDetails.setUserId(this.getNextAutoKeyValue());
         super.mergeEntity(userDetails);
     }
 
@@ -157,7 +200,34 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
     public boolean getHasUserDetailsDataSynchActions() {
         return getDataSynchManager().getHasDataSynchActions();
     }
-
+    private static volatile int counter = 1;
+    public String getNextAutoKeyValue(){
+        List<String> keyAttrNameList = this.getKeyAttrList();
+        if(keyAttrNameList.size() != 1) return null;
+        //Assumption is that number of key values == 1
+        UserDetails temp = new UserDetails();
+        String maxKeyValue = (String)this.getLocalPersistenceManager().getMaxValue(temp.getClass(), keyAttrNameList.get(0));
+        String newKeyValue = null;
+        if(maxKeyValue == null){
+            newKeyValue = String.valueOf(1 + counter++);
+        }else{
+            newKeyValue = String.valueOf(Long.valueOf(maxKeyValue) + counter++);
+        }
+        return newKeyValue;
+    }
+    
+    public List<String> getKeyAttrList(){
+        UserDetails temp = new UserDetails();
+        ClassMappingDescriptor descriptor = ClassMappingDescriptor.getInstance(temp.getClass());
+        List<AttributeMapping> attrMappings = descriptor.getAttributeMappings();
+        List<String> keyAttrNameList = new ArrayList<String>();
+        for(AttributeMapping attr : attrMappings){
+            if( attr.isPrimaryKeyMapping()){
+                keyAttrNameList.add(attr.getAttributeName());
+            }
+        }
+        return keyAttrNameList;
+    }
 
 }
 

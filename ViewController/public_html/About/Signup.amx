@@ -38,7 +38,7 @@
         <amx:tableLayout width="100%">
           <amx:rowLayout>
           <amx:cellFormat width="50%">
-                    <amx:outputText value="Contact Information" />
+                    <amx:outputText value="Contact Information" styleClass="adfmf-outputText-sectionTitle"/>
                                              <amx:inputText value="#{bindings.firstName.inputValue}" label="First name" readOnly="false"                        id="it8">
                   </amx:inputText>                                            
                                                      <amx:inputText value="#{bindings.lastName.inputValue}" label="Last name" readOnly="false"                        id="it2">
@@ -56,16 +56,15 @@
                   </amx:inputText> 
                   </amx:cellFormat>
                   <amx:cellFormat width="50%">
-                   <amx:outputText value="Login Information"/>
+                   <amx:outputText value="Login Information" styleClass="adfmf-outputText-sectionTitle"/>
                                                       <amx:inputText value="#{bindings.username.inputValue}" label="Create a user id" readOnly="false"                        id="it3">
                   </amx:inputText>                                                     
                                                      <amx:inputText value="#{bindings.password.inputValue}" label="Password" readOnly="false"                        id="it9">
                   </amx:inputText>
                                                      <amx:inputText value="" label="Re-enter password" readOnly="false"                        id="it19">
                   </amx:inputText>
-                                                    <amx:inputText value="#{bindings.userId.inputValue}" label="#{bindings.userId.hints.label}" readOnly="false"                        id="it7">
-                  </amx:inputText>
-                   <amx:outputText value="Terms and conditions"/>
+                                                   
+                   <amx:outputText value="Terms and conditions" styleClass="adfmf-outputText-sectionTitle"/>
               <amx:selectManyCheckbox label="" id="smc1">
                 <amx:selectItem id="si1"
                 label="I have read, understood and agree to the Terms of Use"/>

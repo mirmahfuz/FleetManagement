@@ -10,14 +10,17 @@
   <adfmf:featureReference refId="Create_Shipment" id="fr2"/>
   <adfmf:featureReference refId="Track_Shipment" id="fr5"/>
   <adfmf:featureReference refId="History" id="fr3"/>
-  <adfmf:featureReference refId="userDetails" id="fr8"/>
+  <adfmf:featureReference refId="userDetails" id="fr8" showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="oracle.ateam.sample.mobile.datasynch" id="oracle.ateam.sample.mobile.datasynch"
                           showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="oracle.ateam.sample.mobile.wscalls" id="fr9" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
   <adfmf:navigation>
-    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="250">
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="250"
+                       displayGotoSpringboardControl="false">
       <adfmf:springboardFeatureReference refId="Springboard" id="sfr1"/>
     </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
   </adfmf:navigation>
+  <adfmf:login/>
 </adfmf:application>

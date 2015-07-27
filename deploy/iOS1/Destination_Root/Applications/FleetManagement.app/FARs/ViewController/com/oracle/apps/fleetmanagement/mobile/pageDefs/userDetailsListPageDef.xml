@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.52" id="userDetailsListPageDef"
+                Package="com.oracle.apps.fleetmanagement.mobile.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="userDetailsServiceDataControlIterator" Binds="root" DataControl="userDetailsServiceDataControl"
+              RangeSize="25"/>
+    <accessorIterator id="userDetailsIterator" MasterBinding="userDetailsServiceDataControlIterator" Binds="userDetailsForLoggedInUser"
+                      BeanClass="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
+                      DataControl="userDetailsServiceDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree id="userDetails" IterBinding="userDetailsIterator">
+      <nodeDefinition Name="userDetails0" DefName="com.oracle.apps.fleetmanagement.mobile.model.UserDetails">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="username"/>
+          <Item Value="email"/>
+          <Item Value="address"/>
+          <Item Value="city"/>
+          <Item Value="zip"/>
+          <Item Value="phone"/>
+          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <attributeValues IterBinding="userDetailsIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="address">
+      <AttrNames>
+        <Item Value="address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="zip">
+      <AttrNames>
+        <Item Value="zip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="username">
+      <AttrNames>
+        <Item Value="username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userDetailsIterator" id="phone">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -18,7 +18,7 @@ public class UserDetails extends Entity {
 
 
     public String getZip() {
-        return this.zip;
+        return this.zip==null?"94086":this.zip;
     }
 
     public void setZip(String zip) {
@@ -26,7 +26,7 @@ public class UserDetails extends Entity {
     }
 
     public String getLastName() {
-        return this.lastName;
+        return this.lastName==null?"Doe":this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -34,7 +34,7 @@ public class UserDetails extends Entity {
     }
 
     public String getUsername() {
-        return this.username;
+        return this.username==null?"john.doe":this.username;
     }
 
     public void setUsername(String username) {
@@ -42,7 +42,7 @@ public class UserDetails extends Entity {
     }
 
     public String getPhone() {
-        return this.phone;
+        return this.phone==null?"3332341234":this.phone;
     }
 
     public void setPhone(String phone) {
@@ -50,7 +50,7 @@ public class UserDetails extends Entity {
     }
 
     public String getAddress() {
-        return this.address;
+        return this.address==null?"300 Oracle Parkway":this.address;
     }
 
     public void setAddress(String address) {
@@ -58,7 +58,7 @@ public class UserDetails extends Entity {
     }
 
     public String getEmail() {
-        return this.email;
+        return this.email==null?"john.doe@oracle.com":this.email;
     }
 
     public void setEmail(String email) {
@@ -74,7 +74,7 @@ public class UserDetails extends Entity {
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return this.firstName==null?"John":this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -90,7 +90,7 @@ public class UserDetails extends Entity {
     }
 
     public String getCity() {
-        return this.city;
+        return this.city==null?"Redwood City":this.city;
     }
 
     public void setCity(String city) {

@@ -6,7 +6,7 @@
 
   <amx:panelPage id="firstPage">
     <amx:facet name="header">
-      <amx:outputText value="userDetails" id="ot1"/>
+      <amx:outputText value="My Profile" id="ot1"/>
     </amx:facet>
     <amx:facet name="primary">
       <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
@@ -15,81 +15,52 @@
           </amx:facet>
     <amx:facet name="secondary">
       <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
-            <amx:commandLink actionListener="#{bindings.CreateuserDetails.execute}"  action="userDetails"
-                         id="cb4">
-          <amx:image id="inew" source="/images/ic_action_new.png" inlineStyle="height:32px; width:32px;"/>
-      </amx:commandLink>
-                <amx:commandLink  id="clmenu">
-            <amx:image id="imenu" source="/images/ic_action_overflow.png" inlineStyle="height:32px; width:32px;"/>
-            <amx:showPopupBehavior align="bottomCenter" decoration="anchor" alignId="clmenu" type="action" popupId="p1"/>
-          </amx:commandLink>
-          <amx:image id="bgRunImg" source="/images/reloading.gif" inlineStyle="margin-right:5px;" 
-            rendered="#{applicationScope.ampa_bgtask_running}"/>
+     <amx:commandLink text="Edit"/> 
       </amx:panelGroupLayout>
     </amx:facet>
     <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
       <amx:facet name="top">
-              </amx:facet>
-      <amx:facet name="center">
-        <amx:listView var="row" value="#{bindings.userDetails.collectionModel}"
-                    fetchSize="#{bindings.userDetails.rangeSize}" id="lv1" 
-                   selectedRowKeys="#{bindings.userDetails.collectionModel.selectedRow}"
- 
-                   selectionListener="#{bindings.userDetails.collectionModel.makeCurrent}" 
-                  
-                   showMoreStrategy="autoScroll"
- bufferStrategy="viewport"
-             >
-        <amx:listItem id="li2" action="userDetails">
-
-                                   
-          <amx:tableLayout width="100%" id="tl1userDetails">
-            <amx:rowLayout id="rl1userDetails">
-              <amx:cellFormat width="10px" rowSpan="2" id="cf2userDetails"/>
-              <amx:cellFormat   width="60%"  height="28px" id="cf3userDetails">
-                <amx:outputText value="#{row.firstName}" id="ot2userDetails"/>
-              </amx:cellFormat>
-              <amx:cellFormat width="10px" rowSpan="2" id="cf1userDetails"/>
-              <amx:cellFormat width="40%" halign="end" id="cf4userDetails">
-                                <amx:outputText value="#{row.lastName}" styleClass="adfmf-listItem-highlightText" id="ot3userDetails"/>
-                              </amx:cellFormat>
-            </amx:rowLayout>
-            <amx:rowLayout id="rl2userDetails">
-              <amx:cellFormat width="60%" height="12px" id="cf5userDetails">
-                                <amx:outputText value="#{row.username}" styleClass="adfmf-listItem-captionText" id="ot4userDetails"/>
-                              </amx:cellFormat>
-              <amx:cellFormat width="40%" halign="end" id="cf6userDetails">
-                                <amx:outputText value="#{row.email}" styleClass="adfmf-listItem-captionText" id="ot5userDetails"/>
-                              </amx:cellFormat>
-            </amx:rowLayout>
-          </amx:tableLayout>
-
-           
-        </amx:listItem>
-        </amx:listView>
+     
+      <amx:spacer height="15"/>
+       <amx:tableLayout width="100%">
+       <amx:rowLayout>
+       <amx:cellFormat halign="center">
+       <amx:outputText value="Profile Info" id="ot110" inlineStyle="text-size:140%"/>
+       </amx:cellFormat>
+       </amx:rowLayout>
+       </amx:tableLayout>
+        <amx:iterator var="row" value="#{bindings.userDetails.collectionModel}">
+        
+        <amx:panelFormLayout id="pfl1" fieldHalign="start" labelPosition="end" >     
+          <amx:panelLabelAndMessage label="First Name" id="plam4">
+            <amx:outputText value="#{row.firstName.inputValue}" id="ot5"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Last Name" id="plam1">
+            <amx:outputText value="#{row.lastName.inputValue}" id="ot2"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Address" id="plam2">
+            <amx:outputText value="#{row.address.inputValue}" id="ot3"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="City" id="plam3">
+            <amx:outputText value="#{row.city.inputValue}" id="ot4"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Zip" id="plam8">
+            <amx:outputText value="#{row.zip.inputValue}" id="ot9"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Username" id="plam6">
+            <amx:outputText value="#{row.username.inputValue}" id="ot7"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Email address" id="plam7">
+            <amx:outputText value="#{row.email.inputValue}" id="ot8"/>
+          </amx:panelLabelAndMessage>
+          <amx:panelLabelAndMessage label="Phone no" id="plam5">
+            <amx:outputText value="#{row.phone.inputValue}" id="ot6"/>
+          </amx:panelLabelAndMessage>
+        </amx:panelFormLayout>
+     </amx:iterator>
+    
       </amx:facet>
     </amx:panelStretchLayout>
   </amx:panelPage>
-  <amx:popup id="p1" animation="slideDown" autoDismiss="true" inlineStyle="width:50%;">
-    <amx:panelGroupLayout id="pglpu" layout="vertical">
-      <amx:spacer height="10" id="ms1"/>
- 
-            <amx:commandLink  text="Refresh" actionListener="#{bindings.findAlluserDetailsRemote.execute}" disabled="#{deviceScope.hardware.networkStatus=='NotReachable' or deviceScope.hardware.networkStatus=='unknown'}"  id="menRefr">
-        <amx:closePopupBehavior id="mencRefr" popupId="p1" type="action"/>                         
-      </amx:commandLink>
-      <amx:spacer height="20" id="ms2"/>
-                  <amx:commandLink id="menSync" disabled="#{!bindings.hasuserDetailsDataSynchActions.inputValue or deviceScope.hardware.networkStatus=='NotReachable' or deviceScope.hardware.networkStatus=='unknown'}" 
-       actionListener="#{bindings.synchronizeuserDetails.execute}" text="Synchronize">
-        <amx:closePopupBehavior id="mencSync" popupId="p1" type="action"/>                                                 
-      </amx:commandLink>
-      <amx:spacer height="20" id="ms3"/>
-            <amx:commandLink id="menPsa" disabled="#{!bindings.hasuserDetailsDataSynchActions.inputValue}" text="Pending Sync Actions"
-                         actionListener="#{GoToFeature.goToDataSynchFeature}">
-        <amx:setPropertyListener id="menspaspl" from="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
-                                 to="#{applicationScope.dataSynchEntity}"/>
-        <amx:closePopupBehavior id="mencPsa" popupId="p1" type="action"/>                         
-      </amx:commandLink>
-      <amx:spacer height="10" id="ms4"/>
-    </amx:panelGroupLayout>
-  </amx:popup>
+  
 </amx:view>

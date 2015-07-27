@@ -11,17 +11,25 @@
     <amx:facet name="top">
       <amx:tableLayout width="100%">
       <amx:rowLayout>
-      <amx:cellFormat width="30%"/>
-      <amx:cellFormat width="40%">
-      <amx:inputText value="Username"/>
-      <amx:inputText value="Password"/>
+      <amx:cellFormat width="20%"/>
+      <amx:cellFormat width="60%">
+      <amx:panelGroupLayout halign="center" layout="vertical">
+      <amx:spacer id="s2" height="120"/>
+                <amx:outputText value="Fleet Management" inlineStyle="font-size: 180%"/>
+                 <amx:spacer id="s44" height="30"/>
+                <amx:inputText label="Username" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
+       <amx:spacer id="s3" height="10"/>
+      <amx:inputText label="Password" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
+      
               <amx:commandButton text="Login" id="cb1" action="signin"/>
               <amx:panelGroupLayout id="pgl1" layout="horizontal">
                 <amx:commandLink text="Forgot username/password?" id="cl1"/>
-                <amx:commandLink text="New user? Sign up" id="cl2" action="signup"/>
+                  <amx:spacer id="s1" width="30"/>
+                <amx:commandLink text="New user? Sign up" id="cl2" actionListener="#{bindings.CreateuserDetails.execute}" action="signup"/>
               </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
             </amx:cellFormat>
-      <amx:cellFormat width="30%"/>
+      <amx:cellFormat width="20%"/>
       
       </amx:rowLayout>
       </amx:tableLayout>
