@@ -3,13 +3,654 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Create Shipment" id="ot1"/>
+      <amx:outputText value="Create Shipment Label" id="ot1" inlineStyle="background-color:Highlight;"/>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
     </amx:facet>
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
+    <amx:panelStretchLayout id="psl1">
+      <amx:facet name="top">
+      <amx:selectOneButton id="sob1" simple="true" inlineStyle="width:100%" value="#{viewScope.panel}">
+        <amx:selectItem id="si1" label="Sender" value="Sender"/>
+        <amx:selectItem id="si2" label="Receiver" value="Receiver"/>
+        <amx:selectItem id="si3" label="Preferences" value="Preferences"/>
+        <amx:selectItem id="si4" label="Payment" value="Payment"/>
+        <amx:selectItem id="si5" label="Preview" value="Preview"/>
+      </amx:selectOneButton>
+      </amx:facet>
+      <amx:facet name="center">
+      <amx:deck id="d1" displayedChild="#{viewScope.panel}">
+        <amx:transition triggerType="backNavigate" id="t1" transition="slideEnd"/>
+        <amx:transition triggerType="forwardNavigate" id="t2" transition="slideStart"/>
+        
+        <amx:panelGroupLayout id="Sender">
+        <amx:panelFormLayout id="pfl123">
+        <amx:inputText id="senderNameId" value="#{viewScope.SenderDetail.senderName}"
+                     label="Name"
+                     hintText="John Smith"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="20"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+         <amx:inputText id="senderAddr1Id" value="#{viewScope.SenderDetail.senderAddr1}"
+                     label="Address"
+                     hintText="300 Oracle Parkway"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+          <amx:selectOneChoice id="senderCityId"
+                           value="#{viewScope.SenderDetail.senderCity}"
+                           label="City"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
+        <amx:selectItem label="San Francisco" value="San Francisco"/>
+        <amx:selectItem label="Palo Alto" value="Palo Alto"/>
+        <amx:selectItem label="Mountain View" value="Mountain View"/>
+      </amx:selectOneChoice>
+       <amx:selectOneChoice id="senderStateId"
+                           value="#{viewScope.SenderDetail.senderState}"
+                           label="State"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="California" value="California"/>
+        <amx:selectItem label="Nevada" value="Nevada"/>
+        <amx:selectItem label="Washington" value="Washington"/>
+        <amx:selectItem label="Texas" value="Texas"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="senderZipId" value="#{viewScope.SenderDetail.senderZip}"
+                     label="Zip"
+                     hintText="95030"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>              
+     <amx:selectOneChoice id="senderCountryId"
+                           value="#{viewScope.SenderDetail.senderCountry}"
+                           label="Country"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="United States" value="United States"/>
+      </amx:selectOneChoice>
+       <amx:inputText id="senderEmailId" value="#{viewScope.SenderDetail.senderEmail}"
+                     label="Email"
+                     hintText="john.smith@oracle.com"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>   
+         <amx:inputText id="senderPhoneNumberId" value="#{viewScope.SenderDetail.senderPhoneNumber}"
+                     label="Email"
+                     hintText="4087969448"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+            </amx:panelFormLayout>
+            <amx:tableLayout id="tl2">
+            <amx:rowLayout id="rl2">
+              <amx:cellFormat id="cf2" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
+               <amx:commandButton text="Default Fill" id="cb4" actionListener="#{viewScope.SenderDetail.defaultFillSender}"
+                               inlineStyle="background-color:Highlight;width:30%"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+        
+        
+        <amx:panelGroupLayout id="Receiver">
+        <amx:panelFormLayout id="pfl1">
+        <amx:inputText id="recevierNameId" value="#{viewScope.SenderDetail.receiverName}"
+                     label="Name"
+                     hintText="John Smith"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="20"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+         <amx:inputText id="receiverAddr1Id" value="#{viewScope.SenderDetail.receiverAddr1}"
+                     label="Address"
+                     hintText="300 Oracle Parkway"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+          <amx:selectOneChoice id="receiverCityId"
+                           value="#{viewScope.SenderDetail.receiverCity}"
+                           label="City"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
+        <amx:selectItem label="San Francisco" value="San Francisco"/>
+        <amx:selectItem label="Palo Alto" value="Palo Alto"/>
+        <amx:selectItem label="Mountain View" value="Mountain View"/>
+      </amx:selectOneChoice>
+       <amx:selectOneChoice id="receiverStateId"
+                           value="#{viewScope.SenderDetail.receiverState}"
+                           label="State"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="California" value="California"/>
+        <amx:selectItem label="Nevada" value="Nevada"/>
+        <amx:selectItem label="Washington" value="Washington"/>
+        <amx:selectItem label="Texas" value="Texas"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="receiverZipId" value="#{viewScope.SenderDetail.receiverZip}"
+                     label="Zip"
+                     hintText="95030"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>              
+     <amx:selectOneChoice id="receiverCountryId"
+                           value="#{viewScope.SenderDetail.receiverCountry}"
+                           label="Country"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="United States" value="United States"/>
+      </amx:selectOneChoice>
+       <amx:inputText id="receiverEmailId" value="#{viewScope.SenderDetail.receiverEmail}"
+                     label="Email"
+                     hintText="john.smith@oracle.com"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>   
+         <amx:inputText id="receiverPhoneNumberId" value="#{viewScope.SenderDetail.receiverPhoneNumber}"
+                     label="Email"
+                     hintText="4087969448"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+            </amx:panelFormLayout>
+            <amx:tableLayout id="tl1">
+            <amx:rowLayout id="rl1">
+              <amx:cellFormat id="cf3" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
+               <amx:commandButton text="Default Fill" id="cb3" actionListener="#{viewScope.SenderDetail.defaultFillReceiver}"
+                               inlineStyle="background-color:Highlight;width:30%"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+        
+        <amx:panelGroupLayout id="Preferences">
+            <amx:tableLayout id="tl4"
+                             inlineStyle="width:100%;" cellSpacing="10" borderWidth="1">
+              <amx:rowLayout id="rl4">
+                <amx:cellFormat id="cf6" inlineStyle="width:100%">
+                  <amx:outputText value="Tracking Features" id="ot3"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf5" inlineStyle="width:100%">
+                <amx:outputText value="" id="ot31"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf7" inlineStyle="width:100%">
+                <amx:outputText value="Charges" id="ot32"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl12">
+              <amx:cellFormat id="cf4" inlineStyle="width:100% margin:0 borderWidth:1" >
+                  <amx:spacer id="s1"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+               <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf8" >
+                  <amx:outputText value="Theft Protectection (Detect theft and notify authorities) " id="ot2" />
+                </amx:cellFormat>
+                <amx:cellFormat id="cf9" >
+                  <amx:selectBooleanCheckbox  valueChangeListener="#{viewScope.SenderDetail.TheftValueChangeHandler}" label="Yes" id="sbc2" value = "#{viewScope.SenderDetail.theftProtection}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf10" >
+                <amx:outputText value="#{viewScope.theftvaluechangenew}" id="ot5"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+               <amx:rowLayout id="rl13">
+              <amx:cellFormat id="cf29" inlineStyle="width:100% margin:0">
+                  <amx:spacer id="s2"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl5">
+                <amx:cellFormat id="cf11" >
+                  <amx:outputText value="Send notifiction when Shipment is Loaded or Unloaded" id="ot4"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf12" >
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc1"  valueChangeListener="#{viewScope.SenderDetail.ShipmentLoadUnloadValueChangeHandler}" value = "#{viewScope.SenderDetail.shipmentLoadUnload}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf13">
+                <amx:outputText value="#{viewScope.shipmentLoadUnloadvaluechangenew}" id="ot6" />
+                </amx:cellFormat>
+              </amx:rowLayout>
+               <amx:rowLayout id="rl14">
+              <amx:cellFormat id="cf30" inlineStyle="width:100% margin:0">
+                  <amx:spacer id="s3"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+               <!--amx:rowLayout id="rl6">
+                <amx:cellFormat id="cf14" inlineStyle="width:40%">
+                  <amx:outputText value="Type of Shipment" id="ot7"/>
+                </amx:cellFormat>
+                
+                <amx:cellFormat id="cf15" inlineStyle="width:30%">
+                <amx:selectManyChoice id="soc1"
+                           value="#{viewScope.SenderDetail.typeOfShipment}"
+                           label=""
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Fragile" value="Fragile"/>
+        <amx:selectItem label="Perishable" value="Pershiable"/>
+        <amx:selectItem label="Inflammable" value="Inflammable"/>
+        </amx:selectManyChoice>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf16" inlineStyle="width:30%">
+                <amx:outputText value="$0" id="ot8" />
+                </amx:cellFormat>
+              
+              </amx:rowLayout-->
+    
+              
+                <amx:rowLayout id="rl7">
+                <amx:cellFormat id="cf17" inlineStyle="width:40%">
+                  <amx:outputText value="Monitor Collision (Useful in case of making damage claims)" id="ot9"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf18" inlineStyle="width:30%">
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc3"  valueChangeListener="#{viewScope.SenderDetail.MonitorCollisionValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf19" inlineStyle="width:30%">
+                <amx:outputText value="#{viewScope.monitorCollisionvaluechangenew}" id="ot10" />
+                </amx:cellFormat>
+              </amx:rowLayout>   
+               <amx:rowLayout id="rl16">
+              <amx:cellFormat id="cf32" inlineStyle="width:100% margin:0">
+                  <amx:spacer id="s5"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              
+                 <amx:rowLayout id="rl8">
+                <amx:cellFormat id="cf22" inlineStyle="width:40%">
+                  <amx:outputText value="Monitor Vibrations (Useful in case of Fragile Products)" id="ot12"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf21" inlineStyle="width:30%">
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{viewScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf20" inlineStyle="width:30%">
+                <amx:outputText value="#{viewScope.monitorShakesvaluechangenew}" id="ot11" />
+                </amx:cellFormat>
+              </amx:rowLayout>  
+               <amx:rowLayout id="rl17">
+              <amx:cellFormat id="cf33" inlineStyle="width:100% margin:0">
+                  <amx:spacer id="s6"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              
+            <amx:rowLayout id="rl9">
+                <amx:cellFormat id="cf23" >
+                  <amx:outputText value="Monitor Pressure experienced by your Shipment" id="ot13"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf24" >
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc5"  valueChangeListener="#{viewScope.SenderDetail.MonitorAtmosphericPressureValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf25" >
+                <amx:outputText value="#{viewScope.monitorAtmosphericPressurevaluechangenew}" id="ot14" />
+                </amx:cellFormat>
+              </amx:rowLayout> 
+               <amx:rowLayout id="rl18">
+              <amx:cellFormat id="cf34" inlineStyle="width:100% margin:0">
+                  <amx:spacer id="s7"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              
+              
+               <amx:rowLayout id="rl6">
+                <amx:cellFormat id="cf14" >
+                  <amx:outputText value="Monitor Temperature (Useful in case of shipping perishable items)" id="ot8"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf15" inlineStyle="width:30%">
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc6"  valueChangeListener="#{viewScope.SenderDetail.TemperatureMonitoringValueChangeHandler}" value = "#{viewScope.SenderDetail.temperatureMonitoring}"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf16" inlineStyle="width:30%">
+                <amx:outputText value="#{viewScope.temperatureMonitoringvaluechangenew}" id="ot7" />
+                </amx:cellFormat>
+              </amx:rowLayout>   
+              
+              <amx:rowLayout id="rl19">
+                <amx:cellFormat id="cf35" >
+                  <amx:inputNumberSlider label="Set Temperatur Threshold" id="ins1" minimum="0" maximum="100" valueChangeListener="#{viewScope.SenderDetail.TempThresholdValueChangeHandler}" value = "#{viewScope.SenderDetail.tempThreshold}"/>
+                  <amx:outputText value="Temperatur Threshold : #{viewScope.tempThresholdvaluechangenew}" id="ot18" />
+                </amx:cellFormat>
+                <amx:cellFormat id="cf36" inlineStyle="width:30%">
+                </amx:cellFormat>
+                <amx:cellFormat id="cf37" inlineStyle="width:30%">
+                
+                </amx:cellFormat>
+              </amx:rowLayout>   
+              
+              
+               <amx:rowLayout id="rl10">
+                <amx:cellFormat id="cf26">
+                  <amx:outputText value="" id="ot15"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf27" >
+                                <amx:outputText value="Total :"
+                                                id="ot17" />
+                </amx:cellFormat>
+                <amx:cellFormat id="cf28" >
+                <amx:outputText value="$#{viewScope.total}" id="ot16" />
+                </amx:cellFormat>
+              </amx:rowLayout> 
+              
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+        
+                <amx:panelGroupLayout id="Payment">
+        <amx:panelFormLayout id="pfl2">
+                  <amx:selectOneChoice id="ccTypeId"
+                           value="#{viewScope.SenderDetail.ccType}"
+                           label="Card Type"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Master" value="Master"/>
+        <amx:selectItem label="Visa" value="Visa"/>
+    </amx:selectOneChoice>
+        <amx:inputText id="ccNumId" value="#{viewScope.SenderDetail.ccNum}"
+                     label="Card Number"
+                     hintText="xxxxxxxxxxxxxxxx"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="20"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+        <amx:inputText id="it2" value="#{viewScope.SenderDetail.cvv}"
+                     label="CVV"
+                     hintText="xxx"
+                     rows="1"
+                     secret="true"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="20"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+         <amx:inputText id="ccAddr1Id" value="#{viewScope.SenderDetail.ccBillingAddress}"
+                     label="Billing Address"
+                     hintText="300 Oracle Parkway"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>
+          <amx:selectOneChoice id="ccCityId"
+                           value="#{viewScope.SenderDetail.ccCity}"
+                           label="City"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
+        <amx:selectItem label="San Francisco" value="San Francisco"/>
+        <amx:selectItem label="Palo Alto" value="Palo Alto"/>
+        <amx:selectItem label="Mountain View" value="Mountain View"/>
+      </amx:selectOneChoice>
+       <amx:selectOneChoice id="ccStateId"
+                           value="#{viewScope.SenderDetail.ccState}"
+                           label="State"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="California" value="California"/>
+        <amx:selectItem label="Nevada" value="Nevada"/>
+        <amx:selectItem label="Washington" value="Washington"/>
+        <amx:selectItem label="Texas" value="Texas"/>
+      </amx:selectOneChoice>
+      <amx:inputText id="it1" value="#{viewScope.SenderDetail.ccZip}"
+                     label="Zip"
+                     hintText="95030"
+                     rows="1"
+                     secret="false"
+                     showRequired="true"
+                     rendered="true"
+                     required="true"
+                     simple="false"
+                     readOnly="#{viewScope.SenderDetail.readOnly}"
+                     disabled="#{viewScope.SenderDetail.disabled}"
+                     maximumLength="50"
+                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     autoCapitalize="auto"
+                     autoCorrect="auto"
+                     keyboardDismiss="normal"
+                     inputType="text"/>              
+     <amx:selectOneChoice id="soc2"
+                           value="#{viewScope.SenderDetail.senderCountry}"
+                           label="Country"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="United States" value="United States"/>
+      </amx:selectOneChoice>
+            </amx:panelFormLayout>
+            <amx:tableLayout id="tl3">
+            <amx:rowLayout id="rl11">
+              <amx:cellFormat id="cf1" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
+               <amx:commandButton text="Default Fill" id="cb1" actionListener="#{viewScope.SenderDetail.defaultFillPayment}"
+                               inlineStyle="background-color:Highlight;width:30%"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
+          
+        <amx:panelGroupLayout id="Preview" layout="vertical">
+      <amx:carousel id="carousel" value="Dummy">
+        <amx:facet name="nodeStamp">
+          <amx:carouselItem id="carouselItem" text="Sender Info" >
+            <amx:panelGroupLayout id="scroll" layout="vertical" scrollPolicy="scroll" >
+              <amx:panelFormLayout id="panelFormLayout1" labelPosition="topStart" fieldHalign="start" >
+                <amx:panelLabelAndMessage id="panelLabelAndMessage3" label="Name">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderName}" id="outputText3"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage1" label="Address">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderAddr1}" id="outputText2"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage2" label="City">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderCity}" id="outputText4"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage4" label="State">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderState}" id="outputText1"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage41" label="Zip">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderZip}" id="outputText11"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage42" label="Email">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderEmail}" id="outputText12"/>
+                </amx:panelLabelAndMessage>
+                <amx:panelLabelAndMessage id="panelLabelAndMessage43" label="Phone Number">
+                  <amx:outputText value="#{viewScope.SenderDetail.senderPhoneNumber}" id="outputText13"/>
+                </amx:panelLabelAndMessage>
+              </amx:panelFormLayout>
+            </amx:panelGroupLayout>
+          </amx:carouselItem>
+        </amx:facet>
+        
+      </amx:carousel>
+    </amx:panelGroupLayout>
+      </amx:deck>
+      </amx:facet>
+    </amx:panelStretchLayout>
   </amx:panelPage>
+  
 </amx:view>
