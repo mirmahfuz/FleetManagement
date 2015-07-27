@@ -10,6 +10,8 @@
           usageId="com_oracle_apps_fleetmanagement_mobile_pageDefs_userDetailsPageDef"/>
     <page path="/About/Signup.amx" usageId="com_oracle_apps_fleetmanagement_mobile_SignupPageDef"/>
     <page path="/About/LoginPage.amx" usageId="com_oracle_apps_fleetmanagement_mobile_LoginPagePageDef"/>
+    <page path="/Create_Shipment/Create_Label.amx"
+          usageId="com_oracle_apps_fleetmanagement_mobile_Create_LabelPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_oracle_apps_fleetmanagement_mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
@@ -20,6 +22,7 @@
           path="com.oracle.apps.fleetmanagement.mobile.pageDefs.userDetailsPageDef"/>
     <page id="com_oracle_apps_fleetmanagement_mobile_SignupPageDef" path="About.SignupPageDef"/>
     <page id="com_oracle_apps_fleetmanagement_mobile_LoginPagePageDef" path="About.LoginPagePageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_Create_LabelPageDef" path="Create_Shipment.Create_LabelPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="DeviceFeatures" path="com.oracle.apps.fleetmanagement.application.DeviceFeatures"/>

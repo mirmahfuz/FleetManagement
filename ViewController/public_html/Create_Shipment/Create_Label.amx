@@ -6,6 +6,9 @@
       <amx:outputText value="Create Shipment Label" id="ot1" inlineStyle="background-color:Highlight;"/>
     </amx:facet>
     <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
+                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+            </amx:commandLink>
     </amx:facet>
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
