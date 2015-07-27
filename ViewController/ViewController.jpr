@@ -268,10 +268,6 @@
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>
-            <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="A-Team Mobile Persistence Designtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -311,17 +307,19 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../../Documents/Work/IotHackathon/org.eclipse.paho.client.mqttv3-1.0.2.jar" jar-entry=""/>
+                  <url path="../org.eclipse.paho.client.mqttv3-1.0.2.jar" jar-entry=""/>
                </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Org.eclipse.paho.client.mqttv3-1.0.2.jar"/>
-               <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2.jar"/>
-               <value n="locked" v="true"/>
+               <value n="description" v="Org.eclipse.paho.client.mqttv3-1.0.2"/>
+               <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2"/>
             </hash>
          </list>
       </hash>
@@ -332,10 +330,6 @@
       </hash>
       <list n="libraryReferences">
          <hash>
-            <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="A-Team Mobile Persistence Designtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -373,6 +367,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Org.eclipse.paho.client.mqttv3-1.0.2"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
