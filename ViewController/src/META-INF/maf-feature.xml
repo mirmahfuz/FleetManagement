@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
  <adfmf:feature id="oracle.hello" name="Hello_World">
-    <adfmf:content id="Hello.Generic">
-      <adfmf:amx file="oracle.hello/ViewController-task-flow.xml#ViewController-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
-        </adfmf:includes>
-      </adfmf:amx>
+    <adfmf:content id="oracle.hello.1">
+      <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow"/>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="About" name="About">
