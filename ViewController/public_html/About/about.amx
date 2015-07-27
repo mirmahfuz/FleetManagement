@@ -19,10 +19,19 @@
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:spacer height="5" id="s1"/>
-        <amx:outputText value="The hello world application for MAF demonstrates the basic structure of the framework. This basic application has a single application feature that is implemented with a local HTML file. Use this application to ascertain that the development environment is set up correctly to compile and deploy an application."
+        <amx:outputText value="In response to market requests to create a single transportation system that efficiently manages fleet resources as well as contracted carrier options, Oracle has developed a new approach to balancing for-hire resources with owned/leased vehicle options. As market conditions change, Oracle Fleet Management is able to effectively consider the impact on the business of using a fleet resource that is owned or leased with the cost impact of purchasing for-hire transportation services. This new approach is a breakthrough in methodology and thinking in terms of how cost impacts of transportation purchases are weighed against the utilization of available resources already accounted for in terms of financial investment."
                         id="ot3"/>
-        <amx:outputText value="Local HTML" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
-        <amx:outputText value="This feature demonstrates how to build a feature with local html. It also demonstrates how to import all the base javascript libraries"
+        <amx:outputText value="Oracle Fleet Management is uniquely equipped to:" id="cot1" styleClass="adfmf-outputText-sectionTitle"/>
+        <amx:outputText value="
+
+Improve asset utilization, tracking and lifecycle management
+Enhance service through fleet-specific order management capabilities
+Boost driver satisfaction and retention through increased utilization while accounting for driver-specific dispatch requirements
+Provide greater insight into fleet operations through driver dispatch, mobile communications and asset tracking
+Measure and control financial performance by leveraging new capabilities for costing, payables, billables, cost accruals, revenue recognition and claim and dispute management
+Reduce overall fuel costs and emissions, leading to greater sustainability
+Ensure overall safety and visibility within the transportation value chain"
                         id="ot2"/>
+        
     </amx:panelPage>
 </amx:view>

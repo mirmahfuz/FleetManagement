@@ -4,7 +4,6 @@
                    appControllerFolder="ApplicationController"
                    listener-class="oracle.ateam.sample.mobile.lifecycle.InitDBLifeCycleListener">
   <adfmf:featureReference refId="Home" id="fr6"/>
-  <adfmf:featureReference refId="oracle.hello" id="fr7"/>
   <adfmf:featureReference refId="MyProfile" id="fr4"/>
   <adfmf:featureReference refId="Springboard" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
   <adfmf:featureReference refId="Create_Shipment" id="fr2"/>
