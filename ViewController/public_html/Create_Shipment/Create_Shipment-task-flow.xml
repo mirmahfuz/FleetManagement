@@ -2,6 +2,11 @@
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="Create_Shipment-task-flow">
     <default-activity>Create_Shipment_Create_Label</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>SenderDetail</managed-bean-name>
+      <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.model.SenderDetail</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="Create_Shipment_Create_Label">
       <page>/Create_Shipment/Create_Label.amx</page>
     </view>
