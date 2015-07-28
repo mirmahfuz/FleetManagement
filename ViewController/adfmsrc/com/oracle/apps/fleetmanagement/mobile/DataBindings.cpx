@@ -14,6 +14,7 @@
           usageId="com_oracle_apps_fleetmanagement_mobile_Create_LabelPageDef"/>
     <page path="/Track_Shipment/Track_Shipment_Home.amx"
           usageId="com_oracle_apps_fleetmanagement_mobile_Track_Shipment_HomePageDef"/>
+    <page path="/Settings/Settings_Home.amx" usageId="com_oracle_apps_fleetmanagement_mobile_Settings_HomePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_oracle_apps_fleetmanagement_mobile_springboardPageDef" path="Springboard.springboardPageDef"/>
@@ -27,6 +28,7 @@
     <page id="com_oracle_apps_fleetmanagement_mobile_Create_LabelPageDef" path="Create_Shipment.Create_LabelPageDef"/>
     <page id="com_oracle_apps_fleetmanagement_mobile_Track_Shipment_HomePageDef"
           path="Track_Shipment.Track_Shipment_HomePageDef"/>
+    <page id="com_oracle_apps_fleetmanagement_mobile_Settings_HomePageDef" path="Settings.Settings_HomePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="DeviceFeatures" path="com.oracle.apps.fleetmanagement.application.DeviceFeatures"/>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+   
+    <amx:facet name="header">
+      <amx:outputText value="Settings" id="ot1"/>
+    </amx:facet>
+   
+    <amx:facet name="primary">
+      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
+            <amx:image source="/images/func_menu24@2x.png" styleClass="navigator"
+                           shortDesc="springboard_Image" id="i10"/>
+      </amx:commandLink>
+    </amx:facet>
+    
+    <amx:facet name="secondary">
+    </amx:facet>
+    <amx:panelGroupLayout id="Sender" inlineStyle="padding-left:10px;">
+    <amx:outputText inlineStyle="padding-left:10px; font-style:italic; font-weight:bold;" value="Admin Priviledge : Set Application level sensor threshold values for receiving notifications" id="ot5"/>
+     <amx:spacer id="s21" width="10"/>
+    
+    <amx:panelGroupLayout id="pgl1" inlineStyle="outline-width:thin;">
+    <amx:inputNumberSlider label="Set Temperature Threshold" id="ins1" minimum="0" maximum="100"  value = "#{applicationScope.tempThresh}"/>
+    <amx:outputText value="Temperature Sensor Threshold : #{applicationScope.tempThresh}" id="ot18"
+                    inlineStyle="padding-left:10px;"/>
+      </amx:panelGroupLayout>
+      <amx:spacer id="s2" width="5"/>
+     
+      <amx:panelGroupLayout id="pgl2">
+    <amx:inputNumberSlider label="Set Humidity Threshold" id="ins2" minimum="0" maximum="100"  value = "#{applicationScope.humidityThresh}"/>
+    <amx:outputText inlineStyle="padding-left:10px;" value="Humidity Sensor Threshold : #{applicationScope.humidityThresh}" id="ot2" />
+    </amx:panelGroupLayout>
+     
+     <amx:spacer id="s23" width="5"/>
+    
+    <amx:panelGroupLayout id="pgl3">
+    <amx:inputNumberSlider label="Set Light Threshold" id="ins3" minimum="0" maximum="100" value = "#{applicationScope.lightThresh}"/>
+    <amx:outputText inlineStyle="padding-left:10px;" value="Light Sensor Threshold : #{applicationScope.lightThresh}" id="ot3" />
+    </amx:panelGroupLayout>
+    
+     <amx:spacer id="s24" width="5"/>
+    
+     <amx:panelGroupLayout id="pgl4">
+    <amx:inputNumberSlider label="Set Ultra Sound Threshold" id="ins4" minimum="0" maximum="100" value = "#{applicationScope.usThresh}"/>
+    <amx:outputText inlineStyle="padding-left:10px;" value="Ultra Sound Sensor Threshold : #{applicationScope.usThresh}" id="ot4" />
+    </amx:panelGroupLayout>
+    
+    <amx:spacer id="s25" width="10"/>
+    
+     <amx:commandButton inlineStyle="padding-left:10px;" text="Save" id="cb4" actionListener="#{viewScope.SettingsManagedBean.saveValue}"
+                              styleClass="newAltaButton"/>
+    </amx:panelGroupLayout>
+    
+  </amx:panelPage>
+</amx:view>

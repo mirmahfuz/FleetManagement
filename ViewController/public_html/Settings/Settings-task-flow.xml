@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="Settings-task-flow">
+    <default-activity>Settings</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>SettingsManagedBean</managed-bean-name>
+      <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.model.SettingsManagedBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <view id="Settings">
+      <page>/Settings/Settings_Home.amx</page>
+    </view>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

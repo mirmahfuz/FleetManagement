@@ -31,7 +31,7 @@
     <adfmf:content id="Track_Shipment.1">
       <adfmf:amx file="Track_Shipment/Track_Shipment-task-flow.xml#Track_Shipment-task-flow">
         <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i7"/>
           <adfmf:include type="JavaScript" file="js/mqtt.js" id="i5"/>
         </adfmf:includes>
       </adfmf:amx>
@@ -47,7 +47,7 @@
       <adfmf:amx file="Springboard/springboard.amx">
         <adfmf:includes>
           <adfmf:include type="JavaScript" file="js/mqtt.js" id="i1"/>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i5"/>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i6"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>
@@ -55,6 +55,15 @@
   <adfmf:feature id="userDetails" name="userDetails">
     <adfmf:content id="userDetails.1">
       <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="Settings" name="Settings">
+    <adfmf:content id="Settings.1">
+      <adfmf:amx file="Settings/Settings-task-flow.xml#Settings-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i8"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
 </adfmf:features>

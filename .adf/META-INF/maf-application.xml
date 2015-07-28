@@ -14,6 +14,8 @@
                           showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="oracle.ateam.sample.mobile.wscalls" id="fr9" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
+  <adfmf:featureReference refId="com.oracle.apps.fleetmanagement.Settings" id="fr7"/>
+  <adfmf:featureReference refId="Settings" id="fr10"/>
   <adfmf:navigation>
     <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="250"
                        displayGotoSpringboardControl="false">

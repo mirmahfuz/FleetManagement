@@ -52,7 +52,7 @@
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
-            <amx:masonryLayout id="ml1">
+            < amx:masonryLayout id="ml1">
                 <amx:masonryLayoutItem id="mli1" dimension="1x3">
                     <amx:panelGroupLayout id="pgl2" halign="center" valign="middle">
                         <amx:outputText value="Temperature" id="ot5"/>
