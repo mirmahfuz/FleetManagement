@@ -5,6 +5,14 @@
  <amx:facet name="header">
             <amx:outputText value="#{bindings.name.inputValue}" id="ot3"/>
         </amx:facet>
+        <amx:panelGroupLayout layout="horizontal">
+    <amx:spacer width="60"/>
+    <amx:image source="/images/headshot04.png" styleClass="springBoardPersonImage"/>
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout layout="horizontal">
+    <amx:spacer width="55"/>
+    <amx:outputText value="Lisa Ray" inlineStyle="font-size:170%"/>
+    </amx:panelGroupLayout>
     <amx:listView styleClass="amx-springboard" var="row" value="#{bindings.features.collectionModel}" fetchSize="#{bindings.features.rangeSize}"
                   selectedRowKeys="#{bindings.features.collectionModel.selectedRow}"
                   selectionListener="#{bindings.features.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"

@@ -22,18 +22,20 @@
     </amx:facet>
     <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
       <amx:facet name="top">
-     
+      <amx:selectOneButton id="sob1" simple="true" inlineStyle="width:100%" value="#{viewScope.panel}">
+        <amx:selectItem id="si1" label="Personal Info" value="PersonalInfo"/>
+        <amx:selectItem id="si2" label="Payment Info" value="PaymentInfo"/>
+      </amx:selectOneButton>
+      </amx:facet>
+      <amx:facet name="center">
+      <amx:deck id="d1" displayedChild="#{viewScope.panel}">
+        <amx:transition triggerType="backNavigate" id="t1" transition="slideEnd"/>
+        <amx:transition triggerType="forwardNavigate" id="t2" transition="slideStart"/>
+        <amx:panelGroupLayout id="PersonalInfo">
       <amx:spacer height="15"/>
-       <amx:tableLayout width="100%">
-       <amx:rowLayout>
-       <amx:cellFormat halign="center">
-       <amx:outputText value="Profile Info" id="ot110" inlineStyle="text-size:140%"/>
-       </amx:cellFormat>
-       </amx:rowLayout>
-       </amx:tableLayout>
         <amx:iterator var="row" value="#{bindings.userDetails.collectionModel}">
         
-        <amx:panelFormLayout id="pfl1" fieldHalign="start" labelPosition="end" >     
+        <amx:panelFormLayout id="pfl1" >     
           <amx:panelLabelAndMessage label="First Name" id="plam4">
             <amx:outputText value="#{row.firstName.inputValue}" id="ot5"/>
           </amx:panelLabelAndMessage>
@@ -60,7 +62,11 @@
           </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
      </amx:iterator>
-    
+    </amx:panelGroupLayout>
+    <amx:panelGroupLayout id="PaymentInfo">
+        
+    </amx:panelGroupLayout>
+    </amx:deck>
       </amx:facet>
     </amx:panelStretchLayout>
   </amx:panelPage>

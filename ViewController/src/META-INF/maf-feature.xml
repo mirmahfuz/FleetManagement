@@ -20,7 +20,11 @@
   </adfmf:feature>
   <adfmf:feature id="Create_Shipment" name="Create Shipment">
     <adfmf:content id="Create_Shipment.1">
-      <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow"/>
+      <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="Track_Shipment" name="Track Shipment">
@@ -38,6 +42,7 @@
       <adfmf:amx file="Springboard/springboard.amx">
         <adfmf:includes>
           <adfmf:include type="JavaScript" file="js/mqtt.js" id="i1"/>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i5"/>
         </adfmf:includes>
       </adfmf:amx>
     </adfmf:content>

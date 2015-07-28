@@ -3,21 +3,28 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Create Shipment Label" id="ot1" inlineStyle="background-color:Highlight;"/>
+      <amx:outputText value="Create Shipment Label" id="ot1"/>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
-                    <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
-            </amx:commandLink>
+     <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl1">
+                 <!--   <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png" id="i1"/>
+           -->
+            <amx:image source="/images/func_menu24@2x.png" styleClass="navigator"
+                           shortDesc="springboard_Image" id="i10"/>
+      </amx:commandLink>
     </amx:facet>
     <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
+      <amx:panelGroupLayout id="pgl48" layout="horizontal">
+                <amx:spacer width="10"/>
+                <amx:image id="i13" source="/images/headshot04.png" styleClass="headerPersonImage"/>
+            </amx:panelGroupLayout>
     </amx:facet>
     <amx:panelStretchLayout id="psl1">
       <amx:facet name="top">
       <amx:selectOneButton id="sob1" simple="true" inlineStyle="width:100%" value="#{viewScope.panel}">
         <amx:selectItem id="si1" label="Sender" value="Sender"/>
         <amx:selectItem id="si2" label="Receiver" value="Receiver"/>
+         <amx:selectItem id="si6" label="Shipment" value="Shipment"/>
         <amx:selectItem id="si3" label="Preferences" value="Preferences"/>
         <amx:selectItem id="si4" label="Payment" value="Payment"/>
         <amx:selectItem id="si5" label="Preview" value="Preview"/>
@@ -162,7 +169,7 @@
             <amx:rowLayout id="rl2">
               <amx:cellFormat id="cf2" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
                <amx:commandButton text="Default Fill" id="cb4" actionListener="#{viewScope.SenderDetail.defaultFillSender}"
-                               inlineStyle="background-color:Highlight;width:30%"/>
+                              styleClass="newAltaButton"/>
               </amx:cellFormat>
             </amx:rowLayout>
             </amx:tableLayout>
@@ -303,34 +310,132 @@
             <amx:rowLayout id="rl1">
               <amx:cellFormat id="cf3" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
                <amx:commandButton text="Default Fill" id="cb3" actionListener="#{viewScope.SenderDetail.defaultFillReceiver}"
-                               inlineStyle="background-color:Highlight;width:30%"/>
+                               styleClass="newAltaButton"/>
               </amx:cellFormat>
             </amx:rowLayout>
             </amx:tableLayout>
           </amx:panelGroupLayout>
         
+        <amx:panelGroupLayout id="Shipment">
+        <amx:panelFormLayout id="pfl12">
+         <amx:selectOneChoice id="numOfBoxes"
+                           value="#{viewScope.SenderDetail.numOfBoxes}"
+                           label="Number of boxes"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="1" value="1"/>
+        <amx:selectItem label="2" value="2"/>
+        <amx:selectItem label="3" value="3"/>
+        <amx:selectItem label="4" value="4"/>
+        <amx:selectItem label="5" value="5"/>
+        <amx:selectItem label="6" value="6"/>
+        <amx:selectItem label="7" value="7"/>
+        <amx:selectItem label="8" value="8"/>
+      </amx:selectOneChoice>
+       
+       <amx:selectOneChoice id="shippingMethod"
+                           value="#{viewScope.SenderDetail.shippingMethod}"
+                           label="Select shipping method"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Rail" value="Rail"/>
+      </amx:selectOneChoice>
+       <amx:selectOneChoice id="numOfTrainCarts"
+                           value="#{viewScope.SenderDetail.numOfTrainCarts}"
+                           label="Number of train cars"
+                           showRequired="true"
+                           rendered="true"
+                           required="true"
+                           simple="false"
+                           readOnly="#{viewScope.SenderDetail.readOnly}"
+                           disabled="#{viewScope.SenderDetail.disabled}"
+                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+        <amx:selectItem label="Train cart 1" value="Train cart 1"/>
+        <amx:selectItem label="Train cart 2" value="Train cart 2"/>
+        <amx:selectItem label="Train cart 3" value="Train cart 3"/>
+        <amx:selectItem label="Train cart 4" value="Train cart 4"/>
+      </amx:selectOneChoice>
+        <amx:selectManyCheckbox id="shipmentType" value="#{viewScope.SenderDetail.shipmentType}" label="Nature of shipment">
+            <amx:selectItem label="Perishable" value="Perishable"/>
+            <amx:selectItem label="Flammable" value="Flammable"/>
+            <amx:selectItem label="Fragile" value="Fragile"/>
+            <amx:selectItem label="Temperature sensitive" value="Temperature sensitive"/>
+            <amx:selectItem label="Humidity sensitive" value="Humidity sensitive"/>
+        </amx:selectManyCheckbox>
+            </amx:panelFormLayout>
+            <amx:tableLayout id="tl23">
+            <amx:rowLayout id="rl11">
+              <amx:cellFormat id="cf13" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
+               <amx:commandButton text="Default Fill" id="cb13" actionListener="#{viewScope.SenderDetail.defaultFillReceiver}"
+                               styleClass="newAltaButton"/>
+              </amx:cellFormat>
+            </amx:rowLayout>
+            </amx:tableLayout>
+          </amx:panelGroupLayout>
         <amx:panelGroupLayout id="Preferences">
             <amx:tableLayout id="tl4"
                              inlineStyle="width:100%;" cellSpacing="10">
               <amx:rowLayout id="rl4">
                 <amx:cellFormat id="cf6" inlineStyle="width:100%">
-                  <amx:outputText value="Tracking Features" id="ot3"/>
+                  <amx:outputText value="" id="ot3"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf5" inlineStyle="width:100%">
                 <amx:outputText value="" id="ot31"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf7" inlineStyle="width:100%">
-                <amx:outputText value="Charges" id="ot32"/>
+                <amx:outputText value="Price" id="ot32"/>
                 </amx:cellFormat>
               </amx:rowLayout>
               <amx:rowLayout id="rl12">
-              <amx:cellFormat id="cf4" inlineStyle="width:100% margin:0"  >
-                  <amx:spacer id="s1" width="1"/>
+              <amx:cellFormat id="cf4" inlineStyle="width:100%"  >
+                    <amx:spacer width="40"/>
+                  <amx:outputText value="Shipment Cost" />
+                </amx:cellFormat>
+                 <amx:cellFormat id="c1f5" inlineStyle="width:100%">
+                <amx:outputText value="" id="d212"/>
+                </amx:cellFormat>
+                <amx:cellFormat id="c1f7" inlineStyle="width:100%">
+                <amx:outputText value="$20.00" id="o1t32"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl213">
+              <amx:cellFormat id="cf229" inlineStyle="width:100% margin:0">
+                   <amx:outputText value="You can consider adding on these special features we provide " id="ot19" styleClass="adfmf-outputText-sectionTitle"/>
+                </amx:cellFormat>
+              </amx:rowLayout>
+              <amx:rowLayout id="rl83">
+                <amx:cellFormat id="cf88" >
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/map.png" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
+                  <amx:outputText value="Location Tracking" id="ot82" />
+                  </amx:panelGroupLayout>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf89" >
+                    <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{viewScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+            
+                 </amx:cellFormat>
+                <amx:cellFormat id="cf810" >
+                <amx:outputText value="Free" id="ot85"/>
                 </amx:cellFormat>
               </amx:rowLayout>
                <amx:rowLayout id="rl3">
                 <amx:cellFormat id="cf8" >
-                  <amx:outputText value="Theft Protectection (Detect theft and notify authorities) " id="ot2" />
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/robber.jpg" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
+                     <amx:outputText value="Theft Protection (Detect theft and notify authorities) " id="ot2" />
+                </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf9" >
                   <amx:selectBooleanCheckbox  valueChangeListener="#{viewScope.SenderDetail.TheftValueChangeHandler}" label="Yes" id="sbc2" value = "#{viewScope.SenderDetail.theftProtection}"/>
@@ -339,25 +444,19 @@
                 <amx:outputText value="#{viewScope.theftvaluechangenew}" id="ot5"/>
                 </amx:cellFormat>
               </amx:rowLayout>
-               <amx:rowLayout id="rl13">
-              <amx:cellFormat id="cf29" inlineStyle="width:100% margin:0">
-                  <amx:spacer id="s2"/>
-                </amx:cellFormat>
-              </amx:rowLayout>
               <amx:rowLayout id="rl5">
                 <amx:cellFormat id="cf11" >
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/loadUnload.jpg" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
                   <amx:outputText value="Send notifiction when Shipment is Loaded or Unloaded" id="ot4"/>
+                  </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf12" >
                   <amx:selectBooleanCheckbox  label="Yes" id="sbc1"  valueChangeListener="#{viewScope.SenderDetail.ShipmentLoadUnloadValueChangeHandler}" value = "#{viewScope.SenderDetail.shipmentLoadUnload}"/>
                 </amx:cellFormat>
-                <amx:cellFormat id="cf13">
+                <amx:cellFormat id="cf113">
                 <amx:outputText value="#{viewScope.shipmentLoadUnloadvaluechangenew}" id="ot6" />
-                </amx:cellFormat>
-              </amx:rowLayout>
-               <amx:rowLayout id="rl14">
-              <amx:cellFormat id="cf30" inlineStyle="width:100% margin:0">
-                  <amx:spacer id="s3"/>
                 </amx:cellFormat>
               </amx:rowLayout>
                <!--amx:rowLayout id="rl6">
@@ -390,7 +489,11 @@
               
                 <amx:rowLayout id="rl7">
                 <amx:cellFormat id="cf17" inlineStyle="width:40%">
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/traincollision.jpg" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
                   <amx:outputText value="Monitor Collision (Useful in case of making damage claims)" id="ot9"/>
+                </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf18" inlineStyle="width:30%">
                   <amx:selectBooleanCheckbox  label="Yes" id="sbc3"  valueChangeListener="#{viewScope.SenderDetail.MonitorCollisionValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
@@ -398,14 +501,8 @@
                 <amx:cellFormat id="cf19" inlineStyle="width:30%">
                 <amx:outputText value="#{viewScope.monitorCollisionvaluechangenew}" id="ot10" />
                 </amx:cellFormat>
-              </amx:rowLayout>   
-               <amx:rowLayout id="rl16">
-              <amx:cellFormat id="cf32" inlineStyle="width:100% margin:0">
-                  <amx:spacer id="s5"/>
-                </amx:cellFormat>
-              </amx:rowLayout>
-              
-                 <amx:rowLayout id="rl8">
+              </amx:rowLayout>             
+            <!--     <amx:rowLayout id="rl8">
                 <amx:cellFormat id="cf22" inlineStyle="width:40%">
                   <amx:outputText value="Monitor Vibrations (Useful in case of Fragile Products)" id="ot12"/>
                 </amx:cellFormat>
@@ -415,16 +512,15 @@
                 <amx:cellFormat id="cf20" inlineStyle="width:30%">
                 <amx:outputText value="#{viewScope.monitorShakesvaluechangenew}" id="ot11" />
                 </amx:cellFormat>
-              </amx:rowLayout>  
-               <amx:rowLayout id="rl17">
-              <amx:cellFormat id="cf33" inlineStyle="width:100% margin:0">
-                  <amx:spacer id="s6"/>
-                </amx:cellFormat>
-              </amx:rowLayout>
+              </amx:rowLayout>  -->
               
             <amx:rowLayout id="rl9">
                 <amx:cellFormat id="cf23" >
-                  <amx:outputText value="Monitor Pressure experienced by your Shipment" id="ot13"/>
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/humidity.jpg" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
+                  <amx:outputText value="Monitor Humidity experienced by your Shipment" id="ot13"/>
+               </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf24" >
                   <amx:selectBooleanCheckbox  label="Yes" id="sbc5"  valueChangeListener="#{viewScope.SenderDetail.MonitorAtmosphericPressureValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
@@ -433,16 +529,13 @@
                 <amx:outputText value="#{viewScope.monitorAtmosphericPressurevaluechangenew}" id="ot14" />
                 </amx:cellFormat>
               </amx:rowLayout> 
-               <amx:rowLayout id="rl18">
-              <amx:cellFormat id="cf34" inlineStyle="width:100% margin:0">
-                  <amx:spacer id="s7"/>
-                </amx:cellFormat>
-              </amx:rowLayout>
-              
-              
                <amx:rowLayout id="rl6">
                 <amx:cellFormat id="cf14" >
+                <amx:panelGroupLayout layout="horizontal">
+                    <amx:image source="/images/thermometer.gif" styleClass="sensorHImage"/>
+                    <amx:spacer width="10"/>
                   <amx:outputText value="Monitor Temperature (Useful in case of shipping perishable items)" id="ot8"/>
+                </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf15" inlineStyle="width:30%">
                   <amx:selectBooleanCheckbox  label="Yes" id="sbc6"  valueChangeListener="#{viewScope.SenderDetail.TemperatureMonitoringValueChangeHandler}" value = "#{viewScope.SenderDetail.temperatureMonitoring}"/>
@@ -454,8 +547,8 @@
               
               <amx:rowLayout id="rl19">
                 <amx:cellFormat id="cf35" >
-                  <amx:inputNumberSlider label="Set Temperatur Threshold" id="ins1" minimum="0" maximum="100" valueChangeListener="#{viewScope.SenderDetail.TempThresholdValueChangeHandler}" value = "#{viewScope.SenderDetail.tempThreshold}"/>
-                  <amx:outputText value="Temperatur Threshold : #{viewScope.tempThresholdvaluechangenew}" id="ot18" />
+                  <amx:inputNumberSlider label="Set Temperature Threshold" id="ins1" minimum="0" maximum="100" valueChangeListener="#{viewScope.SenderDetail.TempThresholdValueChangeHandler}" value = "#{viewScope.SenderDetail.tempThreshold}"/>
+                  <amx:outputText value="Temperature Threshold : #{viewScope.tempThresholdvaluechangenew}" id="ot18" />
                 </amx:cellFormat>
                 <amx:cellFormat id="cf36" inlineStyle="width:30%">
                 </amx:cellFormat>
@@ -477,7 +570,27 @@
                 <amx:outputText value="$#{viewScope.total}" id="ot16" />
                 </amx:cellFormat>
               </amx:rowLayout> 
-              
+           <!--   <amx:rowLayout>
+              <amx:cellFormat inlineStyle="width:100%">
+              <amx:panelGroupLayout layout="horizontal">
+              <amx:commandLink disabled="#{!viewScope.enableMonitorImage}">
+                <amx:image source="/images/map.png" styleClass="sensorImage" />
+              </amx:commandLink>
+              <amx:spacer width="10"/>
+              <amx:image source="/images/robber.jpg" styleClass="sensorImage"/>
+              <amx:spacer width="10"/>
+              <amx:image source="/images/loadUnload.jpg" styleClass="sensorImage"/>
+              <amx:spacer width="10"/>
+              <amx:image source="/images/traincollision.jpg" styleClass="sensorImage"/>
+               <amx:spacer width="10"/>
+                <amx:image source="/images/humidity.jpg" styleClass="sensorImage"/>
+                 <amx:spacer width="10"/>
+                <amx:image source="/images/thermometer.gif" styleClass="sensorImage"/>
+                <amx:spacer width="10"/>
+                
+              </amx:panelGroupLayout>
+              </amx:cellFormat>
+              </amx:rowLayout>-->
             </amx:tableLayout>
           </amx:panelGroupLayout>
         
@@ -608,10 +721,10 @@
       </amx:selectOneChoice>
             </amx:panelFormLayout>
             <amx:tableLayout id="tl3">
-            <amx:rowLayout id="rl11">
+            <amx:rowLayout id="rl111">
               <amx:cellFormat id="cf1" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
                <amx:commandButton text="Default Fill" id="cb1" actionListener="#{viewScope.SenderDetail.defaultFillPayment}"
-                               inlineStyle="background-color:Highlight;width:30%"/>
+                               styleClass="newAltaButton"/>
               </amx:cellFormat>
             </amx:rowLayout>
             </amx:tableLayout>
@@ -647,14 +760,14 @@
               </amx:panelFormLayout>
             </amx:panelGroupLayout>
           </amx:carouselItem>
-        </amx:facet>
-        
+          
+        </amx:facet>      
       </amx:carousel>
        <amx:tableLayout id="tl5">
             <amx:rowLayout id="rl15">
               <amx:cellFormat id="cf31" inlineStyle="padding-left:20px; padding-right:20px;width:20%">
                <amx:commandButton text="Submit Order" id="cb5" actionListener="#{viewScope.SenderDetail.defaultFillReceiver}"
-                               inlineStyle="background-color:Highlight;width:30%"/>
+                               styleClass="newAltaButton"/>
               </amx:cellFormat>
             </amx:rowLayout>
             </amx:tableLayout>

@@ -29,6 +29,14 @@ public class SenderDetail {
     private String receiverCountry;
     private String receiverEmail;
     private String receiverPhoneNumber;
+    
+    /* Shipment */
+    private String numOfBoxes;
+    private String shippingMethod;
+    private String numOfTrainCarts;
+    private String shipmentType;    
+   
+    
     /* Preferences */
     private boolean theftProtection;/* Ultrasound & Light Sensor */
     private boolean shipmentLoadUnload;/* Light sensor */
@@ -63,7 +71,7 @@ public class SenderDetail {
 
     public SenderDetail(){
         super();
-        total = 0; 
+        total = 20; 
     }
     
     public void defaultFillSender(ActionEvent x){
@@ -348,8 +356,8 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total += 100;
+          newval = "$5.00";
+          total += 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -400,8 +408,8 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total +=  100;
+          newval = "$1.00";
+          total +=  1;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -452,8 +460,8 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total += 100;
+          newval = "$5.00";
+          total += 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -570,8 +578,8 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total += 100;
+          newval = "$5.00";
+          total += 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -622,8 +630,16 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total += 100;
+          newval = "$5.00";
+          total += 5;
+          
+          //Enable the picture
+          AdfmfJavaUtilities.setELValue("#{viewScope.enableMonitorImage}", true);
+          AdfmfJavaUtilities.flushDataChangeEvent();
+      }
+      if(newstr == false){
+          AdfmfJavaUtilities.setELValue("#{viewScope.enableMonitorImage}", false);
+          AdfmfJavaUtilities.flushDataChangeEvent();
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -674,8 +690,8 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$100";
-          total += 100;
+          newval = "$5.00";
+          total += 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -776,5 +792,38 @@ public class SenderDetail {
 
     public String getCcType() {
         return ccType;
+    }
+
+
+    public void setNumOfBoxes(String numOfBoxes) {
+        this.numOfBoxes = numOfBoxes;
+    }
+
+    public String getNumOfBoxes() {
+        return numOfBoxes;
+    }
+
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+    }
+
+    public String getShippingMethod() {
+        return shippingMethod;
+    }
+
+    public void setNumOfTrainCarts(String numOfTrainCarts) {
+        this.numOfTrainCarts = numOfTrainCarts;
+    }
+
+    public String getNumOfTrainCarts() {
+        return numOfTrainCarts;
+    }
+
+    public void setShipmentType(String shipmentType) {
+        this.shipmentType = shipmentType;
+    }
+
+    public String getShipmentType() {
+        return shipmentType;
     }
 }

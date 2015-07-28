@@ -95,3 +95,27 @@
     background-image: url("images/fuseoracle.png");
     background-repeat: no-repeat;
 }
+
+.sensorImage {
+    border: 1px solid #DDDDDD;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
+
+.sensorHImage {
+    border: 1px solid #DDDDDD;
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
+
+.springBoardPersonImage {
+    border: 1px solid #DDDDDD;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
