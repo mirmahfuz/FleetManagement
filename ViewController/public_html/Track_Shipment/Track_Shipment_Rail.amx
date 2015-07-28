@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Track Rail Shipment" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton id="cb1" text="Back" action="__back"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+          <!--  <amx:commandButton text="Subscribe" id="cb2"
+                               actionListener="#{pageFlowScope.TrackShipmentRailBean.subscribe}"/> -->
+        </amx:facet>
+        <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
+                            initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17">
+            <dvtm:pointDataLayer id="pdl1">
+                <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.2646400"
+                                    pointY="37.5311940">
+                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
+                    <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="mrk1" align="topCenter"
+                                       decoration="anchor" type="action"/>
+                                       </dvtm:marker>
+                </dvtm:pointLocation>
+            </dvtm:pointDataLayer>
+        </dvtm:geographicMap>
+        <amx:facet name="footer">
+            <amx:tableLayout id="tl1" halign="center">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf1" halign="center" valign="middle">
+                        <amx:commandLink id="cl1">
+                            <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px"
+                                       source="/images/func_arrowup_16_act.png" id="i1"/>
+                            <amx:showPopupBehavior id="spb2" popupId="p1" align="topCenter" type="swipeUp"
+                                                   alignId="tl1"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
+    </amx:panelPage>
+    <amx:popup id="p1" inlineStyle="height:95%; width:95%;">
+        <amx:panelGroupLayout id="pgl1">
+            <amx:tableLayout id="tl2" halign="center">
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf2" halign="center" valign="middle">
+                        <amx:commandLink id="cl2">
+                            <amx:image id="i2" inlineStyle="width:30px;height:30px;margin-top:-6px"
+                                       source="/images/func_arrowdown_16_act.png"/>
+                            <amx:closePopupBehavior id="cpb1" type="swipeDown" popupId="p1"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+            <amx:masonryLayout id="ml1">
+                <amx:masonryLayoutItem id="mli1" dimension="1x3">
+                    <amx:panelGroupLayout id="pgl2" halign="center" valign="middle">
+                        <amx:outputText value="Temperature" id="ot5"/>
+                        <amx:spacer id="s1" height="10" width="10"/>
+                        <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
+                                               inlineStyle="height:250px; width:60px;" minValue="0" maxValue="100"
+                                               thresholdDisplay="all" plotArea="on" visualEffects="auto"
+                                               labelDisplay="on" borderColor="#E0E0E0" color="#267db3"
+                                               indicatorSize="0.4">
+                            <dvtm:threshold text="Super Hot" color="#ed6647" maxValue="100" id="t2"/>
+                            <dvtm:threshold text="Cool" color="#fad55c" maxValue="60" id="t1"/>
+                            <dvtm:referenceLine color="#888888" value="70" id="rl4"/>
+                        </dvtm:statusMeterGauge>
+                    </amx:panelGroupLayout>
+                </amx:masonryLayoutItem>
+                <amx:masonryLayoutItem id="mli2" dimension="1x1">
+                    <amx:panelGroupLayout id="pgl3">
+                        <dvtm:dialGauge id="dialGauge1" value="35" indicator="needleDark" minValue="0" maxValue="100"
+                                        background="circleLightCustom"/>
+                    </amx:panelGroupLayout>
+                </amx:masonryLayoutItem>
+            </amx:masonryLayout>
+        </amx:panelGroupLayout>
+    </amx:popup>
+    <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
+        <amx:outputText id="otTest" value="#{pageFlowScope.TrackShipmentRailBean.customerId}"/>
+        <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.shipmentId}" id="ot2"/>
+        <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.light}" id="ot3"/>
+        <amx:outputText value="Test Value" id="ot4"/>
+    </amx:popup>
+</amx:view>

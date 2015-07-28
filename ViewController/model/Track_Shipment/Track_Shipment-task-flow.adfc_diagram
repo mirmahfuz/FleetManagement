@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+      <property
+         name="y">258.5664</property>
+      <property
+         name="x">101.77832</property>
+   </OverallProperties>
+   <View
+      id="View2">
+      <property
+         name="activityId">Track_Shipment_Home</property>
+      <property
+         name="page">/Track_Shipment/Track_Shipment_Home.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Track_Shipment_Home&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">91.30078</property>
+      <property
+         name="x">313.1162</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall9">
+      <property
+         name="taskFlowId">TrackingShipmentRail</property>
+      <property
+         name="activityId">TrackingShipmentRail</property>
+      <property
+         name="documentReference">/Track_Shipment/TrackingShipmentRail.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>TrackingShipmentRail&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">91.16797</property>
+      <property
+         name="x">545.2959</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="TaskFlowCall9">
+      <property
+         name="fromOutcome">trackrail</property>
+      <property
+         name="sdm:polyPoints">R50,429.20605,91.234375,429.20605,91.10156,L50</property>
+   </ControlFlowCase>
+</SDM>
