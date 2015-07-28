@@ -13,6 +13,10 @@
   </adf-adfm-config>
   <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
     <adf-property name="adfAppUID" value="FleetManagement.com.oracle.apps.fleetmanagement"/>
+    <adf-property name="mapProvider" value="googleMaps"/>
+    <adf-property name="geoMapKey" value=""/>
+    <adf-property name="mapViewerUrl" value="http://elocation.oracle.com/mapviewer"/>
+    <adf-property name="baseMap" value="ELOCATION_MERCATOR.WORLD_MAP"/>
   </adf:adf-properties-child>
   <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
     <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"

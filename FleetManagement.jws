@@ -227,6 +227,7 @@
    </hash>
    <hash n="shared-project-properties">
       <hash n="oracle.jdeveloper.runner.RunConfigurations">
+         <value n="activeName" v="iOS Simulator"/>
          <hash n="runConfigurationDefinitions">
             <hash n="Android Device">
                <hash n="Android_options">
@@ -259,6 +260,9 @@
                </hash>
                <value n="mobilePlatform" v="iOS"/>
                <value n="name" v="iOS Simulator"/>
+               <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
+                  <value n="tracingInclude" v="com.oracle.apps.fleetmanagement.mobile.util.JSONParserUtils;com.oracle.apps.fleetmanagement.mobile.bean.TrackShipmentBean"/>
+               </hash>
                <value n="profileName" v="iOS1"/>
                <url n="targetURL" path=".adf/META-INF/maf-application.xml"/>
             </hash>

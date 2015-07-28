@@ -22,6 +22,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 
 public class ManagedBean implements MqttCallback{
+    
     private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     MqttClient sampleClient;
     int qos;

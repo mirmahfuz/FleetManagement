@@ -29,7 +29,12 @@
   </adfmf:feature>
   <adfmf:feature id="Track_Shipment" name="Track Shipment">
     <adfmf:content id="Track_Shipment.1">
-      <adfmf:amx file="Track_Shipment/Track_Shipment-task-flow.xml#Track_Shipment-task-flow"/>
+      <adfmf:amx file="Track_Shipment/Track_Shipment-task-flow.xml#Track_Shipment-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
+          <adfmf:include type="JavaScript" file="js/mqtt.js" id="i5"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="History" name="History">
