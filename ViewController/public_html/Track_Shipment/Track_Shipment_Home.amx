@@ -6,7 +6,7 @@
             <amx:outputText value="Track Shipment" id="ot1"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandLink actionListener="#{bindings.toggleSpringboard.execute}" id="cl2">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl2">
                 <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png"
                            id="i1"/>
             </amx:commandLink>
