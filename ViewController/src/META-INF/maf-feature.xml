@@ -33,6 +33,7 @@
                 <adfmf:includes>
                     <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i7"/>
                     <adfmf:include type="JavaScript" file="js/mqtt.js" id="i6"/>
+                    <adfmf:include type="JavaScript" file="js/DefaultApplication.js" id="i5"/>
                 </adfmf:includes>
             </adfmf:amx>
         </adfmf:content>

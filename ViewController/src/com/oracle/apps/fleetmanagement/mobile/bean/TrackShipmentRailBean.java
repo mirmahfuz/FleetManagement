@@ -8,7 +8,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 
+import oracle.adf.model.datacontrols.device.DeviceManagerFactory;
+
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.framework.api.JSONBeanSerializationHelper;
 import oracle.adfmf.framework.exception.AdfException;
@@ -624,5 +627,25 @@ public class TrackShipmentRailBean implements MqttCallback{
        
        return mVal;
     }
+
+    public void openIOSEmailClient(ActionEvent actionEvent) {
+        
+        // Get the Email Address for the Current select row for Appointment - Account Contact Person.
+        String mEmail = (String) AdfmfJavaUtilities.evaluateELExpression("#{viewScope.emerEmailId}");
+        // Invoke the java script "launchEmailApp", present in CGMapEmailUtil.js
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "launchDefaultApp", new Object[] {
+                                                                  "EMAIL", mEmail});
+    }
     
+    
+    public void openIOSFacetimeClient(ActionEvent actionEvent) {
+        // Get the Phone Number for the Current select row for Appointment - Account Contact Person.
+        String mTel = (String) AdfmfJavaUtilities.evaluateELExpression("#{viewScope.emerTelNum}");
+        // Invoke the java script "launchTelApp", present in CGMapEmailUtil.js
+        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "launchDefaultApp", new Object[] {
+                                                                  "FACETIME" , mTel});
+        
+    }
 }

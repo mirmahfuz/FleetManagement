@@ -8,115 +8,402 @@
         <amx:facet name="primary">
             <amx:commandButton id="cb1" text="Back" action="__back"/>
         </amx:facet>
-        <amx:facet name="secondary">
-          <!--  <amx:commandButton text="Subscribe" id="cb2"
-                               actionListener="#{pageFlowScope.TrackShipmentRailBean.subscribe}"/> -->
-        </amx:facet>
-        <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
-                            initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17">
-            <dvtm:pointDataLayer id="pdl1">
-                <dvtm:pointLocation id="pl1" type="pointXY" pointX="#{pageFlowScope.TrackShipmentRailBean.longitude}"
-                                    pointY="#{pageFlowScope.TrackShipmentRailBean.latitude}">
-                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
-                    <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="mrk1" align="topCenter"
-                                       decoration="anchor" type="action"/>
-                                       </dvtm:marker>
-                </dvtm:pointLocation>
-            </dvtm:pointDataLayer>
-        </dvtm:geographicMap>
-        <amx:facet name="footer">
-            <amx:tableLayout id="tl1" halign="center">
-                <amx:rowLayout id="rl1">
-                    <amx:cellFormat id="cf1" halign="center" valign="middle">
+        <amx:facet name="secondary"/>
+        <amx:facet name="footer"/>
+        <amx:tableLayout id="tl3" inlineStyle="width:100%; background-color:#e7e7e7;" halign="start">
+            <amx:rowLayout id="rl3">
+                <amx:cellFormat id="cf3" inlineStyle="width:90%;">
+                    <amx:panelGroupLayout id="pgl6" styleClass="RoadMapDetailContainer">
+                        <dvtm:geographicMap id="geomp1" centerX="-122.2646400"
+                                            centerY="37.5311940" mapType="ROADMAP" initialZooming="auto"
+                                            shortDesc="Shipment Type :: Rail" zoomLevel="17"
+                                            styleClass="GeoMapContainerHeight">
+                            <dvtm:pointDataLayer id="pdl1">
+                                <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.2646400" pointY="37.5311940">
+                                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
+                                        <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="mrk1"
+                                                               align="topCenter" decoration="anchor" type="action"/>
+                                    </dvtm:marker>
+                                </dvtm:pointLocation>
+                            </dvtm:pointDataLayer>
+                        </dvtm:geographicMap>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+                <amx:cellFormat id="cf4">
+                    <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="top" styleClass="RoadMapDetailContainer">
+                        <amx:spacer id="s9" height="20" width="10"/>
                         <amx:commandLink id="cl1">
-                            <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px"
-                                       source="/images/func_arrowup_16_act.png" id="i1"/>
-                            <amx:showPopupBehavior id="spb2" popupId="p1" align="topCenter" type="swipeUp"
-                                                   alignId="tl1"/>
+                            <amx:image source="/images/menu_information.png" styleClass="sensorHImage" id="i16"/>
+                            <amx:showPopupBehavior id="spb2" popupId="user" type="action" align="startMiddle"
+                                                   alignId="i16" decoration="anchor"/>
                         </amx:commandLink>
-                    </amx:cellFormat>
-                </amx:rowLayout>
-            </amx:tableLayout>
-        </amx:facet>
+                        <amx:spacer id="s8" height="20" width="10"/>
+                        <amx:commandLink id="cl3">
+                            <amx:image id="i15" source="/images/thermometer.gif" styleClass="sensorHImage"/>
+                            <amx:showPopupBehavior id="spb3" popupId="temp" type="action" align="startMiddle"
+                                                   alignId="i15" decoration="anchor"/>
+                        </amx:commandLink>
+                        <amx:spacer id="s5" height="20" width="10"/>
+                        <amx:commandLink id="cl8">
+                            <amx:image id="i17" source="/images/humidity.jpg" styleClass="sensorHImage"/>
+                            <amx:showPopupBehavior id="spb4" popupId="humid" type="action" align="startMiddle"
+                                                   alignId="i17" decoration="anchor"/>
+                        </amx:commandLink>
+                        <amx:spacer id="s6" height="20" width="10"/>
+                        <amx:commandLink id="cl11">
+                            <amx:image id="i18" source="/images/robber.jpg" styleClass="sensorHImage"/>
+                            <amx:showPopupBehavior id="spb5" popupId="theft" type="action" align="startMiddle"
+                                                   alignId="i18" decoration="anchor"/>
+                        </amx:commandLink>
+                        <amx:spacer id="s7" height="20" width="10"/>
+                        <amx:commandLink id="cl12">
+                            <amx:image id="i19" source="/images/loadUnload.jpg" styleClass="sensorHImage"/>
+                            <amx:showPopupBehavior id="spb6" align="startMiddle" popupId="light" type="action"
+                                                   alignId="i19" decoration="anchor"/>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
     </amx:panelPage>
-    <amx:popup id="p1" inlineStyle="height:95%; width:95%;">
-        <amx:panelGroupLayout id="pgl1">
-            <amx:tableLayout id="tl2" halign="center">
-                <amx:rowLayout id="rl2">
-                    <amx:cellFormat id="cf2" halign="center" valign="middle">
-                        <amx:commandLink id="cl2">
-                            <amx:image id="i2" inlineStyle="width:30px;height:30px;margin-top:-6px"
-                                       source="/images/func_arrowdown_16_act.png"/>
-                            <amx:closePopupBehavior id="cpb1" type="swipeDown" popupId="p1"/>
-                        </amx:commandLink>
-                    </amx:cellFormat>
-                </amx:rowLayout>
-            </amx:tableLayout>
-            <amx:masonryLayout id="ml1">
-                <amx:masonryLayoutItem id="mli1" dimension="1x3">
-                    <amx:panelGroupLayout id="pgl2" halign="center" valign="middle">
-                        <amx:outputText value="Temperature" id="ot5"/>
-                        <amx:image id="i5" source="/images/greenled.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showTempSensor)}"/>
-                        <amx:image id="i6" source="/images/redled.png"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showTempSensor}"/>
-                        <amx:spacer id="s1" height="10" width="10"/>
-                        <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
-                                               inlineStyle="height:350px; width:60px;" minValue="0" maxValue="100"
-                                               thresholdDisplay="all" plotArea="on" visualEffects="auto"
-                                               labelDisplay="on" borderColor="#E0E0E0" color="#267db3"
-                                               indicatorSize="0.4"
-                                               value="#{pageFlowScope.TrackShipmentRailBean.temperature}">
-                            <dvtm:threshold color="#ed6647" maxValue="100" id="t2"/>
-                            <dvtm:threshold color="#fad55c" maxValue="60" id="t1"/>
-                            <dvtm:referenceLine color="#888888" value="#{applicationScope.tempThresh}" id="rl4"/>
-                        </dvtm:statusMeterGauge>
-                    </amx:panelGroupLayout>
-                </amx:masonryLayoutItem>
-                <amx:masonryLayoutItem id="mli2" dimension="2x2">
-                    <amx:panelGroupLayout id="pgl3" halign="center" valign="middle">
-                        <amx:outputText value="Humidity" id="ot6"/>
-                        <amx:image id="i8" source="/images/redled.png"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showHumidSensor}"/>
-                        <amx:image id="i7" source="/images/greenled.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showHumidSensor)}"/>
-                        <amx:spacer id="s2" height="10" width="10"/>
-                        <dvtm:dialGauge id="dialGauge1" value="#{pageFlowScope.TrackShipmentRailBean.humidity}" indicator="needleDark" minValue="0" maxValue="100"
-                                        background="circleLightCustom"/>
-                    </amx:panelGroupLayout>
-                </amx:masonryLayoutItem>
-                <amx:masonryLayoutItem id="mli3" dimension="2x2">
-                    <amx:panelGroupLayout id="pgl4" valign="middle" halign="center">
-                        <amx:outputText value="Ultrasonic" id="ot7"/>
-                        <amx:image id="i9" source="/images/greenled.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
-                        <amx:image id="i10" source="/images/redled.png"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
-                        <amx:spacer id="s3" height="10" width="10"/>
-                        <amx:image id="i3" source="/images/theft_money.jpg"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
-                        <amx:image id="i13" source="/images/safelock.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
-                    </amx:panelGroupLayout>
-                </amx:masonryLayoutItem>
-                <amx:masonryLayoutItem id="mli4" dimension="2x3">
-                    <amx:panelGroupLayout id="pgl5" halign="center" valign="middle">
-                        <amx:outputText value="Light" id="ot2"/>
-                        <amx:image id="i12" source="/images/redled.png"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
-                        <amx:image id="i11" source="/images/greenled.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
-                        <amx:spacer id="s4" height="10" width="10"/>
-                        <amx:image id="i4" source="/images/sunrise.png"
-                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
-                        <amx:image id="i14" source="/images/sunsleep.png"
-                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
-                    </amx:panelGroupLayout>
-                </amx:masonryLayoutItem>
-            </amx:masonryLayout>
-        </amx:panelGroupLayout>
-    </amx:popup>
+    <amx:navigationDragBehavior direction="back" id="ndb1" action="__back"/>
     <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
         <amx:outputText value="Work In Progress" id="ot4"/>
+    </amx:popup>
+        <amx:popup id="temp" backgroundDimming="off" autoDismiss="true">
+        <amx:panelGroupLayout id="pgl8">
+            <amx:outputText value="Preference Detail Of Temperature Sensor" id="ot8" styleClass="large-text blue"/>
+            <amx:panelGroupLayout id="pgl9" layout="horizontal">
+                <amx:outputText value="Temperature" id="ot3" styleClass="small-text gray"/>
+                <amx:spacer id="s11" height="5" width="25"/>
+                <amx:image id="i5" source="/images/greenled.png"
+                           rendered="#{!(pageFlowScope.TrackShipmentRailBean.showTempSensor)}"/>
+                <amx:image id="i6" source="/images/redled.png"
+                           rendered="#{pageFlowScope.TrackShipmentRailBean.showTempSensor}"/>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s10" height="5" width="5"/>
+            <amx:tableLayout id="tl4">
+                <amx:rowLayout id="rl5">
+                    <amx:cellFormat id="cf5">
+                        <amx:panelGroupLayout id="pgl2" styleClass="dvtm-gallery-component-verticalGauge-cell"
+                                              halign="center" valign="middle">
+                            <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
+                                                   inlineStyle="height:200px; width:40px;" minValue="0" maxValue="100"
+                                                   thresholdDisplay="all" plotArea="on" visualEffects="auto"
+                                                   labelDisplay="on" borderColor="#E0E0E0" color="#267db3"
+                                                   indicatorSize="0.3"
+                                                   value="#{pageFlowScope.TrackShipmentRailBean.temperature}">
+                                <dvtm:threshold color="#ed6647" maxValue="100" id="t2"/>
+                                <dvtm:threshold color="#fad55c" maxValue="60" id="t1"/>
+                                <dvtm:referenceLine color="#888888" value="#{applicationScope.tempThresh}" id="rl4"/>
+                            </dvtm:statusMeterGauge>
+                        </amx:panelGroupLayout>
+                        <amx:spacer id="s12" height="10" width="10"/>
+                        <amx:panelGroupLayout id="pgl11" layout="horizontal" halign="start">
+                            <amx:outputText value="Threshold Value : " id="ot14" styleClass="small-text gray"/>
+                            <amx:outputText value="#{applicationScope.tempThresh}" id="ot15"
+                                            styleClass="small-text red"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="start">
+                            <amx:outputText value="Sensor Value : " id="ot16" styleClass="small-text blue"/>
+                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.temperature}" id="ot17"
+                                            styleClass="large-text green"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf6" valign="top" halign="start">
+                        <amx:tableLayout id="tl5" halign="start">
+                            <amx:rowLayout id="rl8">
+                                <amx:cellFormat id="cf9">
+                                    <amx:outputText value="Emergency Contact Details" id="ot19"
+                                                    styleClass="small-text gray"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl9">
+                                <amx:cellFormat id="cf10">
+                                    <amx:spacer id="s14" height="5" width="5"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl6">
+                                <amx:cellFormat id="cf7" valign="top">
+                                    <amx:commandLink id="cl4"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSFacetimeClient}">
+                                        <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                                            <amx:image id="i20" source="/images/phone.png"/>
+                                            <amx:outputText value="+1 (408) 769-9440" id="ot13"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl1" from="#{'+1 (408) 769-9440'}"
+                                                                 to="#{viewScope.emerTelNum}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl7">
+                                <amx:cellFormat id="cf8">
+                                    <amx:commandLink id="cl5"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSEmailClient}">
+                                        <amx:panelGroupLayout id="pgl13" layout="horizontal">
+                                            <amx:image id="i21" source="/images/email.png"/>
+                                            <amx:outputText value="prateek.sachdeva@oracle.com" id="ot18"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl2" from="#{'prateek.sachdeva@oracle.com'}"
+                                                                 to="#{viewScope.emerEmailId}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+    </amx:popup>
+        <amx:popup id="user" backgroundDimming="off" autoDismiss="true">
+        <amx:outputText value="Work In Progress" id="ot9"/>
+    </amx:popup>
+        <amx:popup id="theft" backgroundDimming="off" autoDismiss="true">
+        <amx:panelGroupLayout id="pgl14">
+            <amx:outputText value="Preference Detail Of Theft Sensor" id="ot11" styleClass="large-text blue"/>
+            <amx:panelGroupLayout id="pgl15" layout="horizontal">
+                <amx:outputText value="Theft" id="ot20" styleClass="small-text gray"/>
+                <amx:spacer id="s13" height="5" width="25"/>
+                <amx:image id="i9" source="/images/greenled.png"
+                           rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
+                <amx:image id="i10" source="/images/redled.png"
+                           rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s15" height="5" width="5"/>
+            <amx:tableLayout id="tl7">
+                <amx:rowLayout id="rl11">
+                    <amx:cellFormat id="cf11">
+                        <amx:panelGroupLayout id="pgl25" halign="center" valign="middle">
+                            <amx:image id="i3" source="/images/theft_money.jpg"
+                                       rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
+                            <amx:image id="i13" source="/images/safelock.png"
+                                       rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
+                        </amx:panelGroupLayout>
+                        <amx:spacer id="s16" height="10" width="10"/>
+                        <amx:panelGroupLayout id="pgl16" layout="horizontal">
+                            <amx:outputText value="Threshold Value : " id="ot21" styleClass="small-text gray"/>
+                            <amx:outputText value="#{applicationScope.usThresh}" id="ot23"
+                                            styleClass="small-text red"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="pgl17" layout="horizontal">
+                            <amx:outputText value="Sensor Value : " id="ot24" styleClass="small-text blue"/>
+                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.ultrasonic}" id="ot22"
+                                            styleClass="large-text green"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf17">
+                        <amx:spacer id="s1" height="20" width="30"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf12" valign="top" halign="start">
+                        <amx:tableLayout id="tl6" halign="start">
+                            <amx:rowLayout id="rl12">
+                                <amx:cellFormat id="cf14">
+                                    <amx:outputText value="Emergency Contact Details" id="ot25"
+                                                    styleClass="small-text gray"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl13">
+                                <amx:cellFormat id="cf15">
+                                    <amx:spacer id="s17" height="5" width="5"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl14">
+                                <amx:cellFormat id="cf13" valign="top">
+                                    <amx:commandLink id="cl6"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSFacetimeClient}">
+                                        <amx:panelGroupLayout id="pgl18" layout="horizontal">
+                                            <amx:image id="i24" source="/images/phone.png"/>
+                                            <amx:outputText value="+1 (408) 242-3431" id="ot26"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl3" from="#{'+1 (408) 242-3431'}"
+                                                                 to="#{viewScope.emerTelNum}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl15">
+                                <amx:cellFormat id="cf16">
+                                    <amx:commandLink id="cl7"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSEmailClient}">
+                                        <amx:panelGroupLayout id="pgl19" layout="horizontal">
+                                            <amx:image id="i26" source="/images/email.png"/>
+                                            <amx:outputText value="anil.ranka@oracle.com" id="ot27"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl4" from="#{'anil.ranka@oracle.com'}"
+                                                                 to="#{viewScope.emerEmailId}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+    </amx:popup>
+        <amx:popup id="humid" backgroundDimming="off" autoDismiss="true">
+        <amx:panelGroupLayout id="pgl3">
+            <amx:outputText value="Preference Detail Of Humidity Sensor" id="ot5" styleClass="large-text blue"/>
+            <amx:panelGroupLayout id="pgl21" layout="horizontal">
+                <amx:outputText value="Humidity" id="ot6" styleClass="small-text gray"/>
+                <amx:spacer id="s2" height="5" width="25"/>
+                <amx:image id="i22" source="/images/redled.png"
+                           rendered="#{pageFlowScope.TrackShipmentRailBean.showHumidSensor}"/>
+                <amx:image id="i23" source="/images/greenled.png"
+                           rendered="#{!(pageFlowScope.TrackShipmentRailBean.showHumidSensor)}">
+                    <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                </amx:image>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s18" height="5" width="5"/>
+            <amx:tableLayout id="tl8">
+                <amx:rowLayout id="rl16">
+                    <amx:cellFormat id="cf18">
+                        <dvtm:dialGauge id="dg1" value="35"
+                                        indicator="needleLight" minValue="0" maxValue="100"
+                                        background="domeLightCustom" inlineStyle="width:200px; height:200px;">
+                            <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                        </dvtm:dialGauge>
+                        <amx:spacer id="s19" height="10" width="10"/>
+                        <amx:panelGroupLayout id="pgl20" layout="horizontal">
+                            <amx:outputText value="Threshold Value : " id="ot10" styleClass="small-text gray"/>
+                            <amx:outputText value="#{applicationScope.humidityThresh}" id="ot29"
+                                            styleClass="small-text red"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="pgl22" layout="horizontal">
+                            <amx:outputText value="Sensor Value : " id="ot28" styleClass="small-text blue"/>
+                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.humidity}" id="ot31"
+                                            styleClass="large-text green"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf19">
+                        <amx:spacer id="s20" height="10" width="10"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf20" valign="top" halign="start">
+                        <amx:tableLayout id="tl9" halign="start">
+                            <amx:rowLayout id="rl10">
+                                <amx:cellFormat id="cf21">
+                                    <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                                    <amx:outputText value="Emergency Contact Details" id="ot30"
+                                                    styleClass="small-text gray"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl17">
+                                <amx:cellFormat id="cf23">
+                                    <amx:spacer id="s21" height="5" width="5"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl18">
+                                <amx:cellFormat id="cf22" valign="top">
+                                    <amx:commandLink id="cl9"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSFacetimeClient}">
+                                        <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                                        <amx:panelGroupLayout id="pgl23" layout="horizontal">
+                                            <amx:image id="i25" source="/images/phone.png"/>
+                                            <amx:outputText value="+1 (510) 551-4439" id="ot32"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl5" from="#{'+1 (510) 551-4439'}"
+                                                                 to="#{viewScope.emerTelNum}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl19">
+                                <amx:cellFormat id="cf24">
+                                    <amx:commandLink id="cl10"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSEmailClient}">
+                                        <amx:panelGroupLayout id="pgl24" layout="horizontal">
+                                            <amx:image id="i27" source="/images/email.png">
+                                                <?audit suppress oracle.maf.warning-missing-shortDesc?>
+                                            </amx:image>
+                                            <amx:outputText value="marzia.usman@oracle.com" id="ot33"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl6" from="#{'marzia.usman@oracle.com'}"
+                                                                 to="#{viewScope.emerEmailId}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+    </amx:popup>
+        <amx:popup id="light" backgroundDimming="off" autoDismiss="true">
+        <amx:panelGroupLayout id="pgl26">
+            <amx:outputText value="Preference Detail Of Theft Sensor" id="ot12" styleClass="large-text blue"/>
+            <amx:panelGroupLayout id="pgl27" layout="horizontal">
+                <amx:outputText value="Theft" id="ot35" styleClass="small-text gray"/>
+                <amx:spacer id="s22" height="5" width="25"/>
+                <amx:image id="i12" source="/images/redled.png"
+                           rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
+                <amx:image id="i11" source="/images/greenled.png"
+                           rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s23" height="5" width="5"/>
+            <amx:tableLayout id="tl11">
+                <amx:rowLayout id="rl20">
+                    <amx:cellFormat id="cf26">
+                        <amx:panelGroupLayout id="pgl28" halign="center" valign="middle">
+                            <amx:image id="i4" source="/images/sunrise.png"
+                                       rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
+                            <amx:image id="i14" source="/images/sunsleep.png"
+                                       rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
+                        </amx:panelGroupLayout>
+                        <amx:spacer id="s24" height="10" width="10"/>
+                        <amx:panelGroupLayout id="pgl30" layout="horizontal">
+                            <amx:outputText value="Threshold Value : " id="ot34" styleClass="small-text gray"/>
+                            <amx:outputText value="#{applicationScope.lightThresh}" id="ot37"
+                                            styleClass="small-text red"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="pgl29" layout="horizontal">
+                            <amx:outputText value="Sensor Value : " id="ot38" styleClass="small-text blue"/>
+                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.light}" id="ot39"
+                                            styleClass="large-text green"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf25">
+                        <amx:spacer id="s26" height="20" width="30"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf27" valign="top" halign="start">
+                        <amx:tableLayout id="tl12" halign="start">
+                            <amx:rowLayout id="rl22">
+                                <amx:cellFormat id="cf28">
+                                    <amx:outputText value="Emergency Contact Details" id="ot40"
+                                                    styleClass="small-text gray"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl23">
+                                <amx:cellFormat id="cf29">
+                                    <amx:spacer id="s27" height="5" width="20"/>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl21">
+                                <amx:cellFormat id="cf31" valign="top">
+                                    <amx:commandLink id="cl13"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSFacetimeClient}">
+                                        <amx:panelGroupLayout id="pgl31" layout="horizontal">
+                                            <amx:image id="i30" source="/images/phone.png"/>
+                                            <amx:outputText value="+1 (704) 858-7285" id="ot36"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl7" from="#{'+1 (704) 858-7285'}"
+                                                                 to="#{viewScope.emerTelNum}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                            <amx:rowLayout id="rl24">
+                                <amx:cellFormat id="cf30">
+                                    <amx:commandLink id="cl14"
+                                                     actionListener="#{pageFlowScope.TrackShipmentRailBean.openIOSEmailClient}">
+                                        <amx:panelGroupLayout id="pgl32" layout="horizontal">
+                                            <amx:image id="i32" source="/images/email.png"/>
+                                            <amx:outputText value="puja.subarmanyam@oracle.com" id="ot41"/>
+                                        </amx:panelGroupLayout>
+                                        <amx:setPropertyListener id="spl8" from="#{'puja.subarmanyam@oracle.com'}"
+                                                                 to="#{viewScope.emerEmailId}" type="action"/>
+                                    </amx:commandLink>
+                                </amx:cellFormat>
+                            </amx:rowLayout>
+                        </amx:tableLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
     </amx:popup>
 </amx:view>
