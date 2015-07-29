@@ -1,9 +1,14 @@
 package com.oracle.apps.fleetmanagement.mobile.model.service;
 
 
+import com.oracle.apps.fleetmanagement.mobile.bean.PreviewBean;
+
 import java.util.ArrayList;
 
 import java.util.List;
+
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 import oracle.ateam.sample.mobile.v2.persistence.util.EntityUtils;
 import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
@@ -28,6 +33,9 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
     
     public List<UserDetails> userDetails;
     public String userLoggedIn;
+    public static List<PreviewBean> previewList;
+    public static userDetailsService context;
+    private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     /**
      * Default constructor. If autoQuery is set to true in the classMappingDescriptor in persistence-mapping.xml, then
@@ -52,6 +60,7 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
      * accross features!
      */
     public userDetailsService() {
+        context = this;
     }
 
     /**
@@ -60,6 +69,7 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
      */
     public userDetailsService(boolean autoQuery) {
         super(autoQuery);
+        context = this;
     }
 
     protected Class getEntityClass() {
@@ -229,6 +239,25 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
         return keyAttrNameList;
     }
 
+
+    public void setPreviewList(List<PreviewBean> previewList) {
+        List<PreviewBean> oldPreviewList = userDetailsService.previewList;
+        userDetailsService.previewList = previewList;
+        propertyChangeSupport.firePropertyChange("previewList", oldPreviewList, previewList);
+    }
+
+    public static List<PreviewBean> getPreviewList() {
+        return previewList;
+    }
+
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.removePropertyChangeListener(l);
+    }
 }
 
 

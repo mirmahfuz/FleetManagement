@@ -1,5 +1,10 @@
 package com.oracle.apps.fleetmanagement.mobile.model;
 
+import com.oracle.apps.fleetmanagement.mobile.bean.PreviewBean;
+import com.oracle.apps.fleetmanagement.mobile.model.service.userDetailsService;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import javax.el.ValueExpression;
@@ -7,10 +12,19 @@ import javax.el.ValueExpression;
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.java.beans.ProviderChangeListener;
+import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.util.Utility;
 import oracle.adfmf.util.logging.Trace;
 
 public class SenderDetail {
+    
+    protected transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
+    protected transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
+
     /* Sender Attributes*/
     private String senderName;
     private String senderAddr1;
@@ -72,10 +86,28 @@ public class SenderDetail {
     public SenderDetail(){
         super();
         total = 20; 
+        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.total}", Long.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), total);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.shipmentLoadUnloadvaluechangenew}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "$0");
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangenew}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "$0");
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.temperatureMonitoringvaluechangenew}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "$0");
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.monitorCollisionvaluechangenew}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "$0");
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.monitorAtmosphericPressurevaluechangenew}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "$0");
+        
     }
     
     public void defaultFillSender(ActionEvent x){
-        ValueExpression ve;
+     /*   ValueExpression ve;
         ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderPhoneNumber}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "4087869884");
         
@@ -96,10 +128,44 @@ public class SenderDetail {
         
         ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderAddr1}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "400 Oracle Parkway");
+*/
         
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderName}", String.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Anil Ranka");
+   //     ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderName}", String.class);
+     //   ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Anil Ranka");
+        
+       
+        this.setSenderName("Lisa Ray");
+        this.setSenderAddr1("300 Oracle Parkway");
+        this.setSenderCity("Redwood City");
+        this.setSenderState("California");
+        this.setSenderZip("94065");
+        this.setSenderCountry("United States");
+        this.setSenderPhoneNumber("4087869884");
+        this.setSenderEmail("lisa.ray@company.com");
+        
+        this.setReceiverName("John Smith");
+        this.setReceiverAddr1("11401 Century Oaks Terrace");
+        this.setReceiverCity("Austin");
+        this.setReceiverState("Texas");
+        this.setReceiverZip("78758");
+        this.setReceiverCountry("United States");
+        this.setReceiverPhoneNumber("7034561234");
+        this.setReceiverEmail("john.smith@company.com");
+           
+        this.setShipmentType("Perishable");
+        this.setNumOfBoxes("2");
+        this.setNumOfTrainCarts("Train cart 1");
+        this.setShippingMethod("Rail");
+        
+        this.setCcNum("xxxxxxxxxxxxxxxx");
+        this.setCcType("Visa");
+        this.setCvv("xxx");
+        this.setCcBillingAddress("300 Oracle Parkway");
+        this.setCcState("Redwood City");
+        this.setCcState("California");      
+        this.setCcZip("94043");
+        this.setCcCountry("United States");
         
     }
     public void defaultFillReceiver(ActionEvent x){
@@ -131,7 +197,7 @@ public class SenderDetail {
     }
     
     public void defaultFillPayment(ActionEvent x){
-        
+        this.generatePreview(x);
     }
     
     public void save(ActionEvent x){
@@ -177,16 +243,19 @@ public class SenderDetail {
       Trace.log(Utility.ApplicationLogger, Level.INFO, SenderDetail.class, "ValueChangeHandler",
                 "##############ValueChangeHandler completed");
     }
-    
-    public void setSenderName(String name) {
-        this.senderName = name;
+
+
+    public void setSenderName(String senderName) {
+        String oldSenderName = this.senderName;
+        this.senderName = senderName;
+        propertyChangeSupport.firePropertyChange("senderName", oldSenderName, senderName);
     }
 
     public String getSenderName() {
         return senderName;
     }
 
-   
+
     public void setReadOnly(boolean readOnly) {
         this.readOnly = readOnly;
     }
@@ -202,60 +271,77 @@ public class SenderDetail {
     public boolean isDisabled() {
         return disabled;
     }
-    public void setSenderAddr1(String addr1) {
-        this.senderAddr1 = addr1;
+
+    public void setSenderAddr1(String senderAddr1) {
+        String oldSenderAddr1 = this.senderAddr1;
+        this.senderAddr1 = senderAddr1;
+        propertyChangeSupport.firePropertyChange("senderAddr1", oldSenderAddr1, senderAddr1);
     }
 
     public String getSenderAddr1() {
         return senderAddr1;
     }
-    public void setSenderCity(String city) {
-        this.senderCity = city;
+
+    public void setSenderCity(String senderCity) {
+        String oldSenderCity = this.senderCity;
+        this.senderCity = senderCity;
+        propertyChangeSupport.firePropertyChange("senderCity", oldSenderCity, senderCity);
     }
 
     public String getSenderCity() {
         return senderCity;
     }
 
-    public void setSenderState(String state) {
-        this.senderState = state;
+    public void setSenderState(String senderState) {
+        String oldSenderState = this.senderState;
+        this.senderState = senderState;
+        propertyChangeSupport.firePropertyChange("senderState", oldSenderState, senderState);
     }
 
     public String getSenderState() {
         return senderState;
     }
 
-    public void setSenderZip(String zip) {
-        this.senderZip = zip;
+    public void setSenderZip(String senderZip) {
+        String oldSenderZip = this.senderZip;
+        this.senderZip = senderZip;
+        propertyChangeSupport.firePropertyChange("senderZip", oldSenderZip, senderZip);
     }
 
     public String getSenderZip() {
         return senderZip;
     }
 
-    public void setSenderCountry(String country) {
-        this.senderCountry = country;
+    public void setSenderCountry(String senderCountry) {
+        String oldSenderCountry = this.senderCountry;
+        this.senderCountry = senderCountry;
+        propertyChangeSupport.firePropertyChange("senderCountry", oldSenderCountry, senderCountry);
     }
 
     public String getSenderCountry() {
         return senderCountry;
     }
 
-    public void setSenderEmail(String email) {
-        this.senderEmail = email;
+    public void setSenderEmail(String senderEmail) {
+        String oldSenderEmail = this.senderEmail;
+        this.senderEmail = senderEmail;
+        propertyChangeSupport.firePropertyChange("senderEmail", oldSenderEmail, senderEmail);
     }
 
     public String getSenderEmail() {
         return senderEmail;
     }
 
-    public void setSenderPhoneNumber(String phoneNumber) {
-        this.senderPhoneNumber = phoneNumber;
+    public void setSenderPhoneNumber(String senderPhoneNumber) {
+        String oldSenderPhoneNumber = this.senderPhoneNumber;
+        this.senderPhoneNumber = senderPhoneNumber;
+        propertyChangeSupport.firePropertyChange("senderPhoneNumber", oldSenderPhoneNumber, senderPhoneNumber);
     }
 
     public String getSenderPhoneNumber() {
         return senderPhoneNumber;
     }
+
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
     }
@@ -358,6 +444,8 @@ public class SenderDetail {
       if(newstr == true){
           newval = "$5.00";
           total += 5;
+      }else{
+          total -= 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -410,6 +498,8 @@ public class SenderDetail {
       if(newstr == true){
           newval = "$1.00";
           total +=  1;
+      }else{
+          total -= 1;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -462,6 +552,8 @@ public class SenderDetail {
       if(newstr == true){
           newval = "$5.00";
           total += 5;
+      }else{
+          total -= 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -580,6 +672,8 @@ public class SenderDetail {
       if(newstr == true){
           newval = "$5.00";
           total += 5;
+      }else{
+          total -= 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -630,14 +724,13 @@ public class SenderDetail {
       String newval = "$0";
 
       if(newstr == true){
-          newval = "$5.00";
-          total += 5;
+          total += 0;
           
           //Enable the picture
           AdfmfJavaUtilities.setELValue("#{viewScope.enableMonitorImage}", true);
           AdfmfJavaUtilities.flushDataChangeEvent();
       }
-      if(newstr == false){
+      else{
           AdfmfJavaUtilities.setELValue("#{viewScope.enableMonitorImage}", false);
           AdfmfJavaUtilities.flushDataChangeEvent();
       }
@@ -692,6 +785,8 @@ public class SenderDetail {
       if(newstr == true){
           newval = "$5.00";
           total += 5;
+      }else{
+          total -= 5;
       }
       //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
@@ -826,4 +921,144 @@ public class SenderDetail {
     public String getShipmentType() {
         return shipmentType;
     }
+    
+    
+    
+    public void addProviderChangeListener(ProviderChangeListener l) {
+        providerChangeSupport.addProviderChangeListener(l);
+    }
+
+    public void removeProviderChangeListener(ProviderChangeListener l) {
+        providerChangeSupport.removeProviderChangeListener(l);
+    }
+
+    public void setProviderChangeSupport(ProviderChangeSupport providerChangeSupport) {
+        ProviderChangeSupport oldProviderChangeSupport = this.providerChangeSupport;
+        this.providerChangeSupport = providerChangeSupport;
+        propertyChangeSupport.firePropertyChange("providerChangeSupport", oldProviderChangeSupport,
+                                                 providerChangeSupport);
+    }
+
+    public ProviderChangeSupport getProviderChangeSupport() {
+        return providerChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this.propertyChangeSupport;
+        this.propertyChangeSupport = propertyChangeSupport;
+        propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                 propertyChangeSupport);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.removePropertyChangeListener(l);
+    }
+    
+    public void generatePreview(ActionEvent actionEvent){
+        PreviewBean pageOne = new PreviewBean();
+        pageOne.setItem1(this.getSenderName()==null?"":this.getSenderName());
+        pageOne.setItem1Label("Sender Name");
+        pageOne.setItem2(this.getSenderAddr1()==null?"":this.getSenderAddr1());
+        pageOne.setItem2Label("Address");
+        pageOne.setItem3(this.getSenderCity()==null?"":this.getSenderCity());
+        pageOne.setItem3Label("City");
+        pageOne.setItem4(this.getSenderState()==null?"":this.getSenderState());
+        pageOne.setItem4Label("State");    
+        pageOne.setItem5(this.getSenderZip()==null?"":this.getSenderZip());
+        pageOne.setItem5Label("Zip");
+        pageOne.setItem6(this.getSenderCountry()==null?"":this.getSenderCountry());
+        pageOne.setItem6Label("Country");
+        pageOne.setItem7(this.getSenderEmail()==null?"":this.getSenderEmail());
+        pageOne.setItem7Label("Email");
+        pageOne.setItem8(this.getSenderPhoneNumber()==null?"":this.getSenderPhoneNumber());
+        pageOne.setItem8Label("Phone");
+        
+        
+        PreviewBean pageTwo = new PreviewBean();
+        pageTwo.setItem1(this.getReceiverName()==null?"":this.getReceiverName());
+        pageTwo.setItem1Label("Receiver Name");
+        pageTwo.setItem2(this.getReceiverAddr1()==null?"":this.getReceiverAddr1());
+        pageTwo.setItem2Label("Address");
+        pageTwo.setItem3(this.getReceiverCity()==null?"":this.getReceiverCity());
+        pageTwo.setItem3Label("City");
+        pageTwo.setItem4(this.getReceiverState()==null?"":this.getReceiverState());
+        pageTwo.setItem4Label("State");
+        pageTwo.setItem5(this.getReceiverZip()==null?"":this.getReceiverZip());
+        pageTwo.setItem5Label("Zip");
+        pageTwo.setItem6(this.getReceiverCountry()==null?"":this.getReceiverCountry());
+        pageTwo.setItem6Label("Country");
+        pageTwo.setItem7(this.getReceiverEmail()==null?"":this.getReceiverEmail());
+        pageTwo.setItem7Label("Email");
+        pageTwo.setItem8(this.getReceiverPhoneNumber()==null?"":this.getReceiverPhoneNumber());
+        pageTwo.setItem8Label("Phone");
+        
+        PreviewBean pageThree = new PreviewBean();
+        pageThree.setItem1(this.getNumOfBoxes()==null?"":this.getNumOfBoxes());
+        pageThree.setItem1Label("Number of boxes");
+        pageThree.setItem2(this.getShippingMethod()==null?"":this.getShippingMethod());
+        pageThree.setItem2Label("Select shipping method");
+        pageThree.setItem3(this.getNumOfTrainCarts()==null?"":this.getNumOfTrainCarts());
+        pageThree.setItem3Label("No of train cars");
+        pageThree.setItem4(this.getShipmentType()==null?"":this.getShipmentType());
+        pageThree.setItem4Label("Nature of shipment");
+        
+        PreviewBean pageFour = new PreviewBean();
+        pageFour.setItem1(isMonitorShakes()==true?"Selected":"Not selected");
+        pageFour.setItem1Label("Location Tracking");
+        pageFour.setItem2(isTheftProtection()==true?"Selected":"Not selected");
+        pageFour.setItem2Label("Theft Protection");
+        pageFour.setItem3(isShipmentLoadUnload()==true?"Selected":"Not selected");
+        pageFour.setItem3Label("Shipment Load and Unload notification");
+        pageFour.setItem4(isMonitorCollision()==true?"Selected":"Not selected");
+        pageFour.setItem4Label("Collision Monitoring");
+        pageFour.setItem5(isMonitorAtmosphericPressure()==true?"Selected":"Not selected");
+        pageFour.setItem5Label("Humidity Monitoring");
+        pageFour.setItem6(isTemperatureMonitoring()==true?"Selected":"Not selected");
+        pageFour.setItem6Label("Temperature Monitoring");
+        pageFour.setItem7(String.valueOf(this.getTempThreshold()));
+        pageFour.setItem7Label("Temperature Threshold:");
+        pageFour.setItem8("$ " + String.valueOf(this.getTotal()));
+        pageFour.setItem8Label("Total");
+        
+        PreviewBean pageFive = new PreviewBean();
+        pageFive.setItem1(this.getCcType()==null?"":this.getCcType());
+        pageFive.setItem1Label("Card Type");
+        pageFive.setItem2(this.getCcNum()==null?"":this.getCcNum());
+        pageFive.setItem2Label("Card Num");
+        pageFive.setItem3(this.getCvv()==null?"":this.getCvv());
+        pageFive.setItem3Label("CVV");
+        pageFive.setItem4(this.getCcBillingAddress()==null?"":this.getCcBillingAddress());
+        pageFive.setItem4Label("Billing Address");
+        pageFive.setItem5(this.getCcCity()==null?"":this.getCcCity());
+        pageFive.setItem5Label("City");
+        pageFive.setItem6(this.getCcState()==null?"":this.getCcState());
+        pageFive.setItem6Label("State");
+        pageFive.setItem7(this.getCcZip()==null?"":this.getCcZip());
+        pageFive.setItem7Label("Zip");
+        pageFive.setItem8(this.getCcCountry()==null?"":this.getCcCountry());
+        pageFive.setItem8Label("Country");
+       
+        
+        userDetailsService x = new userDetailsService();
+        userDetailsService ctx = userDetailsService.context;
+        List<PreviewBean> tempList = ctx.getPreviewList();
+        
+        tempList = new ArrayList<PreviewBean>();
+        tempList.add(0,pageOne);
+        tempList.add(1, pageTwo);
+        tempList.add(2,pageThree);
+        tempList.add(3, pageFour);
+        tempList.add(4,pageFive);
+        ctx.setPreviewList(tempList);
+       
+    }
+
 }

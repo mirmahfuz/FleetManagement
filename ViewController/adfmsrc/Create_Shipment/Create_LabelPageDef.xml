@@ -4,8 +4,36 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+     <iterator id="userDetailsServiceDataControlIterator" Binds="root" DataControl="userDetailsServiceDataControl"
+              RangeSize="25"/>
+    <accessorIterator id="userDetailsIterator" MasterBinding="userDetailsServiceDataControlIterator" Binds="previewList"
+                      BeanClass="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
+                      DataControl="userDetailsServiceDataControl" RangeSize="25"/>
   </executables>
   <bindings>
+  <tree id="previewList" IterBinding="userDetailsIterator">
+      <nodeDefinition Name="userDetails0" DefName="com.oracle.apps.fleetmanagement.mobile.bean.PreviewBean">
+        <AttrNames>
+          <Item Value="item1"/>
+          <Item Value="item1Label"/>
+          <Item Value="item2"/>
+          <Item Value="item2Label"/>
+          <Item Value="item3"/>
+          <Item Value="item3Label"/>
+          <Item Value="item4"/>
+          <Item Value="item4Label"/>
+          <Item Value="item5"/>
+          <Item Value="item5Label"/>
+          <Item Value="item6"/>
+          <Item Value="item6Label"/>
+          <Item Value="item7"/>
+          <Item Value="item7Label"/>
+          <Item Value="item8"/>
+          <Item Value="item8Label"/>
+          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
