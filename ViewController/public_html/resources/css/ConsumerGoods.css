@@ -1,0 +1,896 @@
+/**************************************
+**********     font css     ***********
+**************************************/
+.tinyText {
+    font-size: 8px;
+}
+
+.verySmall-text {
+    font-size: 80%;
+}
+
+.small-text .readOnlyLabel {
+    font-size: 90%;
+}
+
+.small-text {
+    font-size: 90%;
+}
+
+.xl-text {
+    font-size: 130% !important;
+}
+
+.large-text{
+    font-size:110% !important;
+}
+
+
+.xxl-text{
+    font-size:150% !important;
+}
+
+.xxxl-text {
+    font-size: 200%;
+}
+
+.xxxxl-text {
+    font-size: 400%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italics{
+    font-style:italic;
+}
+
+.noWrap {
+    white-space: nowrap;
+}
+
+.ellipsis {
+    text-overflow: ellipsis !important;
+}
+/**************************************
+******        color css         *******
+**************************************/
+.black {
+    color: Black;
+}
+
+.green {
+    color: rgb(27, 149, 73) !important;
+}
+
+.blue {
+    color: rgb(46, 110, 178);
+}
+
+.gray {
+    color: Gray !important;
+}
+
+.red{
+color: #FF0000;    
+}
+
+.lightBlue {
+    color: rgb(20, 121, 181);
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.offsetWhite {
+    color: rgb(191, 198, 208);
+}
+
+.linkColor {
+    color: #0572CE;
+}
+
+.background_blue{
+    background-color: rgb(9, 112, 177);
+}
+
+.block {
+    display: block;
+}
+
+.absolute{
+    position : absolute;
+}
+/**************************************
+*  style-classes specific to design  *
+**************************************/
+.appointment-latest {
+    background-color: rgb(9, 112, 177);
+    border-radius: 5px 0px 0px 5px;
+    height: 195px;
+    padding: 10px;
+}
+
+.appointment-latest .amx-outputText {
+    color: white;
+}
+
+.appointment {
+    background-color: rgb(233, 234, 235);
+    border-radius: 5px 0px 0px 5px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid rgb(183, 184, 186);
+    /*border-right: none;*/
+}
+
+.weekDayBadge_Red {
+    padding: 5px;
+    background-color: rgb(241, 89, 42);
+    color: white;
+    border-radius: 2px;
+}
+
+.weekDayBadge_Black {
+    padding: 5px;
+    background-color: rgb(104, 104, 104);
+    color: white;
+    border-radius: 2px;
+}
+
+.appointmentDetailContainer {
+    border: 1px solid rgb(207, 207, 207);
+    margin: 10px;
+    border-radius: 6px;
+    height: 100px;
+    width: 120px;
+    padding: 10px;
+}
+
+.shipmentDetailContainer {
+    border: 1px solid rgb(207, 207, 207);
+    margin: 10px;
+    border-radius: 6px;
+    height: 60px;
+    width: 90px;
+    padding: 10px;
+}
+
+.navigator {
+    width: 25px;
+    height: 35px;
+    padding: 5px;
+    margin: -10px 0px;
+}
+
+.accountLogo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.largePersonImage {
+    border: 1px solid #DDDDDD;
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+}
+.largePersonAbbreviation {
+    border: 1px solid #DDDDDD;
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.largePersonAbbreviation .amx-panelGroupLayout {
+    border: 1px solid #DDDDDD;
+    height: 69px;
+    width: 69px;
+    border-radius: 50%;
+    background-color: rgb(153,142,125);
+    margin-top: 0.5px;
+}
+
+.largePersonAbbreviation .amx-outputText {
+    margin-top: 18px; 
+    display: block;
+    font-size: 150%;
+}
+
+
+.smallPersonImage {
+    border: 1px solid #DDDDDD;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+}
+
+.smallPersonAbbreviation {
+    border: 1px solid #DDDDDD;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.smallPersonAbbreviation .amx-panelGroupLayout {
+    border: 1px solid #DDDDDD;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-color: rgb(153,142,125);
+    margin-top: .5px;
+}
+
+.smallPersonAbbreviation .amx-outputText {
+    margin-top: 9px; 
+    display: block;
+    font-size: 120%;
+}
+
+.headerPersonImage {
+    border: 1px solid #DDDDDD;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
+
+.inventoryHeader {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+}
+
+.inventoryItem_Active {
+    height: 80px;
+    width: 160px;
+    margin: 10px 0px;
+    background: url("images/InventoryActive.svg")no-repeat;
+}
+
+.inventoryItem_Inactive {
+    height: 80px;
+    width: 160px;
+    margin: 10px 0px;
+    background: url("images/InventoryInactive.svg")no-repeat;
+}
+
+.inventoryHeaderButton {
+    height: 80px;
+    width: 80px;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+}
+.inventoryHeaderButtonSelected {
+    height: 80px;
+    width: 80px;
+    border: 1px solid rgb(9, 112, 177);
+    border-radius: 6px;
+}
+
+.inventoryHeaderButton_noBorder {
+    height: 80px;
+    width: 80px;
+    border-radius: 6px;
+}
+
+.inventoryInput .field-label {
+    display: none;
+}
+
+.inventoryBadge {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgb(207, 41, 48);
+}
+
+.inventoryInput .amx-inputText-content {
+    border: 1px solid rgb(176, 176, 176);
+    padding: 5px 8px 5px 8px !important;
+    min-width: 50px !important;
+    text-align: end;
+}
+
+.inventoryInputError .amx-inputText-content {
+    border: 1px solid rgb(241, 89, 42);
+    padding: 5px 8px 5px 8px !important;
+    min-width: 50px !important;
+    text-align: end;
+}
+
+/*.list_Warning{
+    display:block;
+    padding: 30px 0px;
+}
+
+.list_WarningText{
+    position: absolute;
+    bottom: 3px;
+}*/
+
+/*.list_Warning{
+    display:block;
+    padding: 30px 0px;
+}*/
+
+.list_Warning{
+    /*display:block;*/
+    padding: 20px 0px !important;
+}
+
+.list_WarningText{
+    position: absolute;
+    margin-top:-20px;
+}
+
+.list_WarningFacingText{
+    position: absolute;
+    bottom: 4px;
+}
+
+.list_WarningStockText{
+    position: absolute;
+    bottom: 5px;
+}
+
+.listHeader {
+    color: rgb(108, 108, 108);
+    font-size: 110%;
+}
+
+.confirmationPopup {
+    height: 210px;
+    width: 350px;
+    padding: 0px;
+}
+
+.informationBanner{
+    background-color:#000000;
+    opacity:0.8;
+    width:100%;
+    border:none;
+}
+
+.promotionheader{
+    margin-left: 17px;
+margin-top:20px;
+display: block;
+}
+.listSeperator .amx-rowLayout {
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.newAltaButton.amx-commandButton {
+    border-radius: 5px;
+    background-color: rgb(9, 112, 177);
+    min-height: 35px;
+}
+
+.whiteButton.amx-commandButton {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    min-height: 35px;
+}
+
+.whiteButton .amx-commandButton-label {
+    color: #0572CE;
+}
+
+.white .amx-commandButton-label{
+    color:#FFFFFF;
+}
+.globalBack {
+    margin-top: -5px;
+}
+
+.expandInput{
+    border:none;
+}
+
+.expandInput .amx-inputText{
+    border: 1px solid #CCC;
+    width: 98%;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.padding10{
+    padding:10px;
+}
+
+.expandInput .amx-inputText-content{
+    text-align:left !important;
+    margin-left:7px;
+}
+
+.list_Warning{
+    /*display:block;*/
+    padding: 20px 0px !important;
+}
+
+/*.list_WarningText{
+    position: absolute;
+    margin-top:-20px;
+}*/
+
+.strikethrough_validation{
+    height: 2px;
+background-color: red;
+position: absolute;
+/* display: block; */
+margin-top: 27px;
+width: 93%;
+z-index: 100;
+}
+.errorInput .amx-inputText-content{
+    border-color:red;
+}
+.toolbarSeparator_Active{
+    height:30px;
+    width:1px;
+    background-color:#0572CE;
+}
+
+.notebook .amx-inputText-content{
+    line-height: 50px;
+    padding: 10px 5px 0 5px !important;
+    background-image: -webkit-linear-gradient(top, transparent, transparent 49px, #D3D3D3 0);
+    background-size: 100% 50px;
+}
+
+.truncate{
+    text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+overflow: hidden;
+}
+
+.removeHeader .amx-panelPage-header {
+    display: none;
+    border: none;
+}
+
+.pageBackgroundImage_Oracle{
+    background: url("images/fuse-watermark-oracle.png")no-repeat 100% 100%;
+    background-color:#102536;
+}
+
+.scroll {
+    overflow: scroll;
+}
+
+.largePageContent_ipadRetina{
+    height:500px;
+    width:680px;
+    background-color:#FFFFFF;
+    padding:10px;
+    border-radius:15px;
+}
+
+.smallPageContent_ipadRetina{
+    height:500px;
+    width:340px;
+    background-color:#FFFFFF;
+    border-radius:0px 0px 15px 15px;
+}
+
+.margin20{
+    margin:20px;
+}
+
+.sectionHeader {
+    background-color: rgb(234, 234, 235);
+    border-top: 1px solid rgb(223, 223, 224);
+    border-bottom: 1px solid rgb(223, 223, 224);
+    padding: 20px 0px 5px 10px;
+}
+
+.sectionHeader .amx-outputText {
+    color: rgb(118, 118, 123);
+}
+
+.compactForm .field-label {
+    font-size: 14px;
+    color: Gray !important;
+}
+
+.detailsForm.amx-panelFormLayout {
+    border: none;
+    margin: 0px;
+}
+
+.detailsForm.amx-panelFormLayout.amx-label-position-topStart .field-label {
+    padding: 6px 10px 0 0 !important;
+}
+
+.detailsForm .amx-inputText .field-value input {
+    padding-left: 3px;
+}
+
+.detailsForm.amx-panelFormLayout .field-label, .detailsForm.amx-panelFormLayout .field-value {
+    border: none;
+}
+
+.detailsForm .amx-panelFormLayout_sizingTable > *{
+    border-top :1px solid #D5DFD5 ;
+}
+
+.detailsForm .amx-panelFormLayout_sizingRow{
+border: none !important;	
+	
+}
+
+
+/*copied from Enterprise*/
+.removeListDividers .amx-listItem:active, .removeListDividers .amx-listItem {
+    background-image: none !important;
+}
+
+.removeListDividers .amx-listItem:active, .removeListDividers .amx-listItem.amx-listItem-selected {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.listItemBullet {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.adjustDivider .amx-listItem:last-child {
+    border-bottom: 1px solid transparent;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXV3+8aLew4AAAACklEQVQIHWNgAAAAAgABz8g15QAAAABJRU5ErkJggg==);
+    background-size: 100% 1px;
+}
+
+.removeListSelection .amx-listItem.amx-listItem-selected, .removeListSelection .amx-listItem:active {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXV3+8aLew4AAAACklEQVQIHWNgAAAAAgABz8g15QAAAABJRU5ErkJggg==);
+    background-size: 100% 1px;
+}
+
+.removeOpacity .amx-listItem:active {
+    opacity: 1 !important;
+}
+
+.addOpacity .amx-listItem:active {
+    opacity: 0.6;
+}
+
+.removeDivider_lastItem .amx-listItem:last-child {
+    background-image: none !important;
+    border-bottom: none !important;
+}
+
+html[dir=ltr] .amx-listItem-selected > .amx-listItem-caret {
+    background-position: -51px -1px;;
+}
+
+/*************************************
+***           custom search         ***
+**************************************/
+.csearch {
+    padding: 3px;
+    min-width: 100px;
+    /*margin-top:10px;*/
+    /*margin-bottom:15px;*/
+}
+
+.search {
+    padding: 6px 15px 6px 30px;
+    background: url("images/search.svg")no-repeat 8px 6px;
+}
+
+.rounded {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #c7c7c8;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.clear_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    width: 25px;
+    height: 25px;
+    background-image: url("images/x_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.clear_button_visible {
+    position: absolute;
+    top: 12px;
+    right: 83px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("images/x_icon.svg");
+    background-repeat: no-repeat;
+}
+
+a#customSearchBoxanchor.clear_button_visible {
+    right: 5px;
+}
+
+.newAltaButton .amx-commandButton-label {
+    color: white;
+}
+/**************************************
+***       springboard css      ***
+**************************************/
+.shuttleBackGround {
+    background: -webkit-linear-gradient(left, rgb(9, 112, 177) 96%, rgb(0, 72, 100) 100%);
+}
+
+.shuttleList.amx-listView, .shuttleList .amx-listItem {
+    background-color: transparent;
+    border: none !important;
+    background-image: none;
+    border-bottom: none;
+}
+
+.shuttleList .amx-listItem.amx-listItem-selected {
+    background-color: rgb(0, 72, 100);
+    border: none !important;
+    background-image: none;
+    border-bottom: none;
+}
+
+.shuttleList .amx-listItem:active {
+    margin-bottom: 0px;
+    opacity: 0.7;
+}
+
+.shuttleList .amx-listItem {
+    border-top: none;
+    margin-bottom: 0px;
+}
+
+.shuttleListItem {
+    color: rgb(191, 198, 208);
+    font-size: 130%;
+}
+
+.shuttleSwitch .field-value {
+    padding: 0px !important;
+}
+
+.shuttleListImages {
+    width: 32px;
+    height: 32px;
+}
+
+.shuttleHeader {
+    color: white;
+    font-weight: 200;
+    font-size: 200%;
+    margin: 10px 20px;
+}
+
+.shuttleFooter {
+    background: -webkit-linear-gradient(left, rgb(29, 99, 145) 96%, rgb(0, 72, 100) 100%);
+}
+
+.shuttleLogo {
+    width: 90px;
+}
+
+.seperator {
+    height: 2px;
+    background-color: rgb(191, 198, 208);;
+}
+/**************************************
+***       generic styleClasses      ***
+**************************************/
+a:-webkit-any-link {
+    text-decoration: none;
+}
+/*removes default underline and brings only opacity at active state*/
+.amx-commandLink:active {
+    background-color: transparent;
+    opacity: 0.7;
+}
+/*removes default background on active state and brings only opacity*/
+.amx-panelPage-header {
+    background-color: rgb(9, 112, 177);
+}
+
+.amx-panelPage-footer {
+    background-color: rgb(9, 112, 177);
+}
+
+.amx-panelPage-header {
+    border-bottom: 1px solid rgb(9, 112, 177);
+}
+
+.amx-panelPage-footer {
+    border-top: 1px solid rgb(9, 112, 177);
+}
+
+.amx-panelPage-header .amx-outputText {
+    color: #FFFFFF;
+}
+
+/******************************************************
+**call report / consumer goods specific styeleclasses**
+******************************************************/
+.appointmentList {
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.appointmentList .amx-listItem {
+    min-height: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.appointmentList .amx-listItem .amx-image {
+    margin-top: 0px;
+}
+
+.dayBadge_Red {
+    padding: 5px;
+    min-width: 50px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #d24700;
+    color: #FFFFFF;
+}
+
+.dayBadge_Black {
+    padding: 5px;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+    background-color: rgb(104, 104, 104);
+    color: #FFFFFF;
+}
+
+.appointment_Time_Active {
+    background-color: #0471B2 !important;
+    height: 125px !important;
+    padding-top: 11px !important;
+    border: 3px solid #0471B2 !important;
+    transition: all 1s linear !important;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointment_Time_Active .amx-outputText {
+    color: #FFFFFF !important;
+    transition: all 1s linear !important;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointment_Time_Inactive {
+    background-color: #FFFFFF;
+    height: 79px;
+    padding-top: 11px;
+    border: 1.5px solid #D1D1D1;
+    border-right: none;
+    transition: all 1s linear;
+}
+
+.appointment_Time_Inactive .amx-outputText {
+    transition: all 1s linear;
+}
+
+.appointment_Active {
+    height: 116px !important;
+    border: 3px solid #0471B2 !important;
+    border-left: 1px solid #0471B2 !important;
+    transition: all 1s linear !important;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointment_Inactive {
+    margin-left: -1px;
+    background-color: rgb(244, 244, 244);
+    height: 70px;
+    padding: 10px;
+    border: 1.5px solid #D1D1D1;
+    transition: all 1s linear;
+}
+
+.appointmentDetail_Inactive {
+    transition: all 1s linear;
+    height: 0px;
+}
+
+.appointmentDetail_Active {
+    height: 41px !important;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointmentContact_Active {
+    margin: 0px -10px -10px -10px;
+    padding: 5px 10px 0px 10px;
+    background-color: White !important;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointmentContact_Inactive {
+    background-color: rgb(244, 244, 244);
+    transition: all 1s linear;
+    height: 55px;
+}
+
+.appointmentAttachment_Active {
+    opacity: 1 !important;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: all 1s linear;
+}
+/*needs important because it needs to overide inactive state css necessary for animation*/
+.appointmentAttachment_Inactive {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.appointmentShowMoreLess_Inavtive {
+    position: absolute;
+    transition: 1s linear;
+    right: 7px;
+    bottom: 0px;
+}
+
+.appointmentShowMoreLess_Active {
+    transform: rotate(180deg);
+}
+
+.attachments.amx-filmStrip .amx-filmStrip_pageControl {
+    margin-top: 5px;
+}
+
+.attachments .amx-filmStrip-item-content {
+    border: none;
+}
+
+.attachments .amx-filmStrip-item-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 80%;
+    color: rgb(118, 118, 123);
+}
+
+.attachments .amx-filmStripItem {
+    width: 100px;
+    height: 100px;
+}
+
+.informationFooter {
+    background-color: rgb(234, 234, 235);
+    border-top: 1px solid rgb(223, 223, 224);
+    border-bottom: 1px solid rgb(223, 223, 224);
+    padding: 16px 0px 5px 10px;
+}
+
+.informationFooter .amx-outputText {
+    color: rgb(118, 118, 123);
+    display: block;
+}
+
+.psa_popup {
+   height: 300px;
+    width: 4000px;
+    padding: 10px;
+}

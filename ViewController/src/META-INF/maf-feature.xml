@@ -4,7 +4,7 @@
         <adfmf:content id="About.1">
             <adfmf:amx file="About/About-task-flow.xml#About-task-flow">
                 <adfmf:includes>
-                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i3"/>
+                    <adfmf:include type="StyleSheet" file="resources/css/ConsumerGoods.css" id="i5"/>
                 </adfmf:includes>
             </adfmf:amx>
         </adfmf:content>
