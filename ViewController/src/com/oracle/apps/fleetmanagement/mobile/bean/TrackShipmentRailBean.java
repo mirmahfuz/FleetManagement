@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.framework.api.JSONBeanSerializationHelper;
+import oracle.adfmf.framework.exception.AdfException;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
@@ -63,12 +64,62 @@ public class TrackShipmentRailBean implements MqttCallback{
     String light;
     String customerId;
     String shipmentId;
+    boolean showLightSensor;
+    boolean showUltraSensor;
+    boolean showTempSensor;
+    boolean showHumidSensor;
+
+
+    public void setShowTempSensor(boolean showTempSensor) {
+        boolean oldShowTempSensor = this.showTempSensor;
+        this.showTempSensor = showTempSensor;
+        propertyChangeSupport.firePropertyChange("showTempSensor", oldShowTempSensor, showTempSensor);
+        AdfmfJavaUtilities.flushDataChangeEvent();
+    }
+
+    public boolean isShowTempSensor() {
+        return showTempSensor;
+    }
+
+    public void setShowHumidSensor(boolean showHumidSensor) {
+        boolean oldShowHumidSensor = this.showHumidSensor;
+        this.showHumidSensor = showHumidSensor;
+        propertyChangeSupport.firePropertyChange("showHumidSensor", oldShowHumidSensor, showHumidSensor);
+        AdfmfJavaUtilities.flushDataChangeEvent();
+    }
+
+    public boolean isShowHumidSensor() {
+        return showHumidSensor;
+    }
+
+    public void setShowLightSensor(boolean showLightSensor) {
+        boolean oldShowLightSensor = this.showLightSensor;
+        this.showLightSensor = showLightSensor;
+        propertyChangeSupport.firePropertyChange("showLightSensor", oldShowLightSensor, showLightSensor);
+        AdfmfJavaUtilities.flushDataChangeEvent();
+    }
+
+    public boolean isShowLightSensor() {
+        return showLightSensor;
+    }
+
+    public void setShowUltraSensor(boolean showUltraSensor) {
+        boolean oldShowUltraSensor = this.showUltraSensor;
+        this.showUltraSensor = showUltraSensor;
+        propertyChangeSupport.firePropertyChange("showUltraSensor", oldShowUltraSensor, showUltraSensor);
+        AdfmfJavaUtilities.flushDataChangeEvent();
+    }
+
+    public boolean isShowUltraSensor() {
+        return showUltraSensor;
+    }
 
 
     public void setLatitude(String latitude) {
         String oldLatitude = this.latitude;
         this.latitude = latitude;
         propertyChangeSupport.firePropertyChange("latitude", oldLatitude, latitude);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getLatitude() {
@@ -79,6 +130,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldLongitude = this.longitude;
         this.longitude = longitude;
         propertyChangeSupport.firePropertyChange("longitude", oldLongitude, longitude);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getLongitude() {
@@ -89,6 +141,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldTemperature = this.temperature;
         this.temperature = temperature;
         propertyChangeSupport.firePropertyChange("temperature", oldTemperature, temperature);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getTemperature() {
@@ -99,6 +152,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldHumidity = this.humidity;
         this.humidity = humidity;
         propertyChangeSupport.firePropertyChange("humidity", oldHumidity, humidity);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getHumidity() {
@@ -109,6 +163,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldUltrasonic = this.ultrasonic;
         this.ultrasonic = ultrasonic;
         propertyChangeSupport.firePropertyChange("ultrasonic", oldUltrasonic, ultrasonic);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getUltrasonic() {
@@ -119,6 +174,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldLight = this.light;
         this.light = light;
         propertyChangeSupport.firePropertyChange("light", oldLight, light);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getLight() {
@@ -129,6 +185,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldCustomerId = this.customerId;
         this.customerId = customerId;
         propertyChangeSupport.firePropertyChange("customerId", oldCustomerId, customerId);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getCustomerId() {
@@ -139,6 +196,7 @@ public class TrackShipmentRailBean implements MqttCallback{
         String oldShipmentId = this.shipmentId;
         this.shipmentId = shipmentId;
         propertyChangeSupport.firePropertyChange("shipmentId", oldShipmentId, shipmentId);
+        AdfmfJavaUtilities.flushDataChangeEvent(); 
     }
 
     public String getShipmentId() {
@@ -309,17 +367,26 @@ public class TrackShipmentRailBean implements MqttCallback{
         System.out.println("-------------------------------------------------");
         System.out.println("| Topic:" + string);
         System.out.println("| Message: " + new String(mqttMessage.getPayload()));
-//        HashMap mPayload = parseJSONObjectFromQueue(new String(mqttMessage.getPayload()));
-//        if(mPayload != null && mPayload.size() > 0){
-//            setCustomerId((String)mPayload.get("CustomerId"));
-//            setHumidity((String)mPayload.get("Humidity"));
-//            setLatitude((String)mPayload.get("Latitude"));
-//            setLongitude((String)mPayload.get("Longitude"));
-//            setLight((String)mPayload.get("light"));
-//            setShipmentId((String)mPayload.get("ShipmentId"));
-//            setTemperature((String)mPayload.get("Temperature"));
-//            setUltrasonic((String)mPayload.get("Ultrasound"));
-//        }
+        HashMap<String, String> mPayload = parseJSONObjectFromQueue(new String(mqttMessage.getPayload()));
+        if(mPayload != null && mPayload.size() > 0){
+            
+        try{
+            
+            setCustomerId(toProperObjectType(mPayload.get("CustomerId"), null));
+            setHumidity(toProperObjectType(mPayload.get("Humidity"), "Humidity"));
+            setLatitude(toProperObjectType(mPayload.get("Latitude"), null));
+            setLongitude(toProperObjectType(mPayload.get("Longitude"), null));
+            setLight(toProperObjectType(mPayload.get("Light"), "Light"));
+            setShipmentId(toProperObjectType(mPayload.get("ShipmentId"), null));
+            setTemperature(toProperObjectType(mPayload.get("Temperature"), "Temperature"));
+            setUltrasonic(toProperObjectType(mPayload.get("Ultrasound"),"Ultrasound"));
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new AdfException (e);
+        }
+
+      }
         System.out.println("-------------------------------------------------");
 
     }
@@ -370,7 +437,7 @@ public class TrackShipmentRailBean implements MqttCallback{
     
     public HashMap parseJSONObjectFromQueue(String pPayload){
         
-        HashMap mShipmentValues = new HashMap();
+        HashMap<String, Object> mShipmentValues = new HashMap<String, Object>();
         
         if(pPayload == null){
             pPayload = "{\"fleet\": {\"customer_id\": 4, \"sensor\": {\"light\": 300, \"long\": 0.0, \n" + 
@@ -390,8 +457,8 @@ public class TrackShipmentRailBean implements MqttCallback{
                  JSONObject mfleetValue = (JSONObject)fleetValue;
                  JSONObject mJSONObject = mfleetValue.getJSONObject("sensor");
                  
-                 Map val1 = toMap(mfleetValue);
-                 Map val2 = toMap(mJSONObject);
+                 Map<String, Object> val1 = toMap(mfleetValue);
+                 Map<String, Object> val2 = toMap(mJSONObject);
                  
                  if(val1 != null){
                      
@@ -435,4 +502,127 @@ public class TrackShipmentRailBean implements MqttCallback{
         
         return map;
     }
+    
+    private String toProperObjectType(Object pVal, String pAttrName){
+       
+       String mVal = null; 
+       
+       if(pVal != null){
+           
+           if(pVal instanceof Integer){
+               
+               int i = (Integer) pVal;
+               mVal = Integer.toString(i);
+               
+               if(pAttrName != null){
+                   
+                   if(pAttrName.equalsIgnoreCase("Light")){
+                       
+                       Object lightThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.lightThresh}");
+                       
+                       if(lightThreshNum != null && lightThreshNum instanceof Integer){
+                           
+                           int lightThresh = (Integer) lightThreshNum;
+                           
+                           if(i < lightThresh){
+                               
+                               setShowLightSensor(false);
+                               
+                           }else{
+                               
+                               setShowLightSensor(true);
+                           }
+                       }else{
+                           
+                           setShowLightSensor(true);
+                       }
+                   }
+                   
+                   
+                   if(pAttrName.equalsIgnoreCase("Ultrasound")){
+                       
+                       Object usThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.usThresh}");
+                       
+                       if(usThreshNum != null && usThreshNum instanceof Integer){
+                           
+                           int usThresh = (Integer) usThreshNum;
+                           
+                           if(i < usThresh){
+                               
+                               setShowUltraSensor(false);
+                               
+                           }else{
+                               
+                               setShowUltraSensor(true);
+                           }
+                       }else{
+                           
+                           setShowUltraSensor(true);
+                       }
+                   }
+                   
+               }
+               
+           }else if(pVal instanceof Double){
+               
+               mVal = Double.toString((Double)pVal);
+               
+               if(pAttrName != null){
+                   
+                   if(pAttrName.equalsIgnoreCase("Temperature")){
+                       
+                       Object tempThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.tempThresh}");
+                       
+                       if(tempThreshNum != null && tempThreshNum instanceof Integer){
+                           
+                           int tempThresh = (Integer) tempThreshNum;
+                           
+                           if((Double)pVal < tempThresh){
+                               
+                               setShowTempSensor(false);
+                               
+                           }else{
+                               
+                               setShowTempSensor(true);
+                           }
+                       }else{
+                           
+                           setShowTempSensor(true);
+                       }
+                   }
+                   
+                   
+                   if(pAttrName.equalsIgnoreCase("Humidity")){
+                       
+                       Object humidThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.humidityThresh}");
+                       
+                       if(humidThreshNum != null && humidThreshNum instanceof Integer){
+                           
+                           int humidThresh = (Integer) humidThreshNum;
+                           
+                           if((Double)pVal < humidThresh){
+                               
+                               setShowHumidSensor(false);
+                               
+                           }else{
+                               
+                               setShowHumidSensor(true);
+                           }
+                       }else{
+                           
+                           setShowHumidSensor(true);
+                       }
+                   }
+                   
+               }
+               
+           }else if(pVal instanceof String){
+               
+               mVal = pVal.toString();
+           }
+       }
+       
+       return mVal;
+    }
+    
 }

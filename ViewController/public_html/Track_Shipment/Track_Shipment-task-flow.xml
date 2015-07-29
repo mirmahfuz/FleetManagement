@@ -12,12 +12,24 @@
       </task-flow-reference>
       <data-control-context>shared</data-control-context>
     </task-flow-call>
+    <task-flow-call id="TrackShipmentRoad">
+      <task-flow-reference>
+        <document>/Track_Shipment/TrackShipmentRoad.xml</document>
+        <id>TrackShipmentRoad</id>
+      </task-flow-reference>
+      <data-control-context>shared</data-control-context>
+    </task-flow-call>
     <control-flow-rule id="__1">
       <from-activity-id>Track_Shipment_Home</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>trackrail</from-outcome>
         <to-activity-id>TrackingShipmentRail</to-activity-id>
-        <transition>slideUp</transition>
+        <transition>flipUp</transition>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>trackroad</from-outcome>
+        <to-activity-id>TrackShipmentRoad</to-activity-id>
+        <transition>flipLeft</transition>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

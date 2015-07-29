@@ -4,12 +4,21 @@
   <amx:panelPage id="pp1">
     <amx:facet name="header">
       <amx:outputText value="Header" id="ot1"/>
+      <amx:commandButton text="commandButton1" id="cb3"/>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
+      <amx:commandButton id="cb1" text="Back" action="__back"/>
     </amx:facet>
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
+    <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP" initialZooming="auto"
+                        shortDesc="Shipment Type :: Road" zoomLevel="15">
+      <dvtm:pointDataLayer id="pdl1">
+        <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.2646400" pointY="37.5311940">
+          <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true"/>
+        </dvtm:pointLocation>
+      </dvtm:pointDataLayer>
+    </dvtm:geographicMap>
   </amx:panelPage>
 </amx:view>

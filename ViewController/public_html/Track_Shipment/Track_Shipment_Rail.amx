@@ -15,8 +15,8 @@
         <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
                             initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17">
             <dvtm:pointDataLayer id="pdl1">
-                <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.2646400"
-                                    pointY="37.5311940">
+                <dvtm:pointLocation id="pl1" type="pointXY" pointX="#{pageFlowScope.TrackShipmentRailBean.longitude}"
+                                    pointY="#{pageFlowScope.TrackShipmentRailBean.latitude}">
                     <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
                     <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="mrk1" align="topCenter"
                                        decoration="anchor" type="action"/>
@@ -52,35 +52,71 @@
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
-            < amx:masonryLayout id="ml1">
+            <amx:masonryLayout id="ml1">
                 <amx:masonryLayoutItem id="mli1" dimension="1x3">
                     <amx:panelGroupLayout id="pgl2" halign="center" valign="middle">
                         <amx:outputText value="Temperature" id="ot5"/>
+                        <amx:image id="i5" source="/images/greenled.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showTempSensor)}"/>
+                        <amx:image id="i6" source="/images/redled.png"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showTempSensor}"/>
                         <amx:spacer id="s1" height="10" width="10"/>
                         <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
-                                               inlineStyle="height:250px; width:60px;" minValue="0" maxValue="100"
+                                               inlineStyle="height:350px; width:60px;" minValue="0" maxValue="100"
                                                thresholdDisplay="all" plotArea="on" visualEffects="auto"
                                                labelDisplay="on" borderColor="#E0E0E0" color="#267db3"
-                                               indicatorSize="0.4">
-                            <dvtm:threshold text="Super Hot" color="#ed6647" maxValue="100" id="t2"/>
-                            <dvtm:threshold text="Cool" color="#fad55c" maxValue="60" id="t1"/>
-                            <dvtm:referenceLine color="#888888" value="70" id="rl4"/>
+                                               indicatorSize="0.4"
+                                               value="#{pageFlowScope.TrackShipmentRailBean.temperature}">
+                            <dvtm:threshold color="#ed6647" maxValue="100" id="t2"/>
+                            <dvtm:threshold color="#fad55c" maxValue="60" id="t1"/>
+                            <dvtm:referenceLine color="#888888" value="#{applicationScope.tempThresh}" id="rl4"/>
                         </dvtm:statusMeterGauge>
                     </amx:panelGroupLayout>
                 </amx:masonryLayoutItem>
-                <amx:masonryLayoutItem id="mli2" dimension="1x1">
-                    <amx:panelGroupLayout id="pgl3">
-                        <dvtm:dialGauge id="dialGauge1" value="35" indicator="needleDark" minValue="0" maxValue="100"
+                <amx:masonryLayoutItem id="mli2" dimension="2x2">
+                    <amx:panelGroupLayout id="pgl3" halign="center" valign="middle">
+                        <amx:outputText value="Humidity" id="ot6"/>
+                        <amx:image id="i8" source="/images/redled.png"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showHumidSensor}"/>
+                        <amx:image id="i7" source="/images/greenled.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showHumidSensor)}"/>
+                        <amx:spacer id="s2" height="10" width="10"/>
+                        <dvtm:dialGauge id="dialGauge1" value="#{pageFlowScope.TrackShipmentRailBean.humidity}" indicator="needleDark" minValue="0" maxValue="100"
                                         background="circleLightCustom"/>
+                    </amx:panelGroupLayout>
+                </amx:masonryLayoutItem>
+                <amx:masonryLayoutItem id="mli3" dimension="2x2">
+                    <amx:panelGroupLayout id="pgl4" valign="middle" halign="center">
+                        <amx:outputText value="Ultrasonic" id="ot7"/>
+                        <amx:image id="i9" source="/images/greenled.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
+                        <amx:image id="i10" source="/images/redled.png"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
+                        <amx:spacer id="s3" height="10" width="10"/>
+                        <amx:image id="i3" source="/images/theft_money.jpg"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor}"/>
+                        <amx:image id="i13" source="/images/safelock.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
+                    </amx:panelGroupLayout>
+                </amx:masonryLayoutItem>
+                <amx:masonryLayoutItem id="mli4" dimension="2x3">
+                    <amx:panelGroupLayout id="pgl5" halign="center" valign="middle">
+                        <amx:outputText value="Light" id="ot2"/>
+                        <amx:image id="i12" source="/images/redled.png"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
+                        <amx:image id="i11" source="/images/greenled.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
+                        <amx:spacer id="s4" height="10" width="10"/>
+                        <amx:image id="i4" source="/images/sunrise.png"
+                                   rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
+                        <amx:image id="i14" source="/images/sunsleep.png"
+                                   rendered="#{!(pageFlowScope.TrackShipmentRailBean.showLightSensor)}"/>
                     </amx:panelGroupLayout>
                 </amx:masonryLayoutItem>
             </amx:masonryLayout>
         </amx:panelGroupLayout>
     </amx:popup>
     <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
-        <amx:outputText id="otTest" value="#{pageFlowScope.TrackShipmentRailBean.customerId}"/>
-        <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.shipmentId}" id="ot2"/>
-        <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.light}" id="ot3"/>
-        <amx:outputText value="Test Value" id="ot4"/>
+        <amx:outputText value="Work In Progress" id="ot4"/>
     </amx:popup>
 </amx:view>

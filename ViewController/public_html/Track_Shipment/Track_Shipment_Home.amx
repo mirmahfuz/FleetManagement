@@ -13,10 +13,10 @@
         </amx:facet>
         <amx:listView var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
             <amx:listItem id="li1" action="trackrail">
-                <amx:outputText value="Shipment Rail" id="ot2"/>
+                <amx:outputText value="Shipment 1: Shipment Id - 10" id="ot2"/>
             </amx:listItem>
-            <amx:listItem id="li2">
-                <amx:outputText value="Shipment Road" id="ot3"/>
+            <amx:listItem id="li2" action="trackroad">
+                <amx:outputText value="Shipment 2: Shipment Id - 20" id="ot3"/>
             </amx:listItem>
         </amx:listView>
     </amx:panelPage>

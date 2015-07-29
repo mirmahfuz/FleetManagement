@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
-  <adfmf:feature id="Home" name="Home">
-    <adfmf:content id="About.1">
-      <adfmf:amx file="About/About-task-flow.xml#About-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i3"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
- <adfmf:feature id="MyProfile" name="My Profile" securityEnabled="false">
-    <adfmf:content id="MyProfile.1">
-      <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i4"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="Create_Shipment" name="Create Shipment">
-    <adfmf:content id="Create_Shipment.1">
-      <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="Track_Shipment" name="Track Shipment">
-    <adfmf:content id="Track_Shipment.1">
-      <adfmf:amx file="Track_Shipment/Track_Shipment-task-flow.xml#Track_Shipment-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i7"/>
-          <adfmf:include type="JavaScript" file="js/mqtt.js" id="i5"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="History" name="History">
-    <adfmf:content id="History.1">
-      <adfmf:amx file="History/History-task-flow.xml#History-task-flow"/>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="Springboard" name="Springboard" securityEnabled="false">
-    <adfmf:content id="Springboard.1">
-      <adfmf:amx file="Springboard/springboard.amx">
-        <adfmf:includes>
-          <adfmf:include type="JavaScript" file="js/mqtt.js" id="i1"/>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i6"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="userDetails" name="userDetails">
-    <adfmf:content id="userDetails.1">
-      <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow"/>
-    </adfmf:content>
-  </adfmf:feature>
-  <adfmf:feature id="Settings" name="Settings">
-    <adfmf:content id="Settings.1">
-      <adfmf:amx file="Settings/Settings-task-flow.xml#Settings-task-flow">
-        <adfmf:includes>
-          <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i8"/>
-        </adfmf:includes>
-      </adfmf:amx>
-    </adfmf:content>
-  </adfmf:feature>
+    <adfmf:feature id="Home" name="Home">
+        <adfmf:content id="About.1">
+            <adfmf:amx file="About/About-task-flow.xml#About-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i3"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="MyProfile" name="My Profile" securityEnabled="false">
+        <adfmf:content id="MyProfile.1">
+            <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i4"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="Create_Shipment" name="Create Shipment">
+        <adfmf:content id="Create_Shipment.1">
+            <adfmf:amx file="Create_Shipment/Create_Shipment-task-flow.xml#Create_Shipment-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i2"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="Track_Shipment" name="Track Shipment">
+        <adfmf:content id="Track_Shipment.1">
+            <adfmf:amx file="Track_Shipment/Track_Shipment-task-flow.xml#Track_Shipment-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i7"/>
+                    <adfmf:include type="JavaScript" file="js/mqtt.js" id="i6"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="History" name="History">
+        <adfmf:content id="History.1">
+            <adfmf:amx file="History/History-task-flow.xml#History-task-flow"/>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="Springboard" name="Springboard" securityEnabled="false">
+        <adfmf:content id="Springboard.1">
+            <adfmf:amx file="Springboard/springboard.amx">
+                <adfmf:includes>
+                    <adfmf:include type="JavaScript" file="js/mqtt.js" id="i1"/>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i9"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="userDetails" name="userDetails">
+        <adfmf:content id="userDetails.1">
+            <adfmf:amx file="userDetails/userDetails-task-flow.xml#userDetails-task-flow"/>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="Settings" name="Settings">
+        <adfmf:content id="Settings.1">
+            <adfmf:amx file="Settings/Settings-task-flow.xml#Settings-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i8"/>
+                </adfmf:includes>
+            </adfmf:amx>
+        </adfmf:content>
+    </adfmf:feature>
 </adfmf:features>

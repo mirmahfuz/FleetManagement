@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="TrackShipmentRoad">
+    <default-activity>Track_Shipment_Road</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name>TrackShipmentRoadBean</managed-bean-name>
+      <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.bean.TrackShipmentRoadBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="Track_Shipment_Road">
+      <page>/Track_Shipment/Track_Shipment_Road.amx</page>
+    </view>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>
