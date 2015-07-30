@@ -115,7 +115,7 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
             if(userLogged!=null)
                 return  userLogged;
             else 
-                return "";
+                return "lisa.ray";
         }
     }
 
