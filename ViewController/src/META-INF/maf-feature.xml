@@ -70,7 +70,11 @@
     <adfmf:feature id="Login" name="Login">
         <adfmf:content id="com.oracle.apps.fleetmanagement.Login.1">
             <adfmf:constraints/>
-            <adfmf:amx file="Login/Login-task-flow.xml#Login-task-flow"/>
+            <adfmf:amx file="Login/Login-task-flow.xml#Login-task-flow">
+                <adfmf:includes>
+                    <adfmf:include type="StyleSheet" file="resources/css/HelloWorld.css" id="i3"/>
+                </adfmf:includes>
+            </adfmf:amx>
         </adfmf:content>
     </adfmf:feature>
     <adfmf:feature id="Logout" name="Logout">

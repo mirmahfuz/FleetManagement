@@ -2,9 +2,9 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1" styleClass="loginBackground" >
-    <amx:facet name="header">
+    <!--amx:facet name="header">
       <amx:outputText value="" id="ot1"/>
-    </amx:facet>
+    </amx:facet-->
     <amx:facet name="secondary">
     </amx:facet>
     <amx:panelStretchLayout>
@@ -21,7 +21,7 @@
        <amx:spacer id="s3" height="10"/>
       <amx:inputText label="Password:" secret="true" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
       
-              <amx:commandButton text="Login" id="cb1" action="signin" styleClass="newAltaButton"/>
+              <amx:commandButton text="Login" id="cb1" action="signin" styleClass="newAltaButtonLogin"/>
               <amx:panelGroupLayout id="pgl1" layout="horizontal">
                 <amx:commandLink text="Forgot username/password?" id="cl1"/>
                   <amx:spacer id="s1" width="60"/>
