@@ -108,30 +108,30 @@ public class SenderDetail {
     
     public void defaultFillSender(ActionEvent x){
      /*   ValueExpression ve;
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderPhoneNumber}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderPhoneNumber}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "4087869884");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderEmail}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderEmail}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "anil.ranka@gmail.com");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderCountry}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderCountry}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "United States"); 
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderZip}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderZip}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "94114"); 
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderState}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderState}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "California");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderCity}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderCity}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Palo Alto");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderAddr1}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderAddr1}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "400 Oracle Parkway");
 */
         
         
-   //     ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.senderName}", String.class);
+   //     ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderName}", String.class);
      //   ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Anil Ranka");
         
        
@@ -170,29 +170,29 @@ public class SenderDetail {
     }
     public void defaultFillReceiver(ActionEvent x){
         ValueExpression ve;
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverPhoneNumber}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverPhoneNumber}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "4187969884");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverEmail}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverEmail}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "john.smith@gmail.com");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverCountry}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverCountry}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "United States"); 
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverZip}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverZip}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "94004"); 
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverState}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverState}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "California");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverCity}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverCity}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "San Francisco");
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverAddr1}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverAddr1}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "1344 Market Street");
         
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.receiverName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverName}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "John Smith");
     }
     
@@ -419,7 +419,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.theftProtection}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.theftProtection}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -473,7 +473,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.theftProtection}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.theftProtection}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -527,7 +527,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.temperatureMonitoring}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.temperatureMonitoring}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -580,7 +580,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.tempThreshold}", int.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.tempThreshold}", int.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       int oldstr = 0;
@@ -647,7 +647,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.monitorCollision}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.monitorCollision}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -701,7 +701,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.monitorShakes}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.monitorShakes}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -760,7 +760,7 @@ public class SenderDetail {
                 "##############Inside ValueChangeHandler");
       ValueExpression ve;
 
-      ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.SenderDetail.monitorAtmosphericPressure}", boolean.class);
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.monitorAtmosphericPressure}", boolean.class);
       //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
 
       boolean oldstr = false;
@@ -1061,4 +1061,15 @@ public class SenderDetail {
        
     }
 
+    private boolean showTempPopup;
+
+    public void setShowTempPopup(boolean showTempPopup) {
+        boolean oldShowTempPopup = this.showTempPopup;
+        this.showTempPopup = showTempPopup;
+        propertyChangeSupport.firePropertyChange("showTempPopup", oldShowTempPopup, showTempPopup);
+    }
+
+    public boolean isShowTempPopup() {
+        return showTempPopup;
+    }
 }

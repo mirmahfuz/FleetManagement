@@ -38,7 +38,7 @@
         
         <amx:panelGroupLayout id="Sender">
         <amx:panelFormLayout id="pfl123">
-        <amx:inputText id="senderNameId" value="#{viewScope.SenderDetail.senderName}"
+        <amx:inputText id="senderNameId" value="#{applicationScope.SenderDetail.senderName}"
                      label="Name"
                      hintText="John Smith"
                      rows="1"
@@ -47,15 +47,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="20"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
-         <amx:inputText id="senderAddr1Id" value="#{viewScope.SenderDetail.senderAddr1}"
+         <amx:inputText id="senderAddr1Id" value="#{applicationScope.SenderDetail.senderAddr1}"
                      label="Address"
                      hintText="300 Oracle Parkway"
                      rows="1"
@@ -64,45 +64,45 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
           <amx:selectOneChoice id="senderCityId"
-                           value="#{viewScope.SenderDetail.senderCity}"
+                           value="#{applicationScope.SenderDetail.senderCity}"
                            label="City"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
         <amx:selectItem label="San Francisco" value="San Francisco"/>
         <amx:selectItem label="Palo Alto" value="Palo Alto"/>
         <amx:selectItem label="Mountain View" value="Mountain View"/>
       </amx:selectOneChoice>
        <amx:selectOneChoice id="senderStateId"
-                           value="#{viewScope.SenderDetail.senderState}"
+                           value="#{applicationScope.SenderDetail.senderState}"
                            label="State"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="California" value="California"/>
         <amx:selectItem label="Nevada" value="Nevada"/>
         <amx:selectItem label="Washington" value="Washington"/>
         <amx:selectItem label="Texas" value="Texas"/>
       </amx:selectOneChoice>
-      <amx:inputText id="senderZipId" value="#{viewScope.SenderDetail.senderZip}"
+      <amx:inputText id="senderZipId" value="#{applicationScope.SenderDetail.senderZip}"
                      label="Zip"
                      hintText="95030"
                      rows="1"
@@ -111,27 +111,27 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>              
      <amx:selectOneChoice id="senderCountryId"
-                           value="#{viewScope.SenderDetail.senderCountry}"
+                           value="#{applicationScope.SenderDetail.senderCountry}"
                            label="Country"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="United States" value="United States"/>
       </amx:selectOneChoice>
-       <amx:inputText id="senderEmailId" value="#{viewScope.SenderDetail.senderEmail}"
+       <amx:inputText id="senderEmailId" value="#{applicationScope.SenderDetail.senderEmail}"
                      label="Email"
                      hintText="john.smith@oracle.com"
                      rows="1"
@@ -140,15 +140,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>   
-         <amx:inputText id="senderPhoneNumberId" value="#{viewScope.SenderDetail.senderPhoneNumber}"
+         <amx:inputText id="senderPhoneNumberId" value="#{applicationScope.SenderDetail.senderPhoneNumber}"
                      label="Phone"
                      hintText="4087969448"
                      rows="1"
@@ -157,10 +157,10 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
@@ -170,7 +170,7 @@
             <amx:rowLayout id="rl2">
               <amx:cellFormat id="cf2" width="100%" halign="center">
               <amx:panelGroupLayout layout="horizontal">
-               <amx:commandButton text="Default Fill" id="cb4" actionListener="#{viewScope.SenderDetail.defaultFillSender}"
+               <amx:commandButton text="Default Fill" id="cb4" actionListener="#{applicationScope.SenderDetail.defaultFillSender}"
                               styleClass="newAltaButton"/>
                 <amx:spacer width="60"/>
                 <amx:commandButton text="Next" id="cb123" 
@@ -188,7 +188,7 @@
         
         <amx:panelGroupLayout id="Receiver">
         <amx:panelFormLayout id="pfl1">
-        <amx:inputText id="recevierNameId" value="#{viewScope.SenderDetail.receiverName}"
+        <amx:inputText id="recevierNameId" value="#{applicationScope.SenderDetail.receiverName}"
                      label="Name"
                      hintText="John Smith"
                      rows="1"
@@ -197,15 +197,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="20"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
-         <amx:inputText id="receiverAddr1Id" value="#{viewScope.SenderDetail.receiverAddr1}"
+         <amx:inputText id="receiverAddr1Id" value="#{applicationScope.SenderDetail.receiverAddr1}"
                      label="Address"
                      hintText="300 Oracle Parkway"
                      rows="1"
@@ -214,24 +214,24 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
           <amx:selectOneChoice id="receiverCityId"
-                           value="#{viewScope.SenderDetail.receiverCity}"
+                           value="#{applicationScope.SenderDetail.receiverCity}"
                            label="City"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
         <amx:selectItem label="San Francisco" value="San Francisco"/>
         <amx:selectItem label="Palo Alto" value="Palo Alto"/>
@@ -239,21 +239,21 @@
           <amx:selectItem label="Austin" value="Austin"/>
       </amx:selectOneChoice>
        <amx:selectOneChoice id="receiverStateId"
-                           value="#{viewScope.SenderDetail.receiverState}"
+                           value="#{applicationScope.SenderDetail.receiverState}"
                            label="State"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="California" value="California"/>
         <amx:selectItem label="Nevada" value="Nevada"/>
         <amx:selectItem label="Washington" value="Washington"/>
         <amx:selectItem label="Texas" value="Texas"/>
       </amx:selectOneChoice>
-      <amx:inputText id="receiverZipId" value="#{viewScope.SenderDetail.receiverZip}"
+      <amx:inputText id="receiverZipId" value="#{applicationScope.SenderDetail.receiverZip}"
                      label="Zip"
                      hintText="95030"
                      rows="1"
@@ -262,27 +262,27 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>              
      <amx:selectOneChoice id="receiverCountryId"
-                           value="#{viewScope.SenderDetail.receiverCountry}"
+                           value="#{applicationScope.SenderDetail.receiverCountry}"
                            label="Country"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="United States" value="United States"/>
       </amx:selectOneChoice>
-       <amx:inputText id="receiverEmailId" value="#{viewScope.SenderDetail.receiverEmail}"
+       <amx:inputText id="receiverEmailId" value="#{applicationScope.SenderDetail.receiverEmail}"
                      label="Email"
                      hintText="john.smith@oracle.com"
                      rows="1"
@@ -291,15 +291,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>   
-         <amx:inputText id="receiverPhoneNumberId" value="#{viewScope.SenderDetail.receiverPhoneNumber}"
+         <amx:inputText id="receiverPhoneNumberId" value="#{applicationScope.SenderDetail.receiverPhoneNumber}"
                      label="Phone"
                      hintText="4087969448"
                      rows="1"
@@ -308,10 +308,10 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
@@ -333,15 +333,15 @@
         <amx:panelGroupLayout id="Shipment">
         <amx:panelFormLayout id="pfl12">
          <amx:selectOneChoice id="numOfBoxes"
-                           value="#{viewScope.SenderDetail.numOfBoxes}"
+                           value="#{applicationScope.SenderDetail.numOfBoxes}"
                            label="Number of boxes"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="1" value="1"/>
         <amx:selectItem label="2" value="2"/>
         <amx:selectItem label="3" value="3"/>
@@ -353,33 +353,33 @@
       </amx:selectOneChoice>
        
        <amx:selectOneChoice id="shippingMethod"
-                           value="#{viewScope.SenderDetail.shippingMethod}"
+                           value="#{applicationScope.SenderDetail.shippingMethod}"
                            label="Select shipping method"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Rail" value="Rail"/>
       </amx:selectOneChoice>
        <amx:selectOneChoice id="numOfTrainCarts"
-                           value="#{viewScope.SenderDetail.numOfTrainCarts}"
+                           value="#{applicationScope.SenderDetail.numOfTrainCarts}"
                            label="Number of train cars"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Train cart 1" value="Train cart 1"/>
         <amx:selectItem label="Train cart 2" value="Train cart 2"/>
         <amx:selectItem label="Train cart 3" value="Train cart 3"/>
         <amx:selectItem label="Train cart 4" value="Train cart 4"/>
       </amx:selectOneChoice>
-        <amx:selectManyCheckbox id="shipmentType" value="#{viewScope.SenderDetail.shipmentType}" label="Nature of shipment" required="true">
+        <amx:selectManyCheckbox id="shipmentType" value="#{applicationScope.SenderDetail.shipmentType}" label="Nature of shipment" required="true">
             <amx:selectItem label="Perishable" value="Perishable" />
             <amx:selectItem label="Flammable" value="Flammable"/>
             <amx:selectItem label="Fragile" value="Fragile"/>
@@ -438,7 +438,7 @@
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf89" >
-                    <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{viewScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                    <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{applicationScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorCollision}"/>
             
                  </amx:cellFormat>
                 <amx:cellFormat id="cf810" >
@@ -454,7 +454,7 @@
                 </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf9" >
-                  <amx:selectBooleanCheckbox  valueChangeListener="#{viewScope.SenderDetail.TheftValueChangeHandler}" label="Yes" id="sbc2" value = "#{viewScope.SenderDetail.theftProtection}"/>
+                  <amx:selectBooleanCheckbox  valueChangeListener="#{applicationScope.SenderDetail.TheftValueChangeHandler}" label="Yes" id="sbc2" value = "#{applicationScope.SenderDetail.theftProtection}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf10" >
                 <amx:outputText value="#{viewScope.theftvaluechangenew}" id="ot5"/>
@@ -469,7 +469,7 @@
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf12" >
-                  <amx:selectBooleanCheckbox  label="Yes" id="sbc1"  valueChangeListener="#{viewScope.SenderDetail.ShipmentLoadUnloadValueChangeHandler}" value = "#{viewScope.SenderDetail.shipmentLoadUnload}"/>
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc1"  valueChangeListener="#{applicationScope.SenderDetail.ShipmentLoadUnloadValueChangeHandler}" value = "#{applicationScope.SenderDetail.shipmentLoadUnload}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf113">
                 <amx:outputText value="#{viewScope.shipmentLoadUnloadvaluechangenew}" id="ot6" />
@@ -482,15 +482,15 @@
                 
                 <amx:cellFormat id="cf15" inlineStyle="width:30%">
                 <amx:selectManyChoice id="soc1"
-                           value="#{viewScope.SenderDetail.typeOfShipment}"
+                           value="#{applicationScope.SenderDetail.typeOfShipment}"
                            label=""
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Fragile" value="Fragile"/>
         <amx:selectItem label="Perishable" value="Pershiable"/>
         <amx:selectItem label="Inflammable" value="Inflammable"/>
@@ -512,7 +512,7 @@
                 </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf18" inlineStyle="width:30%">
-                  <amx:selectBooleanCheckbox  label="Yes" id="sbc3"  valueChangeListener="#{viewScope.SenderDetail.MonitorCollisionValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc3"  valueChangeListener="#{applicationScope.SenderDetail.MonitorCollisionValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorCollision}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf19" inlineStyle="width:30%">
                 <amx:outputText value="#{viewScope.monitorCollisionvaluechangenew}" id="ot10" />
@@ -523,7 +523,7 @@
                   <amx:outputText value="Monitor Vibrations (Useful in case of Fragile Products)" id="ot12"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf21" inlineStyle="width:30%">
-                  <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{viewScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorCollision}"/>
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{applicationScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorCollision}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf20" inlineStyle="width:30%">
                 <amx:outputText value="#{viewScope.monitorShakesvaluechangenew}" id="ot11" />
@@ -539,7 +539,7 @@
                </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf24" >
-                  <amx:selectBooleanCheckbox  label="Yes" id="sbc5"  valueChangeListener="#{viewScope.SenderDetail.MonitorAtmosphericPressureValueChangeHandler}" value = "#{viewScope.SenderDetail.monitorAtmosphericPressure}"/>
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc5"  valueChangeListener="#{applicationScope.SenderDetail.MonitorAtmosphericPressureValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorAtmosphericPressure}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf25" >
                 <amx:outputText value="#{viewScope.monitorAtmosphericPressurevaluechangenew}" id="ot14" />
@@ -554,7 +554,7 @@
                 </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf15" inlineStyle="width:30%">
-                  <amx:selectBooleanCheckbox  label="Yes" id="sbc6"  valueChangeListener="#{viewScope.SenderDetail.TemperatureMonitoringValueChangeHandler}" value = "#{viewScope.SenderDetail.temperatureMonitoring}"/>
+                  <amx:selectBooleanCheckbox  label="Yes" id="sbc6"  valueChangeListener="#{applicationScope.SenderDetail.TemperatureMonitoringValueChangeHandler}" value = "#{applicationScope.SenderDetail.temperatureMonitoring}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf16" inlineStyle="width:30%">
                 <amx:outputText value="#{viewScope.temperatureMonitoringvaluechangenew}" id="ot7" />
@@ -563,7 +563,7 @@
               
               <amx:rowLayout id="rl19">
                 <amx:cellFormat id="cf35" >
-                  <amx:inputNumberSlider label="Set Temperature Threshold" id="ins1" minimum="0" maximum="100" valueChangeListener="#{viewScope.SenderDetail.TempThresholdValueChangeHandler}" value = "#{viewScope.SenderDetail.tempThreshold}"/>
+                  <amx:inputNumberSlider label="Set Temperature Threshold" id="ins1" minimum="0" maximum="100" valueChangeListener="#{applicationScope.SenderDetail.TempThresholdValueChangeHandler}" value = "#{applicationScope.SenderDetail.tempThreshold}"/>
                   <amx:outputText value="Temperature Threshold : #{viewScope.tempThresholdvaluechangenew}" id="ot18" />
                 </amx:cellFormat>
                 <amx:cellFormat id="cf36" inlineStyle="width:30%">
@@ -612,7 +612,7 @@
             <amx:rowLayout id="rl1121">
               <amx:cellFormat id="cf61" halign="center" width="100%">
                <amx:commandButton text="Next" id="c1b1"
-                               styleClass="newAltaButton" inlineStyle="width:100px;" actionListener="#{viewScope.SenderDetail.generatePreview}">
+                               styleClass="newAltaButton" inlineStyle="width:100px;" actionListener="#{applicationScope.SenderDetail.generatePreview}">
                          <amx:setPropertyListener id="sp1l77" type="action" from="Payment"
                                              to="#{viewScope.panel}"/>
                 </amx:commandButton>
@@ -624,19 +624,19 @@
                 <amx:panelGroupLayout id="Payment">
         <amx:panelFormLayout id="pfl2">
                   <amx:selectOneChoice id="ccTypeId"
-                           value="#{viewScope.SenderDetail.ccType}"
+                           value="#{applicationScope.SenderDetail.ccType}"
                            label="Card Type"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Master" value="Master"/>
         <amx:selectItem label="Visa" value="Visa"/>
     </amx:selectOneChoice>
-        <amx:inputText id="ccNumId" value="#{viewScope.SenderDetail.ccNum}"
+        <amx:inputText id="ccNumId" value="#{applicationScope.SenderDetail.ccNum}"
                      label="Card Number"
                      hintText="xxxxxxxxxxxxxxxx"
                      rows="1"
@@ -645,15 +645,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="20"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
-        <amx:inputText id="it2" value="#{viewScope.SenderDetail.cvv}"
+        <amx:inputText id="it2" value="#{applicationScope.SenderDetail.cvv}"
                      label="CVV"
                      hintText="xxx"
                      rows="1"
@@ -662,15 +662,15 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="20"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
-         <amx:inputText id="ccAddr1Id" value="#{viewScope.SenderDetail.ccBillingAddress}"
+         <amx:inputText id="ccAddr1Id" value="#{applicationScope.SenderDetail.ccBillingAddress}"
                      label="Billing Address"
                      hintText="300 Oracle Parkway"
                      rows="1"
@@ -679,45 +679,45 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>
           <amx:selectOneChoice id="ccCityId"
-                           value="#{viewScope.SenderDetail.ccCity}"
+                           value="#{applicationScope.SenderDetail.ccCity}"
                            label="City"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="Redwood Shores" value="Redwood Shores"/>
         <amx:selectItem label="San Francisco" value="San Francisco"/>
         <amx:selectItem label="Palo Alto" value="Palo Alto"/>
         <amx:selectItem label="Mountain View" value="Mountain View"/>
       </amx:selectOneChoice>
        <amx:selectOneChoice id="ccStateId"
-                           value="#{viewScope.SenderDetail.ccState}"
+                           value="#{applicationScope.SenderDetail.ccState}"
                            label="State"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="California" value="California"/>
         <amx:selectItem label="Nevada" value="Nevada"/>
         <amx:selectItem label="Washington" value="Washington"/>
         <amx:selectItem label="Texas" value="Texas"/>
       </amx:selectOneChoice>
-      <amx:inputText id="it1" value="#{viewScope.SenderDetail.ccZip}"
+      <amx:inputText id="it1" value="#{applicationScope.SenderDetail.ccZip}"
                      label="Zip"
                      hintText="95030"
                      rows="1"
@@ -726,24 +726,24 @@
                      rendered="true"
                      required="true"
                      simple="false"
-                     readOnly="#{viewScope.SenderDetail.readOnly}"
-                     disabled="#{viewScope.SenderDetail.disabled}"
+                     readOnly="#{applicationScope.SenderDetail.readOnly}"
+                     disabled="#{applicationScope.SenderDetail.disabled}"
                      maximumLength="50"
-                     valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}"
+                     valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}"
                      autoCapitalize="auto"
                      autoCorrect="auto"
                      keyboardDismiss="normal"
                      inputType="text"/>              
      <amx:selectOneChoice id="soc2"
-                           value="#{viewScope.SenderDetail.senderCountry}"
+                           value="#{applicationScope.SenderDetail.senderCountry}"
                            label="Country"
                            showRequired="true"
                            rendered="true"
                            required="true"
                            simple="false"
-                           readOnly="#{viewScope.SenderDetail.readOnly}"
-                           disabled="#{viewScope.SenderDetail.disabled}"
-                           valueChangeListener="#{viewScope.SenderDetail.ValueChangeHandler}">
+                           readOnly="#{applicationScope.SenderDetail.readOnly}"
+                           disabled="#{applicationScope.SenderDetail.disabled}"
+                           valueChangeListener="#{applicationScope.SenderDetail.ValueChangeHandler}">
         <amx:selectItem label="United States" value="United States"/>
       </amx:selectOneChoice>
             </amx:panelFormLayout>
@@ -751,7 +751,7 @@
             <amx:rowLayout id="rl111">
               <amx:cellFormat id="cf1" halign="center" width="100%">
                <amx:commandButton text="Next" id="cb1"
-                               styleClass="newAltaButton" inlineStyle="width:100px;" actionListener="#{viewScope.SenderDetail.generatePreview}">
+                               styleClass="newAltaButton" inlineStyle="width:100px;" actionListener="#{applicationScope.SenderDetail.generatePreview}">
                          <amx:setPropertyListener id="spl77" type="action" from="Preview"
                                              to="#{viewScope.panel}"/>
                 </amx:commandButton>
@@ -799,7 +799,7 @@
        <amx:tableLayout id="tl5" width="100%">
             <amx:rowLayout id="rl15">
               <amx:cellFormat id="cf31" width="100%" halign="center">
-               <amx:commandButton text="Submit Order" id="cb5" actionListener="#{viewScope.SenderDetail.defaultFillReceiver}"
+               <amx:commandButton text="Submit Order" id="cb5" actionListener="#{applicationScope.SenderDetail.defaultFillReceiver}"
                                styleClass="newAltaButton"/>
               </amx:cellFormat>
             </amx:rowLayout>
@@ -810,4 +810,29 @@
     </amx:panelStretchLayout>
   </amx:panelPage>
   
+  <amx:popup id="p1" styleClass="confirmationPopup" rendered="#{applicationScope.SenderDetail.showTempPopup}">
+        <amx:panelGroupLayout id="pgl32" layout="vertical" halign="center">
+            <amx:spacer id="s11" height="32"/>
+            <amx:outputText value="Check In" id="ot28" styleClass="xxl-text"/>
+            <amx:spacer id="s12" height="22"/>
+            <amx:outputText value="Do you want to check in to perform activities?" id="ot11" styleClass="xxl-text"
+                            inlineStyle="width:250px;  display: block;"/>
+            <amx:spacer id="s13" height="30"/>
+            <amx:tableLayout id="tl6" width="100%">
+                <amx:rowLayout id="rl8">
+                    <amx:cellFormat id="cf20" halign="center" valign="middle" width="50%" height="40px"
+                                    inlineStyle="border: 1px  solid rgb(224,224,224) ; border-bottom: 0px; border-left: 0px;">
+                        <amx:commandLink text="Cancel" id="cl6" styleClass="xxl-text">
+                            <amx:closePopupBehavior id="cpb2" popupId="p1" type="action"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf21" halign="center" valign="middle" width="50%"
+                                    inlineStyle="border: 1px  solid rgb(224,224,224) ; border-bottom: 0px; border-right: 0px;">
+                        <amx:commandLink text="Ok" id="cl7" action="checkin" styleClass="xxl-text"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+    </amx:popup>
+    
 </amx:view>
