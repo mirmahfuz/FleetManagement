@@ -9,6 +9,8 @@
     <accessorIterator id="userDetailsIterator" MasterBinding="userDetailsServiceDataControlIterator" Binds="previewList"
                       BeanClass="com.oracle.apps.fleetmanagement.mobile.model.UserDetails"
                       DataControl="userDetailsServiceDataControl" RangeSize="25"/>
+    <methodIterator Binds="getPreviewList.result" DataControl="userDetailsServiceDataControl" RangeSize="25"
+                    BeanClass="com.oracle.apps.fleetmanagement.mobile.bean.PreviewBean" id="getPreviewListIterator"/>
   </executables>
   <bindings>
   <tree id="previewList" IterBinding="userDetailsIterator">
@@ -29,13 +31,21 @@
           <Item Value="item7"/>
           <Item Value="item7Label"/>
           <Item Value="item8"/>
-          <Item Value="item8Label"/>
-          
+          <Item Value="item8Label"/>          
         </AttrNames>
       </nodeDefinition>
     </tree>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <methodAction id="getPreviewList" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getPreviewList"
+                  IsViewObjectMethod="false" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider"
+                  ReturnName="data.userDetailsServiceDataControl.methodResults.getPreviewList_userDetailsServiceDataControl_dataProvider_getPreviewList_result"/>
+    <attributeValues IterBinding="getPreviewListIterator" id="item1">
+      <AttrNames>
+        <Item Value="item1"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
