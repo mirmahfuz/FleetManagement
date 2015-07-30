@@ -18,10 +18,15 @@
         <Item Value="userLoggedIn"/>
       </AttrNames>
     </attributeValues>
-    <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+    <methodAction id="gotoFeature1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="Home" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="gotoFeature2" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDValue="Track_Shipment" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

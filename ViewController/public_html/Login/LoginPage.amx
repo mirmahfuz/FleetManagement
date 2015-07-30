@@ -20,7 +20,9 @@
                 <amx:inputText label="Username:" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
        <amx:spacer id="s3" height="10"/>
       <amx:inputText label="Password:" value="Welcome1" secret="true" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
-                <amx:commandButton text="Login" id="cb1" action="#{bindings.gotoFeature.execute}" styleClass="newAltaButton"/>
+                <amx:commandButton text="Login" id="cb1" action="#{bindings.gotoFeature1.execute}" styleClass="newAltaButton" rendered="#{applicationScope.userLoggedIn!='admin'}"/>
+                <amx:commandButton text="Login" id="cb12" action="#{bindings.gotoFeature2.execute}" styleClass="newAltaButton" rendered="#{applicationScope.userLoggedIn=='admin'}"/>
+              
               <amx:panelGroupLayout id="pgl1" layout="horizontal">
                 <amx:commandLink text="Forgot username/password?" id="cl1"/>
                   <amx:spacer id="s1" width="60"/>

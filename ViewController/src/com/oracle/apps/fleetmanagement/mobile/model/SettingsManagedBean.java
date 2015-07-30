@@ -211,13 +211,14 @@ public class SettingsManagedBean {
     }
     
     public void saveValue(ActionEvent x){
+        /*
         try{
-            /*
-            AdfmfJavaUtilities.setELValue("#{applicationScope.humidityThresh", humidityThresh);
-            AdfmfJavaUtilities.setELValue("#{applicationScope.temperaturThresh", tempThresh);
-            AdfmfJavaUtilities.setELValue("#{applicationScope.usThresh", usThresh);
-            AdfmfJavaUtilities.setELValue("#{applicationScope.lightThresh", lightThresh);
-            */
+            
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.humidityThresh", humidityThresh);
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.temperaturThresh", tempThresh);
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.usThresh", usThresh);
+            //AdfmfJavaUtilities.setELValue("#{applicationScope.lightThresh", lightThresh);
+            
             int humidity = (Integer) AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.humidityThresh}");
             int temp = (Integer) AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.tempThresh}");
             int light = (Integer) AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.lightThresh}");
@@ -227,5 +228,6 @@ public class SettingsManagedBean {
         }catch(Exception e){
             throw new AdfException(e);
         } 
+*/
     }
 }

@@ -114,8 +114,10 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
         }finally{
             if(userLogged!=null)
                 return  userLogged;
-            else 
+            else {
+                this.setUserLoggedIn("lisa.ray");
                 return "lisa.ray";
+            }
         }
     }
 
