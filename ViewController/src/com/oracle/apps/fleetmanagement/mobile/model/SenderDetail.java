@@ -197,6 +197,9 @@ public class SenderDetail {
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverName}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "John Smith");
         
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.shipmentHeading}", String.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Current Shipment Overview");
+        
        
     }
     

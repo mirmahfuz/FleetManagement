@@ -24,7 +24,7 @@
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf4" height="85px">
                             <amx:panelGroupLayout id="pgl21" layout="horizontal">
-                                <amx:image id="i8" source="/images/oracle_logo.png" styleClass="accountLogo"
+                                <amx:image id="i8" source="/images/light_image.jpeg" styleClass="accountLogo"
                                            rendered="true"/>
                                 <amx:spacer id="s7" width="10" rendered="true"/>
                                 <amx:outputText inlineStyle="width: 150px; display: inline-block;"
@@ -104,7 +104,7 @@
         </amx:cellFormat>
         <amx:cellFormat id="rl412">
         <amx:panelGroupLayout id="pgl2921" layout="horizontal"  inlineStyle="padding-right:250px;" halign="end">
-                            <amx:commandLink  id="cl81">
+                            <amx:commandLink  id="cl81" actionListener="#{viewScope.NonAdminHome.refreshCheckMark}">
                                 <amx:image id="i10" inlineStyle="height:30px; width:30px;" source="/images/refresh.png"/>
                             </amx:commandLink>
                             <amx:commandLink  id="cl812">
@@ -295,7 +295,7 @@
   
   <amx:rowLayout id="rl1">
         <amx:cellFormat>
-        <amx:outputText value="Last Shipment Overview" id="ot17" styleClass="gray xxl-text" inlineStyle="padding-left:10px;"/>
+        <amx:outputText value="#{viewScope.NonAdminHome.shipmentHeading}" id="ot17" styleClass="gray xxl-text" inlineStyle="padding-left:10px;"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf1">
         </amx:cellFormat>
@@ -304,11 +304,11 @@
                 <amx:cellFormat id="cf3">
                 <amx:panelGroupLayout id="pgl521" layout="vertical">
                 <amx:outputText value="Order ID : ORC2451" id="ot1812" styleClass="bold" inlineStyle="padding-left:10px;"/>
-                <amx:outputText value="Order Date : 01-20-2015" id="ot181" styleClass="bold" inlineStyle="padding-left:10px;"/>
+                <amx:outputText value="Order Date : #{viewScope.NonAdminHome.date}" id="ot181" styleClass="bold" inlineStyle="padding-left:10px;"/>
                 <amx:panelGroupLayout id="pgl52" layout="horizontal">
-                <amx:outputText value="(San Francisco, CA)" id="ot18" styleClass="bold" inlineStyle="padding-left:10px;"/>
+                <amx:outputText value="(#{viewScope.NonAdminHome.senderCity}, #{viewScope.NonAdminHome.senderState})" id="ot18" styleClass="bold" inlineStyle="padding-left:10px;"/>
                 <amx:image id="i23" source="/images/right_arrow.png" inlineStyle="width:20px;height:20px"/>
-                <amx:outputText value=" (Pittsburgh, PA)" id="ot28" styleClass="bold" />
+                <amx:outputText value=" (#{viewScope.NonAdminHome.receiverCity}, #{viewScope.NonAdminHome.receiverState})" id="ot28" styleClass="bold" />
                </amx:panelGroupLayout>
                </amx:panelGroupLayout>
                 </amx:cellFormat>
@@ -323,7 +323,9 @@
                                         <amx:outputText value="Submitted" styleClass="linkColor" id="ot12"/>
                                         <amx:panelGroupLayout id="pgl35" layout="horizontal">
                                         <amx:image source="/images/green_light.png"
-                                                   inlineStyle="width:50px;" id="i12"/>
+                                                   inlineStyle="width:50px;" id="i19" rendered="#{!viewScope.NonAdminHome.renderSubmitted}"/>
+                                         <amx:image source="/images/green_check.png"
+                                                   inlineStyle="width:50px;" id="i191" rendered="#{viewScope.NonAdminHome.renderSubmitted}"/>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
                                 </amx:commandLink>
@@ -334,7 +336,9 @@
                                         <amx:outputText value="Processed" styleClass="linkColor" id="ot13"/>
                                         <amx:panelGroupLayout id="pgl37" layout="horizontal">
                                         <amx:image source="/images/green_light.png"
-                                                   inlineStyle="width:50px;" id="i15"/>
+                                                   inlineStyle="width:50px;" id="i12" rendered="#{!viewScope.NonAdminHome.renderProcessed}"/>
+                                         <amx:image source="/images/green_check.png"
+                                                   inlineStyle="width:50px;" id="i15" rendered="#{viewScope.NonAdminHome.renderProcessed}"/>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
                                 </amx:commandLink>  
@@ -345,7 +349,9 @@
                                         <amx:outputText value="Loaded" styleClass="linkColor" id="ot14"/>
                                         <amx:panelGroupLayout id="pgl39" layout="horizontal">
                                         <amx:image source="/images/green_light.png"
-                                                   inlineStyle="width:50px;" id="i17"/>
+                                                   inlineStyle="width:50px;" id="i17" rendered="#{!viewScope.NonAdminHome.renderLoaded}"/>
+                                         <amx:image source="/images/green_check.png"
+                                                   inlineStyle="width:50px;" id="i18" rendered="#{viewScope.NonAdminHome.renderLoaded}"/>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
                                     <amx:showPopupBehavior id="spb9" popupId="callHistory" type="action"
@@ -359,8 +365,11 @@
                                                           styleClass="shipmentDetailContainer">
                                         <amx:outputText value="In Transit" styleClass="linkColor" id="ot15"/>
                                         <amx:panelGroupLayout id="pgl41" layout="horizontal">
-                                        <amx:image source="/images/green_check.png"
-                                                   inlineStyle="width:50px;" id="i18"/>
+                        
+                                        <amx:image source="/images/green_light.png"
+                                                   inlineStyle="width:50px;" id="i20" rendered="#{!viewScope.NonAdminHome.renderInTransit}"/>
+                                         <amx:image source="/images/green_check.png"
+                                                   inlineStyle="width:50px;" id="i22" rendered="#{viewScope.NonAdminHome.renderInTransit}"/>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
                                 </amx:commandLink>
@@ -371,7 +380,9 @@
                                         <amx:outputText value="Completed" styleClass="linkColor" id="ot16"/>
                                         <amx:panelGroupLayout id="pgl47" layout="horizontal">
                                         <amx:image source="/images/green_light.png"
-                                                   inlineStyle="width:50px;" id="i19"/>
+                                                   inlineStyle="width:50px;" id="i25" rendered="#{!viewScope.NonAdminHome.renderComplete}"/>
+                                         <amx:image source="/images/green_check.png"
+                                                   inlineStyle="width:50px;" id="i26" rendered="#{viewScope.NonAdminHome.renderComplete}"/>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
                                 </amx:commandLink>              
