@@ -13,25 +13,22 @@
         <amx:facet name="footer"/>
         <amx:tableLayout id="tl3" inlineStyle="width:100%; background-color:#e7e7e7;" halign="start">
             <amx:rowLayout id="rl3">
-                <amx:cellFormat id="cf3" inlineStyle="width:90%;">
-                    <amx:panelGroupLayout id="pgl6" styleClass="RoadMapDetailContainer">
-                        <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
-                                            initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17"
-                                            styleClass="GeoMapContainerHeight">
-                            <dvtm:pointDataLayer id="pdl1">
-                                <dvtm:pointLocation id="pl1" type="pointXY"
-                                                    pointX="#{pageFlowScope.TrackShipmentRailBean.longitude}"
-                                                    pointY="#{pageFlowScope.TrackShipmentRailBean.latitude}">
-                                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
-                                        <amx:showPopupBehavior id="spb1" popupId="user" alignId="mrk1"
-                                                               align="topCenter" decoration="anchor" type="action"/>
-                                    </dvtm:marker>
-                                </dvtm:pointLocation>
-                            </dvtm:pointDataLayer>
-                        </dvtm:geographicMap>
-                    </amx:panelGroupLayout>
+                <amx:cellFormat id="cf3" inlineStyle="width:100%;">
+                    <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
+                                        initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17">
+                        <dvtm:pointDataLayer id="pdl1">
+                            <dvtm:pointLocation id="pl1" type="pointXY"
+                                                pointX="#{pageFlowScope.TrackShipmentRailBean.longitude}"
+                                                pointY="#{pageFlowScope.TrackShipmentRailBean.latitude}">
+                                <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
+                                    <amx:showPopupBehavior id="spb1" popupId="user" alignId="mrk1" align="topCenter"
+                                                           decoration="anchor" type="action"/>
+                                </dvtm:marker>
+                            </dvtm:pointLocation>
+                        </dvtm:pointDataLayer>
+                    </dvtm:geographicMap>
                 </amx:cellFormat>
-                <amx:cellFormat id="cf4">
+                <amx:cellFormat inlineStyle="width:100%;" id="cf4">
                     <amx:panelGroupLayout id="pgl7" layout="vertical" halign="center" valign="top"
                                           styleClass="RoadMapDetailContainer">
                         <amx:spacer id="s9" height="5" width="5"/>
@@ -117,9 +114,10 @@
                                 styleClass="xxl-text green"/>
             </amx:panelGroupLayout>
             <amx:spacer id="s4" height="1" width="1"/>
-            <amx:outputText value="#{applicationScope.SenderDetail.senderAddr1} #{' , '} #{applicationScope.SenderDetail.senderCity}" id="ot9"
-                            styleClass="small-text gray"/>
-            <amx:outputText value="#{applicationScope.SenderDetail.senderCountry} #{' - '} #{applicationScope.SenderDetail.senderZip}" id="ot43" styleClass="small-text gray"/>
+            <amx:outputText value="#{applicationScope.SenderDetail.senderAddr1} #{' , '} #{applicationScope.SenderDetail.senderCity}"
+                            id="ot9" styleClass="small-text gray"/>
+            <amx:outputText value="#{applicationScope.SenderDetail.senderCountry} #{' - '} #{applicationScope.SenderDetail.senderZip}"
+                            id="ot43" styleClass="small-text gray"/>
             <amx:spacer id="s30" height="2" width="2"/>
             <amx:panelGroupLayout id="pgl40">
                 <amx:panelGroupLayout id="pgl37" layout="horizontal" valign="middle" halign="center">
@@ -145,8 +143,8 @@
                 <amx:panelGroupLayout id="pgl41" layout="horizontal">
                     <amx:outputText value="Shipment Curent Location : " id="ot48" styleClass="gray"/>
                     <amx:spacer id="s32" height="2" width="2"/>
-                    <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.longitude} #{' , '} #{pageFlowScope.TrackShipmentRailBean.latitude}" id="ot49"
-                                    styleClass="blue"/>
+                    <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.longitude} #{' , '} #{pageFlowScope.TrackShipmentRailBean.latitude}"
+                                    id="ot49" styleClass="blue"/>
                 </amx:panelGroupLayout>
             </amx:panelGroupLayout>
             <amx:tableLayout id="tl1" rendered="false">

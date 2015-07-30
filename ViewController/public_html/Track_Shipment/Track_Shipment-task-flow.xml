@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
     <task-flow-definition id="Track_Shipment-task-flow">
-        <default-activity>Track_Shipment_Home</default-activity>
+        <default-activity>subscribeToSubscriber</default-activity>
+        <managed-bean id="__4">
+            <managed-bean-name>TrackingShipmentHomeBean</managed-bean-name>
+            <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.bean.TrackingShipmentHomeBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
         <view id="Track_Shipment_Home">
             <page>/Track_Shipment/Track_Shipment_Home.amx</page>
         </view>
@@ -17,6 +22,12 @@
                 <id>TrackShipmentRoad</id>
             </task-flow-reference>
         </task-flow-call>
+        <method-call id="subscribeToSubscriber">
+            <method>#{pageFlowScope.TrackingShipmentHomeBean.subscribeToSubscriber}</method>
+            <outcome>
+                <fixed-outcome>success</fixed-outcome>
+            </outcome>
+        </method-call>
         <control-flow-rule id="__1">
             <from-activity-id>Track_Shipment_Home</from-activity-id>
             <control-flow-case id="__2">
@@ -28,6 +39,13 @@
                 <from-outcome>trackroad</from-outcome>
                 <to-activity-id>TrackShipmentRoad</to-activity-id>
                 <transition>flipLeft</transition>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__5">
+            <from-activity-id>subscribeToSubscriber</from-activity-id>
+            <control-flow-case id="__6">
+                <from-outcome>success</from-outcome>
+                <to-activity-id>Track_Shipment_Home</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
         <page-flow-scope-behavior>
