@@ -1,19 +1,13 @@
 package com.oracle.apps.fleetmanagement.mobile.bean;
 
 import com.oracle.apps.fleetmanagement.mobile.model.ManagedBean;
-import com.oracle.apps.fleetmanagement.mobile.util.JSONParserUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 
-import javax.el.ValueExpression;
-
-import oracle.adf.model.datacontrols.device.DeviceManagerFactory;
-
 import oracle.adfmf.amx.event.ActionEvent;
-import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.framework.api.JSONBeanSerializationHelper;
 import oracle.adfmf.framework.exception.AdfException;
@@ -33,218 +27,89 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-public class TrackShipmentRailBean implements MqttCallback{
+public class TrackingShipmentHomeBean implements MqttCallback{
     
-    private void setDefaultSettings(){
-        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-    }
-    
-    public TrackShipmentRailBean() {
+    public TrackingShipmentHomeBean() {
         super();
-        this.setDefaultSettings();
-        qos = 2;
-        sampleClient = null;
-        broker = "tcp://m11.cloudmqtt.com:16385";
-        password = "1MSI1ktJ81aY";
-        uri = "tcp://m11.cloudmqtt.com:16385";
-        username = "swlrwhmx";
-    }
-    
-    public void init_trackingShipkment(){
-        System.out.println("Taskflow Initializer in Progress");
+        qos1 = 2;
+        sampleClient1 = null;
+        broker1 = "tcp://m11.cloudmqtt.com:16385";
+        password1 = "1MSI1ktJ81aY";
+        uri1 = "tcp://m11.cloudmqtt.com:16385";
+        username1 = "swlrwhmx";
     }
     
     private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     
-    MqttClient sampleClient;
-    int qos;
-    String broker;   
-    String password;
-    String uri;
-    String username;
-    String topic = "on_rail";
-    String inputMessage;
-    String oldInputMessage;
-    String latitude;
-    String longitude;
-    String temperature;
-    String humidity;
-    String ultrasonic;
-    String light;
-    String customerId;
-    String shipmentId;
-    boolean showLightSensor;
-    boolean showUltraSensor;
-    boolean showTempSensor;
-    boolean showHumidSensor;
-    String macAddress;
+    MqttClient sampleClient1;
+    int qos1;
+    String broker1;   
+    String password1;
+    String uri1;
+    String username1;
+    String topic1 = "on_rail";
+    boolean changeLightIndicator;
+    boolean changeHumidIndicator;
+    boolean changeUltrasonicIndicator;
+    boolean changeTemperatureIndicator;
+  
 
-
-    public void setMacAddress(String macAddress) {
-        String oldMacAddress = this.macAddress;
-        this.macAddress = macAddress;
-        propertyChangeSupport.firePropertyChange("macAddress", oldMacAddress, macAddress);
+    public void setChangeLightIndicator(boolean changeLightIndicator) {
+        boolean oldChangeLightIndicator = this.changeLightIndicator;
+        this.changeLightIndicator = changeLightIndicator;
+        propertyChangeSupport.firePropertyChange("changeLightIndicator", oldChangeLightIndicator, changeLightIndicator);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public String getMacAddress() {
-        return macAddress;
+    public boolean isChangeLightIndicator() {
+        return changeLightIndicator;
     }
 
-
-    public void setShowTempSensor(boolean showTempSensor) {
-        boolean oldShowTempSensor = this.showTempSensor;
-        this.showTempSensor = showTempSensor;
-        propertyChangeSupport.firePropertyChange("showTempSensor", oldShowTempSensor, showTempSensor);
+    public void setChangeHumidIndicator(boolean changeHumidIndicator) {
+        boolean oldChangeHumidIndicator = this.changeHumidIndicator;
+        this.changeHumidIndicator = changeHumidIndicator;
+        propertyChangeSupport.firePropertyChange("changeHumidIndicator", oldChangeHumidIndicator, changeHumidIndicator);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public boolean isShowTempSensor() {
-        return showTempSensor;
+    public boolean isChangeHumidIndicator() {
+        return changeHumidIndicator;
     }
 
-    public void setShowHumidSensor(boolean showHumidSensor) {
-        boolean oldShowHumidSensor = this.showHumidSensor;
-        this.showHumidSensor = showHumidSensor;
-        propertyChangeSupport.firePropertyChange("showHumidSensor", oldShowHumidSensor, showHumidSensor);
+    public void setChangeUltrasonicIndicator(boolean changeUltrasonicIndicator) {
+        boolean oldChangeUltrasonicIndicator = this.changeUltrasonicIndicator;
+        this.changeUltrasonicIndicator = changeUltrasonicIndicator;
+        propertyChangeSupport.firePropertyChange("changeUltrasonicIndicator", oldChangeUltrasonicIndicator,
+                                                 changeUltrasonicIndicator);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public boolean isShowHumidSensor() {
-        return showHumidSensor;
+    public boolean isChangeUltrasonicIndicator() {
+        return changeUltrasonicIndicator;
     }
 
-    public void setShowLightSensor(boolean showLightSensor) {
-        boolean oldShowLightSensor = this.showLightSensor;
-        this.showLightSensor = showLightSensor;
-        propertyChangeSupport.firePropertyChange("showLightSensor", oldShowLightSensor, showLightSensor);
+    public void setChangeTemperatureIndicator(boolean changeTemperatureIndicator) {
+        boolean oldChangeTemperatureIndicator = this.changeTemperatureIndicator;
+        this.changeTemperatureIndicator = changeTemperatureIndicator;
+        propertyChangeSupport.firePropertyChange("changeTemperatureIndicator", oldChangeTemperatureIndicator,
+                                                 changeTemperatureIndicator);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public boolean isShowLightSensor() {
-        return showLightSensor;
+    public boolean isChangeTemperatureIndicator() {
+        return changeTemperatureIndicator;
     }
 
-    public void setShowUltraSensor(boolean showUltraSensor) {
-        boolean oldShowUltraSensor = this.showUltraSensor;
-        this.showUltraSensor = showUltraSensor;
-        propertyChangeSupport.firePropertyChange("showUltraSensor", oldShowUltraSensor, showUltraSensor);
-        AdfmfJavaUtilities.flushDataChangeEvent();
-    }
-
-    public boolean isShowUltraSensor() {
-        return showUltraSensor;
-    }
-
-
-    public void setLatitude(String latitude) {
-        String oldLatitude = this.latitude;
-        this.latitude = latitude;
-        propertyChangeSupport.firePropertyChange("latitude", oldLatitude, latitude);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLongitude(String longitude) {
-        String oldLongitude = this.longitude;
-        this.longitude = longitude;
-        propertyChangeSupport.firePropertyChange("longitude", oldLongitude, longitude);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setTemperature(String temperature) {
-        String oldTemperature = this.temperature;
-        this.temperature = temperature;
-        propertyChangeSupport.firePropertyChange("temperature", oldTemperature, temperature);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getTemperature() {
-        return temperature;
-    }
-
-    public void setHumidity(String humidity) {
-        String oldHumidity = this.humidity;
-        this.humidity = humidity;
-        propertyChangeSupport.firePropertyChange("humidity", oldHumidity, humidity);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public void setUltrasonic(String ultrasonic) {
-        String oldUltrasonic = this.ultrasonic;
-        this.ultrasonic = ultrasonic;
-        propertyChangeSupport.firePropertyChange("ultrasonic", oldUltrasonic, ultrasonic);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getUltrasonic() {
-        return ultrasonic;
-    }
-
-    public void setLight(String light) {
-        String oldLight = this.light;
-        this.light = light;
-        propertyChangeSupport.firePropertyChange("light", oldLight, light);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getLight() {
-        return light;
-    }
-
-    public void setCustomerId(String customerId) {
-        String oldCustomerId = this.customerId;
-        this.customerId = customerId;
-        propertyChangeSupport.firePropertyChange("customerId", oldCustomerId, customerId);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setShipmentId(String shipmentId) {
-        String oldShipmentId = this.shipmentId;
-        this.shipmentId = shipmentId;
-        propertyChangeSupport.firePropertyChange("shipmentId", oldShipmentId, shipmentId);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getShipmentId() {
-        return shipmentId;
-    }
-    
     private MqttConnectOptions getMqttConnOptions(){
         MqttConnectOptions connOpts = null;
         try{
         connOpts = new MqttConnectOptions();
         connOpts.setCleanSession(true);
-        connOpts.setPassword(password.toCharArray());
+        connOpts.setPassword(password1.toCharArray());
         String[] serverURIs = new String[1];
-        serverURIs[0] = uri;
+        serverURIs[0] = uri1;
         connOpts.setServerURIs(serverURIs);
-        connOpts.setUserName(username);
+        connOpts.setUserName(username1);
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -258,10 +123,10 @@ public class TrackShipmentRailBean implements MqttCallback{
         String text = "";
         boolean connStatus = false;
         try {
-            sampleClient = new MqttClient(broker, clientId, persistence);
+            sampleClient1 = new MqttClient(broker1, clientId, persistence);
             MqttConnectOptions connOpts = getMqttConnOptions();
-            sampleClient.setCallback(this);
-            sampleClient.connect(connOpts);
+            sampleClient1.setCallback(this);
+            sampleClient1.connect(connOpts);
            
             connStatus = true;
             Trace.log(Utility.ApplicationLogger, Level.INFO, ManagedBean.class, ManagedBean.class.getName(),"Connected"); 
@@ -293,8 +158,8 @@ public class TrackShipmentRailBean implements MqttCallback{
         Trace.log(Utility.ApplicationLogger, Level.INFO, ManagedBean.class, ManagedBean.class.getName(),text); 
         
         MqttMessage message = new MqttMessage(content.getBytes());
-        message.setQos(qos);
-        sampleClient.publish(topic, message);
+        message.setQos(qos1);
+        sampleClient1.publish(topic, message);
         
         text = ("Message published");
         Trace.log(Utility.ApplicationLogger, Level.INFO, ManagedBean.class, ManagedBean.class.getName(),text); 
@@ -322,9 +187,9 @@ public class TrackShipmentRailBean implements MqttCallback{
     private void disconnect(){
         String text = "";
         try{
-        if(sampleClient != null){
-            sampleClient.disconnect();
-            sampleClient = null;
+        if(sampleClient1 != null){
+            sampleClient1.disconnect();
+            sampleClient1 = null;
         }
         }catch(MqttException me) {
             text = "reason "+me.getReasonCode();
@@ -347,43 +212,21 @@ public class TrackShipmentRailBean implements MqttCallback{
     
     public void publish(ActionEvent x){
        
-       // if(connect(topic)){
-            String msg = "Message from MqttPublishSample";
-            publish(topic, msg);
-          //  disconnect();
-      //  }
+      String msg = "Message from MqttPublishSample";
+      publish(topic1, msg);
+      
     }
-    
-//    public void subscribe(ActionEvent x){
-//        if(connect(topic)){
-//            MqttTopic mqttTopic = sampleClient.getTopic(topic);
-//            try {
-//                int subQoS = 0;
-//                sampleClient.subscribe(topic,subQoS);
-//                String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 300, \"long\": -122.2646400,\n" + 
-//                "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
-//                "\"shipment_id\": \"ML-10\"}}";
-//                publish(topic, defaultPublish);
-//              //  Thread.sleep(5000);
-//                } catch (Exception e) {
-//                e.printStackTrace();
-//            }finally{
-//             //   disconnect();
-//            }
-//            
-//        }
-//    }
-    
-    public void subscribeToMQTT(){
-        if(connect(topic)){
-            MqttTopic mqttTopic = sampleClient.getTopic(topic);
+        
+    public void subscribeToSubscriber(){
+        if(connect(topic1)){
+            MqttTopic mqttTopic = sampleClient1.getTopic(topic1);
             try {
                 int subQoS = 0;
-                sampleClient.subscribe(topic,subQoS);
+                sampleClient1.subscribe(topic1, subQoS);
                 String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 300, \"long\": -122.2646400,\n" + 
                 "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
                 "\"shipment_id\": \"ML-1\"}}";
-                publish(topic, defaultPublish);
+                publish(topic1, defaultPublish);
               //  Thread.sleep(5000);
                 } catch (Exception e) {
                 e.printStackTrace();
@@ -400,39 +243,8 @@ public class TrackShipmentRailBean implements MqttCallback{
         System.out.println("| Topic:" + string);
         System.out.println("| Message: " + new String(mqttMessage.getPayload()));
         HashMap<String, String> mPayload = parseJSONObjectFromQueue(new String(mqttMessage.getPayload()));
-        if(mPayload != null && mPayload.size() > 0){
-            
-        try{
-            
-            setCustomerId(toProperObjectType(mPayload.get("CustomerId"), null));
-            setHumidity(toProperObjectType(mPayload.get("Humidity"), "Humidity"));
-            setLatitude(toProperObjectType(mPayload.get("Latitude"), null));
-            setLongitude(toProperObjectType(mPayload.get("Longitude"), null));
-            setLight(toProperObjectType(mPayload.get("Light"), "Light"));
-            setShipmentId(toProperObjectType(mPayload.get("ShipmentId"), null));
-            setTemperature(toProperObjectType(mPayload.get("Temperature"), "Temperature"));
-            setUltrasonic(toProperObjectType(mPayload.get("Ultrasound"),"Ultrasound"));
-            setMacAddress(toProperObjectType(mPayload.get("MacAddress"),null));
-            
-        }catch(Exception e){
-            e.printStackTrace();
-            throw new AdfException (e);
-        }
-
-      }
         System.out.println("-------------------------------------------------");
 
-    }
-
-    public void setInputMessage(String inputMessage) {
-        this.oldInputMessage = this.inputMessage;
-        this.inputMessage = inputMessage;
-        propertyChangeSupport.firePropertyChange("inputMessage", oldInputMessage, inputMessage);
-        AdfmfJavaUtilities.flushDataChangeEvent(); 
-    }
-
-    public String getInputMessage() {
-        return this.inputMessage;
     }
 
     @Override
@@ -517,6 +329,22 @@ public class TrackShipmentRailBean implements MqttCallback{
             System.out.print(ex.getMessage());
         }
         
+        try{
+            
+            toProperObjectType(mShipmentValues.get("CustomerId"), null);
+            toProperObjectType(mShipmentValues.get("Humidity"), "Humidity");
+            toProperObjectType(mShipmentValues.get("Latitude"), null);
+            toProperObjectType(mShipmentValues.get("Longitude"), null);
+            toProperObjectType(mShipmentValues.get("Light"), "Light");
+            toProperObjectType(mShipmentValues.get("ShipmentId"), null);
+            toProperObjectType(mShipmentValues.get("Temperature"), "Temperature");
+            toProperObjectType(mShipmentValues.get("Ultrasound"),"Ultrasound");
+            toProperObjectType(mShipmentValues.get("MacAddress"),null);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new AdfException (e);
+        }
         
         return mShipmentValues;
     }
@@ -560,15 +388,15 @@ public class TrackShipmentRailBean implements MqttCallback{
                            
                            if(i < lightThresh){
                                
-                               setShowLightSensor(false);
+                               setChangeLightIndicator(false);
                                
                            }else{
                                
-                               setShowLightSensor(true);
+                               setChangeLightIndicator(true);
                            }
                        }else{
                            
-                           setShowLightSensor(true);
+                           setChangeLightIndicator(true);
                        }
                    }
                    
@@ -583,15 +411,15 @@ public class TrackShipmentRailBean implements MqttCallback{
                            
                            if(i < usThresh){
                                
-                               setShowUltraSensor(false);
+                               setChangeUltrasonicIndicator(false);
                                
                            }else{
                                
-                               setShowUltraSensor(true);
+                               setChangeUltrasonicIndicator(true);
                            }
                        }else{
                            
-                           setShowUltraSensor(true);
+                           setChangeUltrasonicIndicator(true);
                        }
                    }
                    
@@ -613,15 +441,15 @@ public class TrackShipmentRailBean implements MqttCallback{
                            
                            if((Double)pVal < tempThresh){
                                
-                               setShowTempSensor(false);
+                               setChangeTemperatureIndicator(false);
                                
                            }else{
                                
-                               setShowTempSensor(true);
+                               setChangeTemperatureIndicator(true);
                            }
                        }else{
                            
-                           setShowTempSensor(true);
+                           setChangeTemperatureIndicator(true);
                        }
                    }
                    
@@ -636,15 +464,15 @@ public class TrackShipmentRailBean implements MqttCallback{
                            
                            if((Double)pVal < humidThresh){
                                
-                               setShowHumidSensor(false);
+                               setChangeHumidIndicator(false);
                                
                            }else{
                                
-                               setShowHumidSensor(true);
+                               setChangeHumidIndicator(true);
                            }
                        }else{
                            
-                           setShowHumidSensor(true);
+                           setChangeHumidIndicator(true);
                        }
                    }
                    
@@ -659,24 +487,4 @@ public class TrackShipmentRailBean implements MqttCallback{
        return mVal;
     }
 
-    public void openIOSEmailClient(ActionEvent actionEvent) {
-        
-        // Get the Email Address for the Current select row for Appointment - Account Contact Person.
-        String mEmail = (String) AdfmfJavaUtilities.evaluateELExpression("#{viewScope.emerEmailId}");
-        // Invoke the java script "launchEmailApp", present in CGMapEmailUtil.js
-        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
-                                                                  "launchDefaultApp", new Object[] {
-                                                                  "EMAIL", mEmail});
-    }
-    
-    
-    public void openIOSFacetimeClient(ActionEvent actionEvent) {
-        // Get the Phone Number for the Current select row for Appointment - Account Contact Person.
-        String mTel = (String) AdfmfJavaUtilities.evaluateELExpression("#{viewScope.emerTelNum}");
-        // Invoke the java script "launchTelApp", present in CGMapEmailUtil.js
-        AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
-                                                                  "launchDefaultApp", new Object[] {
-                                                                  "FACETIME" , mTel});
-        
-    }
 }
