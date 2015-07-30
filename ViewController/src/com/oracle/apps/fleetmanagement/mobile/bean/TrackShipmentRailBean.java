@@ -51,7 +51,7 @@ public class TrackShipmentRailBean implements MqttCallback{
     
     public TrackShipmentRailBean() {
         super();
-        this.setDefaultSettings();
+        //this.setDefaultSettings();
         qos = 2;
         sampleClient = null;
         broker = "tcp://m11.cloudmqtt.com:16385";
@@ -380,8 +380,8 @@ public class TrackShipmentRailBean implements MqttCallback{
             try {
                 int subQoS = 0;
                 sampleClient.subscribe(topic,subQoS);
-                String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 300, \"long\": -122.2646400,\n" + 
-                "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
+                String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 20, \"long\": -122.2646400,\n" + 
+                "\"humidity\": 47.0, \"ultrasound\": 2, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
                 "\"shipment_id\": \"ML-1\"}}";
                 publish(topic, defaultPublish);
               //  Thread.sleep(5000);

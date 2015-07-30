@@ -51,7 +51,7 @@ public class NonAdminHome {
         renderProcessed = false;
         renderSubmitted = true;
         
-        this.setDefaultSettings();
+        //this.setDefaultSettings();
         date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
         
         ValueExpression ve;
