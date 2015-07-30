@@ -48,7 +48,7 @@
     
     <amx:spacer id="s25" width="10"/>
     
-     <amx:commandButton inlineStyle="padding-left:10px;" text="Save" id="cb4" actionListener="#{viewScope.SettingsManagedBean.saveValue}"
+     <amx:commandButton inlineStyle="padding-left:10px;" text="Set Defaults" id="cb4" actionListener="#{viewScope.SettingsManagedBean.saveValue}"
                               styleClass="newAltaButton"/>
     </amx:panelGroupLayout>
     
