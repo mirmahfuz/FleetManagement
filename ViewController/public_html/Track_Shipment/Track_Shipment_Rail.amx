@@ -93,7 +93,20 @@
         </amx:tableLayout>
     </amx:panelPage>
     <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
-        <amx:outputText value="Work In Progress" id="ot4"/>
+        <amx:panelGroupLayout id="pgl35">
+            <amx:outputText value="Customer Details" id="ot2" styleClass="large-text blue"/>
+            <amx:outputText value="#{applicationScope.SenderDetail.senderName}" id="ot7" styleClass="small-text gray"/>
+            <amx:tableLayout id="tl1">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf1">
+                        <amx:outputText value="From" id="ot4"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf2">
+                        <amx:outputText value="outputText3" id="ot42"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
     </amx:popup>
     <amx:popup id="temp" backgroundDimming="off" autoDismiss="true">
         <amx:panelGroupLayout id="pgl8">
@@ -348,9 +361,9 @@
     </amx:popup>
     <amx:popup id="light" backgroundDimming="off" autoDismiss="true">
         <amx:panelGroupLayout id="pgl26">
-            <amx:outputText value="Preference Detail Of Theft Sensor" id="ot12" styleClass="large-text blue"/>
+            <amx:outputText value="Preference Detail Of Light Sensor" id="ot12" styleClass="large-text blue"/>
             <amx:panelGroupLayout id="pgl27" layout="horizontal">
-                <amx:outputText value="Theft" id="ot35" styleClass="small-text gray"/>
+                <amx:outputText value="Light" id="ot35" styleClass="small-text gray"/>
                 <amx:spacer id="s22" height="5" width="25"/>
                 <amx:image id="i7" source="/images/redled.png"
                            rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>

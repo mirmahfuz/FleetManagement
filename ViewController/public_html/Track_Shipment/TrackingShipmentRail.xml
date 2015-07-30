@@ -8,6 +8,11 @@
       <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.bean.TrackShipmentRailBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>SenderDetail</managed-bean-name>
+      <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.model.SenderDetail</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
     <view id="Track_Shipment_Rail">
       <page>/Track_Shipment/Track_Shipment_Rail.amx</page>
     </view>
