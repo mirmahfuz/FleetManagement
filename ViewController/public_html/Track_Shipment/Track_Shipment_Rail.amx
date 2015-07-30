@@ -6,7 +6,8 @@
             <amx:outputText value="Track Rail Shipment" id="ot1"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandButton id="cb1" text="Back" action="__back"/>
+            <amx:commandButton id="cb1" text="Back" action="__back" icon="/images/func_caretleft_24_ena_white.png"
+                               iconPosition="leading" inlineStyle="color:White;"/>
         </amx:facet>
         <amx:facet name="secondary"/>
         <amx:facet name="footer"/>
@@ -18,9 +19,11 @@
                                             initialZooming="auto" shortDesc="Shipment Type :: Rail" zoomLevel="17"
                                             styleClass="GeoMapContainerHeight">
                             <dvtm:pointDataLayer id="pdl1">
-                                <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.2646400" pointY="37.5311940">
+                                <dvtm:pointLocation id="pl1" type="pointXY"
+                                                    pointX="#{pageFlowScope.TrackShipmentRailBean.longitude}"
+                                                    pointY="#{pageFlowScope.TrackShipmentRailBean.latitude}">
                                     <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
-                                        <amx:showPopupBehavior id="spb1" popupId="popup1" alignId="mrk1"
+                                        <amx:showPopupBehavior id="spb1" popupId="user" alignId="mrk1"
                                                                align="topCenter" decoration="anchor" type="action"/>
                                     </dvtm:marker>
                                 </dvtm:pointLocation>
@@ -34,7 +37,7 @@
                         <amx:spacer id="s9" height="20" width="10"/>
                         <amx:commandLink id="cl1">
                             <amx:panelGroupLayout id="pgl1">
-                                <amx:image source="/images/menu_information.png" styleClass="sensorHImage" id="i16"/>
+                                <amx:image source="/images/headshot04.png" styleClass="sensorImageTrack" id="i16"/>
                             </amx:panelGroupLayout>
                             <amx:showPopupBehavior id="spb2" popupId="user" type="action" align="startMiddle"
                                                    alignId="i16" decoration="anchor"/>
@@ -42,7 +45,7 @@
                         <amx:spacer id="s8" height="20" width="10"/>
                         <amx:commandLink id="cl3">
                             <amx:panelGroupLayout id="pgl5" halign="center" valign="middle">
-                                <amx:image id="i15" source="/images/thermometer.gif" styleClass="sensorHImage"/>
+                                <amx:image id="i15" source="/images/thermometer.gif" styleClass="sensorImageTrack"/>
                                 <amx:image id="i5" source="/images/greenled.png"
                                            rendered="#{!(pageFlowScope.TrackShipmentRailBean.showTempSensor)}"/>
                                 <amx:image id="i6" source="/images/redled.png"
@@ -54,7 +57,7 @@
                         <amx:spacer id="s5" height="20" width="10"/>
                         <amx:commandLink id="cl8">
                             <amx:panelGroupLayout id="pgl34" halign="center" valign="middle">
-                                <amx:image id="i17" source="/images/humidity.jpg" styleClass="sensorHImage"/>
+                                <amx:image id="i17" source="/images/humidity.jpg" styleClass="sensorImageTrack"/>
                                 <amx:image id="i22" source="/images/redled.png"
                                            rendered="#{pageFlowScope.TrackShipmentRailBean.showHumidSensor}"/>
                                 <amx:image id="i23" source="/images/greenled.png"
@@ -66,7 +69,7 @@
                         <amx:spacer id="s6" height="20" width="10"/>
                         <amx:commandLink id="cl11">
                             <amx:panelGroupLayout id="pgl4" halign="center" valign="middle">
-                                <amx:image id="i18" source="/images/robber.jpg" styleClass="sensorHImage"/>
+                                <amx:image id="i18" source="/images/robber.jpg" styleClass="sensorImageTrack"/>
                                 <amx:image id="i9" source="/images/greenled.png"
                                            rendered="#{!(pageFlowScope.TrackShipmentRailBean.showUltraSensor)}"/>
                                 <amx:image id="i10" source="/images/redled.png"
@@ -78,7 +81,7 @@
                         <amx:spacer id="s7" height="20" width="10"/>
                         <amx:commandLink id="cl12">
                             <amx:panelGroupLayout id="pgl33" halign="center" valign="middle">
-                                <amx:image id="i19" source="/images/loadUnload.jpg" styleClass="sensorHImage"/>
+                                <amx:image id="i19" source="/images/loadUnload.jpg" styleClass="sensorImageTrack"/>
                                 <amx:image id="i12" source="/images/redled.png"
                                            rendered="#{pageFlowScope.TrackShipmentRailBean.showLightSensor}"/>
                                 <amx:image id="i11" source="/images/greenled.png"
@@ -92,18 +95,57 @@
             </amx:rowLayout>
         </amx:tableLayout>
     </amx:panelPage>
-    <amx:popup id="popup1" backgroundDimming="off" autoDismiss="true">
+    <amx:popup id="user" backgroundDimming="off" autoDismiss="true">
         <amx:panelGroupLayout id="pgl35">
-            <amx:outputText value="Customer Details" id="ot2" styleClass="large-text blue"/>
-            <amx:outputText value="#{applicationScope.SenderDetail.senderName}" id="ot7" styleClass="small-text gray"/>
-            <amx:tableLayout id="tl1">
+            <amx:outputText value="Customer Details" id="ot2" styleClass="large-text blue bold"/>
+            <amx:spacer id="s3" height="5" width="5"/>
+            <amx:panelGroupLayout id="pgl39" layout="horizontal" valign="middle">
+                <amx:image id="i35" source="/images/headshot04.png" styleClass="sensorHImage"/>
+                <amx:outputText value="#{applicationScope.SenderDetail.senderName}" id="ot7"
+                                styleClass="xxl-text green"/>
+            </amx:panelGroupLayout>
+            <amx:spacer id="s4" height="1" width="1"/>
+            <amx:outputText value="#{applicationScope.SenderDetail.senderAddr1} #{' , '} #{applicationScope.SenderDetail.senderCity}" id="ot9"
+                            styleClass="small-text gray"/>
+            <amx:outputText value="#{applicationScope.SenderDetail.senderZip}" id="ot43" styleClass="small-text gray"/>
+            <amx:spacer id="s30" height="2" width="2"/>
+            <amx:panelGroupLayout id="pgl40">
+                <amx:panelGroupLayout id="pgl37" layout="horizontal" valign="middle" halign="center">
+                    <amx:outputText value="#{applicationScope.SenderDetail.senderCity} #{' , '} #{applicationScope.SenderDetail.senderCountry}"
+                                    id="ot44" styleClass="red"/>
+                    <amx:spacer id="s28" width="5"/>
+                    <amx:image id="i34" source="/images/rightarrow.gif"/>
+                    <amx:spacer id="s29" width="5"/>
+                    <amx:outputText value="#{applicationScope.SenderDetail.receiverCity} #{' , '} #{applicationScope.SenderDetail.receiverCountry}"
+                                    id="ot45" styleClass="red"/>
+                </amx:panelGroupLayout>
+                <amx:panelGroupLayout id="pgl36" layout="horizontal">
+                    <amx:outputText value="Shipment / Tracking Id :  " id="ot4" styleClass="gray"/>
+                    <amx:spacer id="s25" height="3" width="3"/>
+                    <amx:outputText value="953472" id="ot42" styleClass="blue"/>
+                </amx:panelGroupLayout>
+                <amx:panelGroupLayout id="pgl38" layout="horizontal">
+                    <amx:outputText value="Device Name :" id="ot46" styleClass="gray"/>
+                    <amx:spacer id="s31" height="2" width="2"/>
+                    <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.macAddress}" id="ot47"
+                                    styleClass="blue"/>
+                </amx:panelGroupLayout>
+                <amx:panelGroupLayout id="pgl41" layout="horizontal">
+                    <amx:outputText value="Shipment Curent Location : " id="ot48" styleClass="gray"/>
+                    <amx:spacer id="s32" height="2" width="2"/>
+                    <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.longitude} #{' , '} #{pageFlowScope.TrackShipmentRailBean.latitude}" id="ot49"
+                                    styleClass="blue"/>
+                </amx:panelGroupLayout>
+            </amx:panelGroupLayout>
+            <amx:tableLayout id="tl1" rendered="false">
                 <amx:rowLayout id="rl1">
-                    <amx:cellFormat id="cf1">
-                        <amx:outputText value="From" id="ot4"/>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf2">
-                        <amx:outputText value="outputText3" id="ot42"/>
-                    </amx:cellFormat>
+                    <amx:cellFormat id="cf1"/>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf33"/>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl25">
+                    <amx:cellFormat id="cf34"/>
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:panelGroupLayout>
@@ -192,9 +234,6 @@
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:panelGroupLayout>
-    </amx:popup>
-    <amx:popup id="user" backgroundDimming="off" autoDismiss="true">
-        <amx:outputText value="Work In Progress" id="ot9"/>
     </amx:popup>
     <amx:popup id="theft" backgroundDimming="off" autoDismiss="true">
         <amx:panelGroupLayout id="pgl14">

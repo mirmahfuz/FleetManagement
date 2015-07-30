@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
-  <task-flow-definition id="Track_Shipment-task-flow">
-    <default-activity>Track_Shipment_Home</default-activity>
-    <view id="Track_Shipment_Home">
-      <page>/Track_Shipment/Track_Shipment_Home.amx</page>
-    </view>
-    <task-flow-call id="TrackingShipmentRail">
-      <task-flow-reference>
-        <document>/Track_Shipment/TrackingShipmentRail.xml</document>
-        <id>TrackingShipmentRail</id>
-      </task-flow-reference>
-      <data-control-context>shared</data-control-context>
-    </task-flow-call>
-    <task-flow-call id="TrackShipmentRoad">
-      <task-flow-reference>
-        <document>/Track_Shipment/TrackShipmentRoad.xml</document>
-        <id>TrackShipmentRoad</id>
-      </task-flow-reference>
-      <data-control-context>shared</data-control-context>
-    </task-flow-call>
-    <control-flow-rule id="__1">
-      <from-activity-id>Track_Shipment_Home</from-activity-id>
-      <control-flow-case id="__2">
-        <from-outcome>trackrail</from-outcome>
-        <to-activity-id>TrackingShipmentRail</to-activity-id>
-        <transition>flipUp</transition>
-      </control-flow-case>
-      <control-flow-case id="__3">
-        <from-outcome>trackroad</from-outcome>
-        <to-activity-id>TrackShipmentRoad</to-activity-id>
-        <transition>flipLeft</transition>
-      </control-flow-case>
-    </control-flow-rule>
-    <page-flow-scope-behavior>
-      <push-new/>
-    </page-flow-scope-behavior>
-  </task-flow-definition>
+    <task-flow-definition id="Track_Shipment-task-flow">
+        <default-activity>Track_Shipment_Home</default-activity>
+        <view id="Track_Shipment_Home">
+            <page>/Track_Shipment/Track_Shipment_Home.amx</page>
+        </view>
+        <task-flow-call id="TrackingShipmentRail">
+            <task-flow-reference>
+                <document>/Track_Shipment/TrackingShipmentRail.xml</document>
+                <id>TrackingShipmentRail</id>
+            </task-flow-reference>
+        </task-flow-call>
+        <task-flow-call id="TrackShipmentRoad">
+            <task-flow-reference>
+                <document>/Track_Shipment/TrackShipmentRoad.xml</document>
+                <id>TrackShipmentRoad</id>
+            </task-flow-reference>
+        </task-flow-call>
+        <control-flow-rule id="__1">
+            <from-activity-id>Track_Shipment_Home</from-activity-id>
+            <control-flow-case id="__2">
+                <from-outcome>trackrail</from-outcome>
+                <to-activity-id>TrackingShipmentRail</to-activity-id>
+                <transition>flipUp</transition>
+            </control-flow-case>
+            <control-flow-case id="__3">
+                <from-outcome>trackroad</from-outcome>
+                <to-activity-id>TrackShipmentRoad</to-activity-id>
+                <transition>flipLeft</transition>
+            </control-flow-case>
+        </control-flow-rule>
+        <page-flow-scope-behavior>
+            <push-new/>
+        </page-flow-scope-behavior>
+    </task-flow-definition>
 </adfc-mobile-config>
