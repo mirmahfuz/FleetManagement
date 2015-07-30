@@ -151,6 +151,32 @@
     background-color: #e7e7e7;
 }
 
+.textLargeRedCircle {
+    border: 1px solid #DDDDDD;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 5px;
+    background-color:#FF0000;
+}
+
+.textLargeGreenCircle {
+    border: 1px solid #DDDDDD;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 5px;
+    background-color: Green;
+}
+
+.textLargeWhiteCircle {
+    border: 1px solid Black;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 5px;
+}
+
 .springBoardPersonImage {
     border: 1px solid #DDDDDD;
     height: 80px;
