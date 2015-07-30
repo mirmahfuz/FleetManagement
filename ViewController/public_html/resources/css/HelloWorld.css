@@ -117,6 +117,14 @@
     margin: 7px 10px 0px 0px;
 }
 
+.imageAtTracking {
+    border: 1px solid #DDDDDD;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
+
 .sensorHImage {
     border: 1px solid #DDDDDD;
     height: 46px;
@@ -143,16 +151,16 @@
 }
 
 .sensorImageTrackBackGreen {
-    border: 1px solid #DDDDDD;
+    border: 1px solid White;
     height: 60px;
     width: 60px;
     border-radius: 50%;
     margin: 7px 1px 0px 5px;
-    background-color: #e7e7e7;
+    background-color: White;
 }
 
 .textLargeRedCircle {
-    border: 1px solid #DDDDDD;
+    border: 1px solid White;
     height: 90px;
     width: 90px;
     border-radius: 50%;
@@ -186,12 +194,11 @@
 }
 
 .RoadMapDetailContainer {
-    border: 1px solid rgb(231, 231, 231);
+    border: 1px solid White;
     margin: 10px;
     border-radius: 6px;
     height: 683px;
     padding: 10px;
-    background-color:#e7e7e7;
 }
 
 .GeoMapContainerHeight {

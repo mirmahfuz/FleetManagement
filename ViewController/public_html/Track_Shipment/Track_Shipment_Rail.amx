@@ -11,7 +11,7 @@
         </amx:facet>
         <amx:facet name="secondary"/>
         <amx:facet name="footer"/>
-        <amx:tableLayout id="tl3" inlineStyle="width:100%; background-color:#e7e7e7;" halign="start">
+        <amx:tableLayout id="tl3" inlineStyle="width:100%;" halign="start">
             <amx:rowLayout id="rl3">
                 <amx:cellFormat id="cf3" inlineStyle="width:100%;">
                     <dvtm:geographicMap id="geomp1" centerX="-122.2646400" centerY="37.5311940" mapType="ROADMAP"
