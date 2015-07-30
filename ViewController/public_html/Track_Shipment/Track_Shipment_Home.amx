@@ -7,163 +7,118 @@
         </amx:facet>
         <amx:facet name="primary">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl2">
-                <amx:image inlineStyle="width:30px;height:30px;margin-top:-6px" source="/images/springboard.png"
-                           id="i1"/>
+                <amx:image source="/images/func_menu24@2x.png" styleClass="navigator" shortDesc="springboard_Image"
+                           id="i10"/>
             </amx:commandLink>
         </amx:facet>
-        <amx:panelGroupLayout id="pgl292" layout="horizontal">                          
-                 <amx:commandLink id="cl14">
-                                    <amx:panelGroupLayout id="pgl29" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Pending Orders" styleClass="linkColor" id="ot27"/>
-                                        <amx:panelGroupLayout id="pgl291" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i16"/>
-                    <amx:spacer id="s3" width="5"/>
-                    <amx:commandLink id="cl9" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl18" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl19" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="5" id="ot23"
-                                                                        styleClass="white"/>
-                                                        <!--amx:image id="contactImageId" source="#{bindings.getAttachmentList.execute}"/-->
-                                                        <!--amx:commandLink actionListener="#{bindings.getAttachmentList.execute}"
+        <amx:panelGroupLayout id="pgl292" layout="horizontal">
+            <amx:commandLink id="cl14">
+                <amx:panelGroupLayout id="pgl29" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="Pending Orders" styleClass="linkColor" id="ot27"/>
+                    <amx:panelGroupLayout id="pgl291" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i16"/>
+                        <amx:spacer id="s3" width="5"/>
+                        <amx:commandLink id="cl9" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl18" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl19" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="5" id="ot23" styleClass="white"/>
+                                    <!--amx:image id="contactImageId" source="#{bindings.getAttachmentList.execute}"/-->
+                                    <!--amx:commandLink actionListener="#{bindings.getAttachmentList.execute}"
                                                                          text="getAttachmentList"
                                                                          disabled="#{!bindings.getAttachmentList.enabled}"
                                                                          id="cl6"/-->
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink>
-                                                    
-                <amx:commandLink id="cl1">
-                                    <amx:panelGroupLayout id="pgl1" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Prepared" styleClass="linkColor" id="ot4"/>
-                                        <amx:panelGroupLayout id="pgl2" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i6"/>
-                    <amx:spacer id="s2" width="5"/>
-                    <amx:commandLink id="cl3" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl3" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl4" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="15" id="ot5"
-                                                                        styleClass="white"/>
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink>              
-                   
-                <amx:commandLink id="cl4">
-                                    <amx:panelGroupLayout id="pgl5" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Ready To Ship" styleClass="linkColor" id="ot6"/>
-                                        <amx:panelGroupLayout id="pgl6" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i4"/>
-                    <amx:spacer id="s4" width="3"/>
-                    <amx:commandLink id="cl5" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl7" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl8" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="15" id="ot7"
-                                                                        styleClass="white"/>
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink>  
-                             
-                 <amx:commandLink id="cl6">
-                                    <amx:panelGroupLayout id="pgl9" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="In Transit" styleClass="linkColor" id="ot8"/>
-                                        <amx:panelGroupLayout id="pgl10" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i5"/>
-                    <amx:spacer id="s5" width="3"/>
-                    <amx:commandLink id="cl7" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl11" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="160" id="ot9"
-                                                                        styleClass="white"/>
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink> 
-                                
-                <amx:commandLink id="cl8">
-                                    <amx:panelGroupLayout id="pgl13" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Rejected" styleClass="linkColor" id="ot3"/>
-                                        <amx:panelGroupLayout id="pgl14" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i7"/>
-                    <amx:spacer id="s6" width="5"/>
-                    <amx:commandLink id="cl10" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl15" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl17" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="5" id="ot2"
-                                                                        styleClass="white"/>
-                                                        <!--amx:image id="contactImageId" source="#{bindings.getAttachmentList.execute}"/-->
-                                                        <!--amx:commandLink actionListener="#{bindings.getAttachmentList.execute}"
-                                                                         text="getAttachmentList"
-                                                                         disabled="#{!bindings.getAttachmentList.enabled}"
-                                                                         id="cl6"/-->
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink>
-                                
-                         <amx:commandLink id="cl16">
-                                    <amx:panelGroupLayout id="pgl32" layout="vertical"
-                                                          styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Completed" styleClass="linkColor" id="ot11"/>
-                                        <amx:panelGroupLayout id="pgl31" layout="horizontal">
-                                        <amx:image source="/images/icon_order_list.png"
-                                                   inlineStyle="width:50px;" id="i11"/>
-                    <amx:spacer id="s12" width="5"/>
-                    <amx:commandLink id="cl15" styleClass="removeBackground">
-                                                <amx:panelGroupLayout id="pgl30" layout="horizontal"
-                                                                      styleClass="smallPersonAbbreviation"
-                                                                      halign="center" valign="middle">
-                                                    <amx:panelGroupLayout id="pgl20" layout="horizontal" halign="center"
-                                                                          valign="middle">
-                                                        <amx:outputText value="5" id="ot10"
-                                                                        styleClass="white"/>
-                                                        <!--amx:image id="contactImageId" source="#{bindings.getAttachmentList.execute}"/-->
-                                                        <!--amx:commandLink actionListener="#{bindings.getAttachmentList.execute}"
-                                                                         text="getAttachmentList"
-                                                                         disabled="#{!bindings.getAttachmentList.enabled}"
-                                                                         id="cl6"/-->
-                                                    </amx:panelGroupLayout>
-                                                </amx:panelGroupLayout>
-                                            </amx:commandLink>
-                                            </amx:panelGroupLayout>
-                                    </amx:panelGroupLayout>
-                                </amx:commandLink>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+            <amx:commandLink id="cl1">
+                <amx:panelGroupLayout id="pgl1" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="Prepared" styleClass="linkColor" id="ot4"/>
+                    <amx:panelGroupLayout id="pgl2" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i6"/>
+                        <amx:spacer id="s2" width="5"/>
+                        <amx:commandLink id="cl3" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl3" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl4" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="15" id="ot5" styleClass="white"/>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+            <amx:commandLink id="cl4">
+                <amx:panelGroupLayout id="pgl5" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="Ready To Ship" styleClass="linkColor" id="ot6"/>
+                    <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i4"/>
+                        <amx:spacer id="s4" width="3"/>
+                        <amx:commandLink id="cl5" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl7" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl8" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="15" id="ot7" styleClass="white"/>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+            <amx:commandLink id="cl6">
+                <amx:panelGroupLayout id="pgl9" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="In Transit" styleClass="linkColor" id="ot8"/>
+                    <amx:panelGroupLayout id="pgl10" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i5"/>
+                        <amx:spacer id="s5" width="3"/>
+                        <amx:commandLink id="cl7" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl11" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="160" id="ot9" styleClass="white"/>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+            <amx:commandLink id="cl8">
+                <amx:panelGroupLayout id="pgl13" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="Rejected" styleClass="linkColor" id="ot3"/>
+                    <amx:panelGroupLayout id="pgl14" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i7"/>
+                        <amx:spacer id="s6" width="5"/>
+                        <amx:commandLink id="cl10" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl15" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl17" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="5" id="ot2" styleClass="white"/>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+            <amx:commandLink id="cl16">
+                <amx:panelGroupLayout id="pgl32" layout="vertical" styleClass="appointmentDetailContainer">
+                    <amx:outputText value="Completed" styleClass="linkColor" id="ot11"/>
+                    <amx:panelGroupLayout id="pgl31" layout="horizontal">
+                        <amx:image source="/images/icon_order_list.png" inlineStyle="width:50px;" id="i11"/>
+                        <amx:spacer id="s12" width="5"/>
+                        <amx:commandLink id="cl15" styleClass="removeBackground">
+                            <amx:panelGroupLayout id="pgl30" layout="horizontal" styleClass="smallPersonAbbreviation"
+                                                  halign="center" valign="middle">
+                                <amx:panelGroupLayout id="pgl20" layout="horizontal" halign="center" valign="middle">
+                                    <amx:outputText value="5" id="ot10" styleClass="white"/>
+                                </amx:panelGroupLayout>
+                            </amx:panelGroupLayout>
+                        </amx:commandLink>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
             <amx:spacer id="s13" width="10"/>
         </amx:panelGroupLayout>
         <amx:listView var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
