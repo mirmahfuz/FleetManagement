@@ -800,7 +800,12 @@
             <amx:rowLayout id="rl15">
               <amx:cellFormat id="cf31" width="100%" halign="center">
                <amx:commandButton text="Submit Order" id="cb5" actionListener="#{applicationScope.SenderDetail.defaultFillReceiver}"
-                               styleClass="newAltaButton"/>
+                               styleClass="newAltaButton">
+                               <amx:showPopupBehavior id="spb1" popupId="checkout" type="action"
+                                                       align="overlapMiddleCenter">
+                                    <?audit suppress oracle.maf.error-missing-align-id?>
+                                </amx:showPopupBehavior>
+                               </amx:commandButton>
               </amx:cellFormat>
             </amx:rowLayout>
             </amx:tableLayout>
@@ -810,25 +815,28 @@
     </amx:panelStretchLayout>
   </amx:panelPage>
   
-  <amx:popup id="p1" styleClass="confirmationPopup" rendered="#{applicationScope.SenderDetail.showTempPopup}">
-        <amx:panelGroupLayout id="pgl32" layout="vertical" halign="center">
-            <amx:spacer id="s11" height="32"/>
-            <amx:outputText value="Check In" id="ot28" styleClass="xxl-text"/>
-            <amx:spacer id="s12" height="22"/>
-            <amx:outputText value="Do you want to check in to perform activities?" id="ot11" styleClass="xxl-text"
-                            inlineStyle="width:250px;  display: block;"/>
-            <amx:spacer id="s13" height="30"/>
-            <amx:tableLayout id="tl6" width="100%">
-                <amx:rowLayout id="rl8">
-                    <amx:cellFormat id="cf20" halign="center" valign="middle" width="50%" height="40px"
+      <amx:popup id="checkout" styleClass="confirmationPopup" inlineStyle="height: 210px;width: 320px;padding: 0px;">
+        <amx:panelGroupLayout id="pgl321" layout="vertical" halign="center">
+            <amx:spacer id="s71" height="32"/>
+            <amx:outputText value="Confirmation" id="ot78" styleClass="xxl-text"/>
+            <amx:spacer id="s72" height="22"/>
+            <amx:outputText value="Order has been submitted successfully" id="ot771" styleClass="xl-text"
+                            inlineStyle="width:350px;  display: block;"/>
+            <amx:spacer id="s73" height="30"/>
+            <amx:tableLayout id="tl75" width="100%">
+                <amx:rowLayout id="rl78">
+                    <amx:cellFormat id="cf778" halign="center" valign="middle" width="50%" height="40px"
                                     inlineStyle="border: 1px  solid rgb(224,224,224) ; border-bottom: 0px; border-left: 0px;">
-                        <amx:commandLink text="Cancel" id="cl6" styleClass="xxl-text">
-                            <amx:closePopupBehavior id="cpb2" popupId="p1" type="action"/>
+                        <amx:commandLink text="Cancel" id="cl76" styleClass="xxl-text">
+                            <amx:closePopupBehavior id="cpb72" popupId="checkout" type="action"/>
                         </amx:commandLink>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf21" halign="center" valign="middle" width="50%"
+                    <amx:cellFormat id="cf79" halign="center" valign="middle" width="50%"
                                     inlineStyle="border: 1px  solid rgb(224,224,224) ; border-bottom: 0px; border-right: 0px;">
-                        <amx:commandLink text="Ok" id="cl7" action="checkin" styleClass="xxl-text"/>
+                        <amx:commandLink text="OK" id="cl77" styleClass="xxl-text"
+                                         actionListener="#{applicationScope.SenderDetail.gotoHomePage}">
+                            <amx:closePopupBehavior id="cpb723" popupId="checkout" type="action"/>
+                        </amx:commandLink>
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>

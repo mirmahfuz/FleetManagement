@@ -11,7 +11,9 @@ import javax.el.ValueExpression;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.framework.exception.AdfException;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeListener;
@@ -194,8 +196,17 @@ public class SenderDetail {
         
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverName}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "John Smith");
+        
+       
     }
     
+    public void gotoHomePage(ActionEvent x){
+        try {
+                AdfmfContainerUtilities.resetFeature("Home");
+             }catch(AdfException e) {
+               throw new AdfException(e);
+             }
+    }
     public void defaultFillPayment(ActionEvent x){
         this.generatePreview(x);
     }

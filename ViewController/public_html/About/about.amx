@@ -142,10 +142,6 @@
                                             </amx:commandLink>
                                             </amx:panelGroupLayout>
                                     </amx:panelGroupLayout>
-                                    <amx:showPopupBehavior id="spb1" popupId="callHistory" type="action"
-                                                           align="overlapMiddleCenter">
-                                        <?audit suppress oracle.maf.error-missing-align-id?>
-                                    </amx:showPopupBehavior>
                                 </amx:commandLink>
                                                     
                 <amx:commandLink id="cl2">
