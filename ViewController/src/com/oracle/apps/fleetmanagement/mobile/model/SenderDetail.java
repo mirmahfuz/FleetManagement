@@ -933,7 +933,32 @@ public class SenderDetail {
         return shipmentType;
     }
     
-    
+    public void ShipmentTypeValueChangeHandler(ValueChangeEvent valueChangeEvent)
+    {
+      Trace.log(Utility.ApplicationLogger, Level.INFO, SenderDetail.class, "ShipmentTypeValueChangeHandler",
+                "##############Inside ValueChangeHandler");
+      ValueExpression ve;
+
+      ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.shipmentType}", String.class);
+      //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Value Changed!");
+
+      Object[]  oldVal = (Object[]) valueChangeEvent.getOldValue();
+      Object[] newVal = (Object[]) valueChangeEvent.getNewValue();
+      
+        ArrayList<String> selectedShipmentType = new ArrayList<String>();  
+        StringBuffer selectedShipmentTypeString = new StringBuffer();
+        for (int i = 0; i < newVal.length; i++) {
+            selectedShipmentType.add((String)newVal[i]);
+            selectedShipmentTypeString.append((String)newVal[i]+" ,");
+        }
+        
+        String tempString = selectedShipmentTypeString.substring(0, selectedShipmentTypeString.length()-1);
+        setShipmentType(tempString);
+      
+      //ve = AdfmfJavaUtilities.getValueExpression("#{viewScope.theftvaluechangeold}", String.class);
+      //ve.setValue(AdfmfJavaUtilities.getAdfELContext(), oldval);
+      
+    }
     
     public void addProviderChangeListener(ProviderChangeListener l) {
         providerChangeSupport.addProviderChangeListener(l);

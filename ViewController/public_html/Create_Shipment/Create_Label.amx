@@ -379,7 +379,8 @@
         <amx:selectItem label="Train cart 3" value="Train cart 3"/>
         <amx:selectItem label="Train cart 4" value="Train cart 4"/>
       </amx:selectOneChoice>
-        <amx:selectManyCheckbox id="shipmentType" value="#{applicationScope.SenderDetail.shipmentType}" label="Nature of shipment" required="true">
+        <amx:selectManyCheckbox id="shipmentType" value="#{applicationScope.SenderDetail.shipmentType}" label="Nature of shipment" required="true"
+        valueChangeListener="#{applicationScope.SenderDetail.ShipmentTypeValueChangeHandler}">
             <amx:selectItem label="Perishable" value="Perishable" />
             <amx:selectItem label="Flammable" value="Flammable"/>
             <amx:selectItem label="Fragile" value="Fragile"/>
@@ -438,7 +439,7 @@
                   </amx:panelGroupLayout>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf89" >
-                    <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{applicationScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorCollision}"/>
+                    <amx:selectBooleanCheckbox  label="Yes" id="sbc4"  valueChangeListener="#{applicationScope.SenderDetail.MonitorShakesValueChangeHandler}" value = "#{applicationScope.SenderDetail.monitorShakes}"/>
             
                  </amx:cellFormat>
                 <amx:cellFormat id="cf810" >
@@ -612,7 +613,7 @@
             <amx:rowLayout id="rl1121">
               <amx:cellFormat id="cf61" halign="center" width="100%">
                <amx:commandButton text="Next" id="c1b1"
-                               styleClass="newAltaButton" inlineStyle="width:100px;" actionListener="#{applicationScope.SenderDetail.generatePreview}">
+                               styleClass="newAltaButton" inlineStyle="width:100px;">
                          <amx:setPropertyListener id="sp1l77" type="action" from="Payment"
                                              to="#{viewScope.panel}"/>
                 </amx:commandButton>
@@ -759,7 +760,6 @@
             </amx:rowLayout>
             </amx:tableLayout>
           </amx:panelGroupLayout>
-          
           <amx:panelGroupLayout id="Preview" layout="vertical" inlineStyle="height:550px;">
       <amx:carousel id="carousel" var="item" value="#{bindings.previewList.collectionModel}" inlineStyle="height:550px;">
         <amx:facet name="nodeStamp">
