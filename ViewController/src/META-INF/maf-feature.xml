@@ -67,4 +67,15 @@
             </adfmf:amx>
         </adfmf:content>
     </adfmf:feature>
+    <adfmf:feature id="Login" name="Login">
+        <adfmf:content id="com.oracle.apps.fleetmanagement.Login.1">
+            <adfmf:constraints/>
+            <adfmf:amx file="Login/Login-task-flow.xml#Login-task-flow"/>
+        </adfmf:content>
+    </adfmf:feature>
+    <adfmf:feature id="Logout" name="Logout">
+        <adfmf:content id="Logout.1">
+            <adfmf:amx/>
+        </adfmf:content>
+    </adfmf:feature>
 </adfmf:features>
