@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 
+import javax.el.ValueExpression;
+
 import oracle.adf.model.datacontrols.device.DeviceManagerFactory;
 
 import oracle.adfmf.amx.event.ActionEvent;
@@ -33,8 +35,23 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class TrackShipmentRailBean implements MqttCallback{
     
+    private void setDefaultSettings(){
+        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+    }
+    
     public TrackShipmentRailBean() {
         super();
+        this.setDefaultSettings();
         qos = 2;
         sampleClient = null;
         broker = "tcp://m11.cloudmqtt.com:16385";

@@ -29,7 +29,20 @@ public class NonAdminHome {
     String date;
     private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
-
+    private void setDefaultSettings(){
+        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+    }
+    
     public NonAdminHome() throws AdfException{
         super();
         renderComplete = false;
@@ -38,6 +51,7 @@ public class NonAdminHome {
         renderProcessed = false;
         renderSubmitted = true;
         
+        this.setDefaultSettings();
         date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
         
         ValueExpression ve;

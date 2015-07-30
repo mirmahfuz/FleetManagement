@@ -21,6 +21,17 @@ public class SettingsManagedBean {
 
     public SettingsManagedBean() {
         super();
+        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
     }
     
     public void setTempThresh(String tempThresh) {
