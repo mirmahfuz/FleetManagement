@@ -154,9 +154,6 @@
                         <amx:cellFormat id="cf52" width="16.5%" header="true">
                             <amx:outputText value="Tracking Id" id="ot37" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf2" header="true" width="16.5%">
-                            <amx:outputText value="Type" id="ot12" styleClass="large-text blue"/>
-                        </amx:cellFormat>
                         <amx:cellFormat id="cf66" header="true" width="16.5%">
                             <amx:outputText value="Customer Name" id="ot61" styleClass="large-text blue"/>
                         </amx:cellFormat>
@@ -179,9 +176,6 @@
                     <amx:rowLayout id="rl15">
                         <amx:cellFormat id="cf60" width="16.5%">
                             <amx:outputText value="976295" id="ot54" styleClass="bold"/>
-                        </amx:cellFormat>
-                        <amx:cellFormat id="cf5" width="16.5%">
-                            <amx:outputText value="Rail" id="ot13" styleClass="gray"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf57" width="16.5%">
                             <amx:outputText value="#{applicationScope.SenderDetail.senderName}" id="ot53"
@@ -208,9 +202,6 @@
                         <amx:cellFormat id="cf17" width="16.5%">
                             <amx:outputText value="976290" id="ot35" styleClass="bold"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf19" width="16.5%">
-                            <amx:outputText value="Rail" id="ot33" styleClass="gray"/>
-                        </amx:cellFormat>
                         <amx:cellFormat id="cf16" width="16.5%">
                             <amx:outputText value="#{'Amy Jackson'}" id="ot38"
                                             styleClass="gray"/>
@@ -235,9 +226,6 @@
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf10" width="16.5%">
                             <amx:outputText value="976275" id="ot28" styleClass="bold"/>
-                        </amx:cellFormat>
-                        <amx:cellFormat id="cf11" width="16.5%">
-                            <amx:outputText value="Road" id="ot29" styleClass="gray"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf12" width="16.5%">
                             <amx:outputText value="#{'Bruce Wayne'}" id="ot30"
