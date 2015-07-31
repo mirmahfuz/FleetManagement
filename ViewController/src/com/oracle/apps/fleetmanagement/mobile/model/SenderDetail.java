@@ -1019,6 +1019,7 @@ public class SenderDetail {
         pageOne.setItem7Label("Email");
         pageOne.setItem8(this.getSenderPhoneNumber()==null?"":this.getSenderPhoneNumber());
         pageOne.setItem8Label("Phone");
+        pageOne.setItemHeading("Sender Summary");
         
         
         PreviewBean pageTwo = new PreviewBean();
@@ -1038,6 +1039,7 @@ public class SenderDetail {
         pageTwo.setItem7Label("Email");
         pageTwo.setItem8(this.getReceiverPhoneNumber()==null?"":this.getReceiverPhoneNumber());
         pageTwo.setItem8Label("Phone");
+        pageTwo.setItemHeading("Receiver Summary");
         
         PreviewBean pageThree = new PreviewBean();
         pageThree.setItem1(this.getNumOfBoxes()==null?"":this.getNumOfBoxes());
@@ -1048,6 +1050,7 @@ public class SenderDetail {
         pageThree.setItem3Label("No of train cars");
         pageThree.setItem4(this.getShipmentType()==null?"":this.getShipmentType());
         pageThree.setItem4Label("Nature of shipment");
+        pageThree.setItemHeading("Shipment Summary");
         
         PreviewBean pageFour = new PreviewBean();
         pageFour.setItem1(isMonitorShakes()==true?"Selected":"Not selected");
@@ -1066,6 +1069,7 @@ public class SenderDetail {
         pageFour.setItem7Label("Temperature Threshold:");
         pageFour.setItem8("$ " + String.valueOf(this.getTotal()));
         pageFour.setItem8Label("Total");
+        pageFour.setItemHeading("Preferences Summary");
         
         PreviewBean pageFive = new PreviewBean();
         pageFive.setItem1(this.getCcType()==null?"":this.getCcType());
@@ -1084,6 +1088,7 @@ public class SenderDetail {
         pageFive.setItem7Label("Zip");
         pageFive.setItem8(this.getCcCountry()==null?"":this.getCcCountry());
         pageFive.setItem8Label("Country");
+        pageFive.setItemHeading("Card Summary");
        
         
         userDetailsService x = new userDetailsService();

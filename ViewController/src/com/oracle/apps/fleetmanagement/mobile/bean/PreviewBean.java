@@ -1,6 +1,11 @@
 package com.oracle.apps.fleetmanagement.mobile.bean;
 
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
+
 public class PreviewBean {
+    private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
     public PreviewBean() {
         super();
     }
@@ -21,6 +26,7 @@ public class PreviewBean {
     private String item7Label;
     private String item8;
     private String item8Label;
+    private String itemHeading;
 
 
     public void setItem1(String item1) {
@@ -151,4 +157,21 @@ public class PreviewBean {
         return item8Label;
     }
 
+    public void setItemHeading(String itemHeading) {
+        String oldItemHeading = this.itemHeading;
+        this.itemHeading = itemHeading;
+        propertyChangeSupport.firePropertyChange("itemHeading", oldItemHeading, itemHeading);
+    }
+
+    public String getItemHeading() {
+        return itemHeading;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.removePropertyChangeListener(l);
+    }
 }

@@ -31,7 +31,8 @@
           <Item Value="item7"/>
           <Item Value="item7Label"/>
           <Item Value="item8"/>
-          <Item Value="item8Label"/>          
+          <Item Value="item8Label"/> 
+          <Item Value="itemHeading"/> 
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -765,23 +765,32 @@
         <amx:facet name="nodeStamp">
           <amx:carouselItem id="carouselItem" text="Review Order" >
             <amx:panelGroupLayout id="scroll" layout="vertical" scrollPolicy="scroll" >
+            <amx:spacer height="10"/>
+            <amx:outputText value="#{item.itemHeading.inputValue}" inlineStyle="padding-left:150px;"/>
               <amx:panelFormLayout id="panelFormLayout1" labelPosition="topStart" fieldHalign="start" >
                 <amx:panelLabelAndMessage id="panelLabelAndMessage3" label="#{item.item1Label.inputValue}">
+                    <amx:image source="/images/map.png" styleClass="sensorSImage" rendered="#{item.item1Label.inputValue=='Location Tracking'}"/>
                   <amx:outputText value="#{item.item1.inputValue}" id="outputText3"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage1" label="#{item.item2Label.inputValue}">
+                      <amx:image source="/images/robber.jpg" styleClass="sensorSImage" rendered="#{item.item2Label.inputValue=='Theft Protection'}"/>
                   <amx:outputText value="#{item.item2.inputValue}" id="outputText2"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage2" label="#{item.item3Label.inputValue}">
+                                 <amx:image source="/images/loadUnload.jpg" styleClass="sensorSImage" rendered="#{item.item3Label.inputValue=='Shipment Load and Unload notification'}"/>
                   <amx:outputText value="#{item.item3.inputValue}" id="outputText4"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage4" label="#{item.item4Label.inputValue}">
+                                     <amx:image source="/images/traincollision.jpg" styleClass="sensorSImage" rendered="#{item.item4Label.inputValue=='Collision Monitoring'}"/>
+               
                   <amx:outputText value="#{item.item4.inputValue}" id="outputText1"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage41" label="#{item.item5Label.inputValue}" rendered="#{item.item5Label.inputValue != null}">
-                  <amx:outputText value="#{item.item5.inputValue}" id="outputText11" rendered="#{item.item5.inputValue != null}"/>
+                                  <amx:image source="/images/humidity.jpg" styleClass="sensorSImage" rendered="#{item.item5Label.inputValue=='Humidity Monitoring'}"/>
+                <amx:outputText value="#{item.item5.inputValue}" id="outputText11" rendered="#{item.item5.inputValue != null}"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage42" label="#{item.item6Label.inputValue}" rendered="#{item.item6Label.inputValue != null}">
+                   <amx:image source="/images/thermometer.gif" styleClass="sensorSImage" rendered="#{item.item6Label.inputValue=='Temperature Monitoring'}"/>
                   <amx:outputText value="#{item.item6.inputValue}" id="outputText12" rendered="#{item.item6.inputValue != null}"/>
                 </amx:panelLabelAndMessage>
                 <amx:panelLabelAndMessage id="panelLabelAndMessage43" label="#{item.item7Label.inputValue}" rendered="#{item.item7Label.inputValue != null}">

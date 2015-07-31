@@ -133,6 +133,14 @@
     margin: 7px 10px 0px 0px;
 }
 
+.sensorSImage {
+    border: 1px solid #DDDDDD;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 7px 10px 0px 0px;
+}
+
 .sensorImageTrack {
     border: 1px solid #DDDDDD;
     height: 40px;
