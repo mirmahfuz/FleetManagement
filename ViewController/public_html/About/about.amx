@@ -260,7 +260,7 @@
                          <amx:commandLink id="cl16">
                                     <amx:panelGroupLayout id="pgl32" layout="vertical"
                                                           styleClass="appointmentDetailContainer">
-                                        <amx:outputText value="Completed" styleClass="linkColor" id="ot11"/>
+                                        <amx:outputText value="Delivered" styleClass="linkColor" id="ot11"/>
                                         <amx:panelGroupLayout id="pgl31" layout="horizontal">
                                         <amx:image source="/images/icon_order_list.png"
                                                    inlineStyle="width:50px;" id="i11"/>
@@ -377,7 +377,7 @@
                 <amx:commandLink id="cl21">
                                     <amx:panelGroupLayout id="pgl46" layout="vertical"
                                                           styleClass="shipmentDetailContainer">
-                                        <amx:outputText value="Completed" styleClass="linkColor" id="ot16"/>
+                                        <amx:outputText value="Delivered" styleClass="linkColor" id="ot16"/>
                                         <amx:panelGroupLayout id="pgl47" layout="horizontal">
                                         <amx:image source="/images/green_light.png"
                                                    inlineStyle="width:50px;" id="i25" rendered="#{!viewScope.NonAdminHome.renderComplete}"/>

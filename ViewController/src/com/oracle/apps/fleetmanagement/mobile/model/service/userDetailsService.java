@@ -15,6 +15,8 @@ import oracle.ateam.sample.mobile.v2.persistence.service.EntityCRUDService;
 
 import com.oracle.apps.fleetmanagement.mobile.model.UserDetails;
 
+import javax.el.ValueExpression;
+
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 import oracle.ateam.sample.mobile.v2.persistence.manager.DBPersistenceManager;
@@ -98,13 +100,30 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
         return result;
     }
 
-
+    public void setUserAS(String user){
+        setUserLoggedIn(user);
+    }
+    
     public void setUserLoggedIn(String userLoggedIn) {
         this.userLoggedIn = userLoggedIn;
         AdfmfJavaUtilities.setELValue("#{applicationScope.userLoggedIn}", userLoggedIn);
         
     }
 
+    public void setDefaultThresholdValues(){
+        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 50);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 80);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 21);
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 3);
+    }
+    
     public String getUserLoggedIn() {
         String userLogged = null;
         try{

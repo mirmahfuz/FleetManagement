@@ -29,19 +29,7 @@ public class NonAdminHome {
     String date;
     private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
-    private void setDefaultSettings(){
-        ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.humidityThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.tempThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.lightThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-        
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.usThresh}", Integer.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), 5);
-    }
+   
     
     public NonAdminHome() throws AdfException{
         super();
@@ -55,9 +43,22 @@ public class NonAdminHome {
         date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
         
         ValueExpression ve;
+        boolean submitOrder = false;
         try{
-        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverState}", String.class);
-        receiverState = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.submitOrder}", boolean.class);
+            submitOrder = (Boolean)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+        } catch(Exception e){
+            e.printStackTrace();
+            //throw new AdfException(e);
+        }
+
+        try{
+            if(submitOrder){
+            ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverState}", String.class);
+            receiverState = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            }else{
+                receiverState = "CA";
+            }
         }catch(Exception e){
             e.printStackTrace();
             //throw new AdfException(e);
@@ -67,8 +68,12 @@ public class NonAdminHome {
         }
         
         try{
+            if(submitOrder){
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverCity}", String.class);
         receiverCity = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            }else{
+                receiverCity="San Francisco"; 
+            }
         }catch(Exception e){
             e.printStackTrace();
            // throw new AdfException(e);
@@ -78,8 +83,12 @@ public class NonAdminHome {
         }
         
         try{
+            if(submitOrder){
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderCity}", String.class);
         senderCity = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            }else{
+                senderCity = "Pittsburgh";
+            }
         }catch(Exception e){
             e.printStackTrace();
             //throw new AdfException(e);
@@ -89,8 +98,12 @@ public class NonAdminHome {
         }
         
         try{
+            if(submitOrder){
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.senderState}", String.class);
         senderState = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            }else{
+                senderState = "PA"; 
+            }
         }catch(Exception e){
             e.printStackTrace();
             //throw new AdfException(e);
@@ -100,8 +113,12 @@ public class NonAdminHome {
         }
         
         try{
+            if(submitOrder){
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.shipmentHeading}", String.class);
         shipmentHeading = (String)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            }else{
+                shipmentHeading = "Last Shipment Overview";  
+            }
         }catch(Exception e){
             e.printStackTrace();
             //throw new AdfException(e);

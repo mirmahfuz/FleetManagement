@@ -20,9 +20,15 @@
                 <amx:inputText label="Username:" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
        <amx:spacer id="s3" height="10"/>
       <amx:inputText label="Password:" value="Welcome1" secret="true" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
-                <amx:commandButton text="Login" id="cb1" action="#{bindings.gotoFeature1.execute}" styleClass="newAltaButton" rendered="#{applicationScope.userLoggedIn!='admin'}"/>
-                <amx:commandButton text="Login" id="cb12" action="#{bindings.gotoFeature2.execute}" styleClass="newAltaButton" rendered="#{applicationScope.userLoggedIn=='admin'}"/>
-              
+               <amx:panelGroupLayout id="pgl12" layout="horizontal">
+                <amx:commandButton text="Customer Login" id="cb1" action="#{bindings.gotoFeature1.execute}" styleClass="newAltaButton" >
+                    <amx:actionListener id="al2" binding="#{bindings.setUserAS1.execute}"/>
+                  </amx:commandButton>
+                  <amx:spacer id="s5" width="5"/>
+                  <amx:commandButton text="Admin Login" id="cb12" action="#{bindings.gotoFeature2.execute}" styleClass="newAltaButton">
+                    <amx:actionListener id="al21" binding="#{bindings.setUserAS2.execute}"/>
+                  </amx:commandButton>
+              </amx:panelGroupLayout>
               <amx:panelGroupLayout id="pgl1" layout="horizontal">
                 <amx:commandLink text="Forgot username/password?" id="cl1"/>
                   <amx:spacer id="s1" width="60"/>

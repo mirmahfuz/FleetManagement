@@ -185,10 +185,10 @@ public class SenderDetail {
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "94004"); 
         
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverState}", String.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "California");
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Texas");
         
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverCity}", String.class);
-        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "San Francisco");
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Austin");
         
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.SenderDetail.receiverAddr1}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "1344 Market Street");
@@ -199,6 +199,9 @@ public class SenderDetail {
         
         ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.shipmentHeading}", String.class);
         ve.setValue(AdfmfJavaUtilities.getAdfELContext(), "Current Shipment Overview");
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{applicationScope.submitOrder}", boolean.class);
+        ve.setValue(AdfmfJavaUtilities.getAdfELContext(), true);
         
        
     }

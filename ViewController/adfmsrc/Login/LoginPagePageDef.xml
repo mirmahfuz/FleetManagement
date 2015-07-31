@@ -28,5 +28,15 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDValue="Track_Shipment" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="setUserAS1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setUserAS"
+                  IsViewObjectMethod="false" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider">
+      <NamedData NDName="user" NDValue="lisa.ray" NDType="java.lang.String"/>
+    </methodAction>
+     <methodAction id="setUserAS2" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setUserAS"
+                  IsViewObjectMethod="false" DataControl="userDetailsServiceDataControl"
+                  InstanceName="data.userDetailsServiceDataControl.dataProvider">
+      <NamedData NDName="user" NDValue="admin" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
