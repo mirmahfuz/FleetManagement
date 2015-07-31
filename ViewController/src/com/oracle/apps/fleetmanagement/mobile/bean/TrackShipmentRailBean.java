@@ -493,7 +493,16 @@ public class TrackShipmentRailBean implements MqttCallback{
 
     @Override
     public void connectionLost(Throwable throwable) {
-        // TODO Implement this method
+        try{
+            this.disconnect();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        try{
+        this.subscribeToMQTT();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
     public void addPropertyChangeListener(PropertyChangeListener l) {
