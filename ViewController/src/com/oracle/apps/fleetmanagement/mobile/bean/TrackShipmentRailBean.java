@@ -1,7 +1,6 @@
 package com.oracle.apps.fleetmanagement.mobile.bean;
 
 import com.oracle.apps.fleetmanagement.mobile.model.ManagedBean;
-import com.oracle.apps.fleetmanagement.mobile.util.JSONParserUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,8 +8,6 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import javax.el.ValueExpression;
-
-import oracle.adf.model.datacontrols.device.DeviceManagerFactory;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
@@ -54,10 +51,10 @@ public class TrackShipmentRailBean implements MqttCallback{
         //this.setDefaultSettings();
         qos = 2;
         sampleClient = null;
-        broker = "tcp://m11.cloudmqtt.com:16385";
-        password = "1MSI1ktJ81aY";
-        uri = "tcp://m11.cloudmqtt.com:16385";
-        username = "swlrwhmx";
+        broker = "tcp://m11.cloudmqtt.com:18230";
+        password = "6iKNcYELOyts";
+        uri = "tcp://m11.cloudmqtt.com:18230";
+        username = "kwfrisal";
     }
     
     public void init_trackingShipkment(){
@@ -473,9 +470,9 @@ public class TrackShipmentRailBean implements MqttCallback{
         HashMap<String, Object> mShipmentValues = new HashMap<String, Object>();
         
         if(pPayload == null){
-            pPayload = "{\"fleet\": {\"customer_id\": 4, \"sensor\": {\"light\": 300, \"long\": 0.0, \n" + 
-            "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 1.0, \"temperature\": 78.8}, \n" + 
-            "\"shipment_id\": \"abc\"}}";
+            pPayload = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 20, \"long\": -122.2646400,\n" + 
+                "\"humidity\": 47.0, \"ultrasound\": 2, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
+                "\"shipment_id\": \"ML-1\"}}";
         }
         try{
             

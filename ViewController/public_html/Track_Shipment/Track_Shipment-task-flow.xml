@@ -1,51 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
     <task-flow-definition id="Track_Shipment-task-flow">
-        <default-activity>subscribeToSubscriber</default-activity>
+        <default-activity>RailSubscriber</default-activity>
         <managed-bean id="__4">
             <managed-bean-name>TrackingShipmentHomeBean</managed-bean-name>
             <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.bean.TrackingShipmentHomeBean</managed-bean-class>
             <managed-bean-scope>pageFlow</managed-bean-scope>
         </managed-bean>
+        <managed-bean id="__1">
+            <managed-bean-name>TrackShipmentRailBean</managed-bean-name>
+            <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.bean.TrackShipmentRailBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__10">
+            <managed-bean-name>SenderDetail</managed-bean-name>
+            <managed-bean-class>com.oracle.apps.fleetmanagement.mobile.model.SenderDetail</managed-bean-class>
+            <managed-bean-scope>application</managed-bean-scope>
+        </managed-bean>
         <view id="Track_Shipment_Home">
             <page>/Track_Shipment/Track_Shipment_Home.amx</page>
         </view>
-        <task-flow-call id="TrackingShipmentRail">
-            <task-flow-reference>
-                <document>/Track_Shipment/TrackingShipmentRail.xml</document>
-                <id>TrackingShipmentRail</id>
-            </task-flow-reference>
-        </task-flow-call>
-        <task-flow-call id="TrackShipmentRoad">
-            <task-flow-reference>
-                <document>/Track_Shipment/TrackShipmentRoad.xml</document>
-                <id>TrackShipmentRoad</id>
-            </task-flow-reference>
-        </task-flow-call>
-        <method-call id="subscribeToSubscriber">
+        <method-call id="RoadSubscriber">
             <method>#{pageFlowScope.TrackingShipmentHomeBean.subscribeToSubscriber}</method>
             <outcome>
                 <fixed-outcome>success</fixed-outcome>
             </outcome>
         </method-call>
-        <control-flow-rule id="__1">
-            <from-activity-id>Track_Shipment_Home</from-activity-id>
-            <control-flow-case id="__2">
-                <from-outcome>trackrail</from-outcome>
-                <to-activity-id>TrackingShipmentRail</to-activity-id>
-                <transition>flipUp</transition>
-            </control-flow-case>
-            <control-flow-case id="__3">
-                <from-outcome>trackroad</from-outcome>
-                <to-activity-id>TrackShipmentRoad</to-activity-id>
-                <transition>flipLeft</transition>
-            </control-flow-case>
-        </control-flow-rule>
+        <view id="Track_Shipment_Rail">
+            <page>/Track_Shipment/Track_Shipment_Rail.amx</page>
+        </view>
+        <view id="Track_Shipment_Road">
+            <page>/Track_Shipment/Track_Shipment_Road.amx</page>
+        </view>
+        <method-call id="RailSubscriber">
+            <method>#{pageFlowScope.TrackShipmentRailBean.subscribeToMQTT}</method>
+            <outcome>
+                <fixed-outcome>success</fixed-outcome>
+            </outcome>
+        </method-call>
         <control-flow-rule id="__5">
-            <from-activity-id>subscribeToSubscriber</from-activity-id>
+            <from-activity-id>RoadSubscriber</from-activity-id>
             <control-flow-case id="__6">
                 <from-outcome>success</from-outcome>
                 <to-activity-id>Track_Shipment_Home</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__2">
+            <from-activity-id>Track_Shipment_Home</from-activity-id>
+            <control-flow-case id="__3">
+                <from-outcome>trackrail</from-outcome>
+                <to-activity-id>Track_Shipment_Rail</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__7">
+                <from-outcome>trackroad</from-outcome>
+                <to-activity-id>Track_Shipment_Road</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__8">
+            <from-activity-id>RailSubscriber</from-activity-id>
+            <control-flow-case id="__9">
+                <from-outcome>success</from-outcome>
+                <to-activity-id>RoadSubscriber</to-activity-id>
             </control-flow-case>
         </control-flow-rule>
         <page-flow-scope-behavior>

@@ -5,9 +5,9 @@
       <property
          name="linkStyle">Orthogonal</property>
       <property
-         name="y">344.6328</property>
+         name="y">336.69922</property>
       <property
-         name="x">106.55957</property>
+         name="x">91.65625</property>
    </OverallProperties>
    <View
       id="View2">
@@ -22,78 +22,24 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">177.5</property>
+         name="y">169.5664</property>
       <property
-         name="x">106.55957</property>
+         name="x">472.87207</property>
    </View>
-   <TaskFlowCall
-      id="TaskFlowCall9">
-      <property
-         name="taskFlowId">TrackingShipmentRail</property>
-      <property
-         name="activityId">TrackingShipmentRail</property>
-      <property
-         name="documentReference">/Track_Shipment/TrackingShipmentRail.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>TrackingShipmentRail&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">83.5</property>
-      <property
-         name="x">316.41504</property>
-   </TaskFlowCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View2"
-      to="TaskFlowCall9">
-      <property
-         name="fromOutcome">trackrail</property>
-      <property
-         name="sdm:polyPoints">R46,211.4873,173.9336,211.4873,83.43359,L50</property>
-   </ControlFlowCase>
-   <TaskFlowCall
-      id="TaskFlowCall5">
-      <property
-         name="taskFlowId">TrackShipmentRoad</property>
-      <property
-         name="activityId">TrackShipmentRoad</property>
-      <property
-         name="documentReference">/Track_Shipment/TrackShipmentRoad.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>TrackShipmentRoad&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">255.63281</property>
-      <property
-         name="x">316.41504</property>
-   </TaskFlowCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase6"
-      from="View2"
-      to="TaskFlowCall5">
-      <property
-         name="fromOutcome">trackroad</property>
-      <property
-         name="sdm:polyPoints">R54,211.4873,180.9336,211.4873,255.5664,L50</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall7">
       <property
-         name="activityId">subscribeToSubscriber</property>
+         name="activityId">RoadSubscriber</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>subscribeToSubscriber&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>RoadSubscriber&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">177.40234</property>
+         name="y">169.36719</property>
       <property
-         name="x">-96.0</property>
+         name="x">273.8125</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -103,6 +49,81 @@
       <property
          name="fromOutcome">success</property>
       <property
-         name="sdm:polyPoints">R50,5.279785,177.33594,5.279785,177.4336,L50</property>
+         name="sdm:polyPoints">R50,373.3423,169.30078,373.3423,169.5,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">Track_Shipment_Rail</property>
+      <property
+         name="page">/Track_Shipment/Track_Shipment_Rail.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Track_Shipment_Rail&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="x">683.5215</property>
+   </View>
+   <View
+      id="View10">
+      <property
+         name="activityId">Track_Shipment_Road</property>
+      <property
+         name="page">/Track_Shipment/Track_Shipment_Road.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Track_Shipment_Road&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">255.63281</property>
+      <property
+         name="x">683.5215</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View2"
+      to="View9">
+      <property
+         name="fromOutcome">trackrail</property>
+      <property
+         name="sdm:polyPoints">R46,578.1968,166.0,578.1968,83.43359,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="View2"
+      to="View10">
+      <property
+         name="fromOutcome">trackroad</property>
+      <property
+         name="sdm:polyPoints">R54,578.1968,173.0,578.1968,255.5664,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall13">
+      <property
+         name="activityId">RailSubscriber</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RailSubscriber&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">169.10156</property>
+      <property
+         name="x">73.65625</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="MethodCall13"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">success</property>
+      <property
+         name="sdm:polyPoints">R50,173.73438,169.03516,173.73438,169.30078,L50</property>
    </ControlFlowCase>
 </SDM>

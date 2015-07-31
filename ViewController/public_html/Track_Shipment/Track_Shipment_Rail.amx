@@ -6,8 +6,8 @@
             <amx:outputText value="Track Rail Shipment" id="ot1"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandButton id="cb1" text="Back" action="__back" icon="/images/func_caretleft_24_ena_white.png"
-                               iconPosition="leading" inlineStyle="color:White;"/>
+            <amx:commandButton id="cb1" action="__back" icon="/images/func_caretleft_24_ena_white.png"
+                               iconPosition="leading"/>
         </amx:facet>
         <amx:facet name="secondary"/>
         <amx:facet name="footer"/>

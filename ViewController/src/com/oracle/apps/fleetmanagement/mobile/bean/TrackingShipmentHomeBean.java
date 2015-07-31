@@ -33,10 +33,10 @@ public class TrackingShipmentHomeBean implements MqttCallback{
         super();
         qos1 = 2;
         sampleClient1 = null;
-        broker1 = "tcp://m11.cloudmqtt.com:16385";
-        password1 = "1MSI1ktJ81aY";
-        uri1 = "tcp://m11.cloudmqtt.com:16385";
-        username1 = "swlrwhmx";
+        broker1 = "tcp://m11.cloudmqtt.com:18230";
+        password1 = "6iKNcYELOyts";
+        uri1 = "tcp://m11.cloudmqtt.com:18230";
+        username1 = "kwfrisal";
     }
     
     private transient PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -47,58 +47,33 @@ public class TrackingShipmentHomeBean implements MqttCallback{
     String password1;
     String uri1;
     String username1;
-    String topic1 = "on_rail";
-    boolean changeLightIndicator;
-    boolean changeHumidIndicator;
-    boolean changeUltrasonicIndicator;
-    boolean changeTemperatureIndicator;
-  
+    String topic1 = "on_road";
+    String roadLongitude;
+    String roadLatitude;
 
-    public void setChangeLightIndicator(boolean changeLightIndicator) {
-        boolean oldChangeLightIndicator = this.changeLightIndicator;
-        this.changeLightIndicator = changeLightIndicator;
-        propertyChangeSupport.firePropertyChange("changeLightIndicator", oldChangeLightIndicator, changeLightIndicator);
+
+    public void setRoadLongitude(String roadLongitude) {
+        String oldRoadLongitude = this.roadLongitude;
+        this.roadLongitude = roadLongitude;
+        propertyChangeSupport.firePropertyChange("roadLongitude", oldRoadLongitude, roadLongitude);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public boolean isChangeLightIndicator() {
-        return changeLightIndicator;
+    public String getRoadLongitude() {
+        return roadLongitude;
     }
 
-    public void setChangeHumidIndicator(boolean changeHumidIndicator) {
-        boolean oldChangeHumidIndicator = this.changeHumidIndicator;
-        this.changeHumidIndicator = changeHumidIndicator;
-        propertyChangeSupport.firePropertyChange("changeHumidIndicator", oldChangeHumidIndicator, changeHumidIndicator);
+    public void setRoadLatitude(String roadLatitude) {
+        String oldRoadLatitude = this.roadLatitude;
+        this.roadLatitude = roadLatitude;
+        propertyChangeSupport.firePropertyChange("roadLatitude", oldRoadLatitude, roadLatitude);
         AdfmfJavaUtilities.flushDataChangeEvent();
     }
 
-    public boolean isChangeHumidIndicator() {
-        return changeHumidIndicator;
+    public String getRoadLatitude() {
+        return roadLatitude;
     }
 
-    public void setChangeUltrasonicIndicator(boolean changeUltrasonicIndicator) {
-        boolean oldChangeUltrasonicIndicator = this.changeUltrasonicIndicator;
-        this.changeUltrasonicIndicator = changeUltrasonicIndicator;
-        propertyChangeSupport.firePropertyChange("changeUltrasonicIndicator", oldChangeUltrasonicIndicator,
-                                                 changeUltrasonicIndicator);
-        AdfmfJavaUtilities.flushDataChangeEvent();
-    }
-
-    public boolean isChangeUltrasonicIndicator() {
-        return changeUltrasonicIndicator;
-    }
-
-    public void setChangeTemperatureIndicator(boolean changeTemperatureIndicator) {
-        boolean oldChangeTemperatureIndicator = this.changeTemperatureIndicator;
-        this.changeTemperatureIndicator = changeTemperatureIndicator;
-        propertyChangeSupport.firePropertyChange("changeTemperatureIndicator", oldChangeTemperatureIndicator,
-                                                 changeTemperatureIndicator);
-        AdfmfJavaUtilities.flushDataChangeEvent();
-    }
-
-    public boolean isChangeTemperatureIndicator() {
-        return changeTemperatureIndicator;
-    }
 
     private MqttConnectOptions getMqttConnOptions(){
         MqttConnectOptions connOpts = null;
@@ -223,8 +198,8 @@ public class TrackingShipmentHomeBean implements MqttCallback{
             try {
                 int subQoS = 0;
                 sampleClient1.subscribe(topic1, subQoS);
-                String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 300, \"long\": -122.2646400,\n" + 
-                "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
+                String defaultPublish = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 20, \"long\": -122.2646400,\n" + 
+                "\"humidity\": 47.0, \"ultrasound\": 2, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
                 "\"shipment_id\": \"ML-1\"}}";
                 publish(topic1, defaultPublish);
               //  Thread.sleep(5000);
@@ -243,6 +218,17 @@ public class TrackingShipmentHomeBean implements MqttCallback{
         System.out.println("| Topic:" + string);
         System.out.println("| Message: " + new String(mqttMessage.getPayload()));
         HashMap<String, String> mPayload = parseJSONObjectFromQueue(new String(mqttMessage.getPayload()));
+        
+        try{
+            
+            setRoadLatitude(toProperObjectType(mPayload.get("Latitude"), null));
+            setRoadLongitude(toProperObjectType(mPayload.get("Longitude"), null));
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new AdfException (e);
+        }
+        
         System.out.println("-------------------------------------------------");
 
     }
@@ -285,9 +271,9 @@ public class TrackingShipmentHomeBean implements MqttCallback{
         HashMap<String, Object> mShipmentValues = new HashMap<String, Object>();
         
         if(pPayload == null){
-            pPayload = "{\"fleet\": {\"customer_id\": 4, \"sensor\": {\"light\": 300, \"long\": 0.0, \n" + 
-            "\"humidity\": 47.0, \"ultrasound\": 6, \"lat\": 1.0, \"temperature\": 78.8}, \n" + 
-            "\"shipment_id\": \"abc\"}}";
+            pPayload = "{\"fleet\": {\"customer_id\": 10, \"sensor\": {\"light\": 20, \"long\": -122.2646400,\n" + 
+                "\"humidity\": 47.0, \"ultrasound\": 2, \"lat\": 37.5311940, \"temperature\": 78.1},\n" + 
+                "\"shipment_id\": \"ML-1\"}}";
         }
         try{
             
@@ -329,23 +315,6 @@ public class TrackingShipmentHomeBean implements MqttCallback{
             System.out.print(ex.getMessage());
         }
         
-        try{
-            
-            toProperObjectType(mShipmentValues.get("CustomerId"), null);
-            toProperObjectType(mShipmentValues.get("Humidity"), "Humidity");
-            toProperObjectType(mShipmentValues.get("Latitude"), null);
-            toProperObjectType(mShipmentValues.get("Longitude"), null);
-            toProperObjectType(mShipmentValues.get("Light"), "Light");
-            toProperObjectType(mShipmentValues.get("ShipmentId"), null);
-            toProperObjectType(mShipmentValues.get("Temperature"), "Temperature");
-            toProperObjectType(mShipmentValues.get("Ultrasound"),"Ultrasound");
-            toProperObjectType(mShipmentValues.get("MacAddress"),null);
-            
-        }catch(Exception e){
-            e.printStackTrace();
-            throw new AdfException (e);
-        }
-        
         return mShipmentValues;
     }
     
@@ -375,108 +344,10 @@ public class TrackingShipmentHomeBean implements MqttCallback{
                
                int i = (Integer) pVal;
                mVal = Integer.toString(i);
-               
-               if(pAttrName != null){
-                   
-                   if(pAttrName.equalsIgnoreCase("Light")){
-                       
-                       Object lightThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.lightThresh}");
-                       
-                       if(lightThreshNum != null && lightThreshNum instanceof Integer){
-                           
-                           int lightThresh = (Integer) lightThreshNum;
-                           
-                           if(i < lightThresh){
-                               
-                               setChangeLightIndicator(false);
-                               
-                           }else{
-                               
-                               setChangeLightIndicator(true);
-                           }
-                       }else{
-                           
-                           setChangeLightIndicator(true);
-                       }
-                   }
-                   
-                   
-                   if(pAttrName.equalsIgnoreCase("Ultrasound")){
-                       
-                       Object usThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.usThresh}");
-                       
-                       if(usThreshNum != null && usThreshNum instanceof Integer){
-                           
-                           int usThresh = (Integer) usThreshNum;
-                           
-                           if(i < usThresh){
-                               
-                               setChangeUltrasonicIndicator(false);
-                               
-                           }else{
-                               
-                               setChangeUltrasonicIndicator(true);
-                           }
-                       }else{
-                           
-                           setChangeUltrasonicIndicator(true);
-                       }
-                   }
-                   
-               }
-               
+             
            }else if(pVal instanceof Double){
                
                mVal = Double.toString((Double)pVal);
-               
-               if(pAttrName != null){
-                   
-                   if(pAttrName.equalsIgnoreCase("Temperature")){
-                       
-                       Object tempThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.tempThresh}");
-                       
-                       if(tempThreshNum != null && tempThreshNum instanceof Integer){
-                           
-                           int tempThresh = (Integer) tempThreshNum;
-                           
-                           if((Double)pVal < tempThresh){
-                               
-                               setChangeTemperatureIndicator(false);
-                               
-                           }else{
-                               
-                               setChangeTemperatureIndicator(true);
-                           }
-                       }else{
-                           
-                           setChangeTemperatureIndicator(true);
-                       }
-                   }
-                   
-                   
-                   if(pAttrName.equalsIgnoreCase("Humidity")){
-                       
-                       Object humidThreshNum =  AdfmfJavaUtilities.evaluateELExpression("#{applicationScope.humidityThresh}");
-                       
-                       if(humidThreshNum != null && humidThreshNum instanceof Integer){
-                           
-                           int humidThresh = (Integer) humidThreshNum;
-                           
-                           if((Double)pVal < humidThresh){
-                               
-                               setChangeHumidIndicator(false);
-                               
-                           }else{
-                               
-                               setChangeHumidIndicator(true);
-                           }
-                       }else{
-                           
-                           setChangeHumidIndicator(true);
-                       }
-                   }
-                   
-               }
                
            }else if(pVal instanceof String){
                

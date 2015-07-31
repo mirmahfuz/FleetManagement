@@ -266,6 +266,11 @@ public class SenderDetail {
     }
 
     public String getSenderName() {
+        
+        String defaultSenderName = "Lisa Ray";
+        if(senderName == null || senderName.isEmpty() || senderName == ""){
+            return defaultSenderName;
+        }
         return senderName;
     }
 
@@ -293,6 +298,7 @@ public class SenderDetail {
     }
 
     public String getSenderAddr1() {
+        
         return senderAddr1;
     }
 
@@ -303,6 +309,12 @@ public class SenderDetail {
     }
 
     public String getSenderCity() {
+        
+        String defaultSenderCity = "Redwood City";
+        if(senderCity == null || senderCity.isEmpty() || senderCity == ""){
+            return defaultSenderCity;
+        }
+        
         return senderCity;
     }
 
@@ -333,6 +345,10 @@ public class SenderDetail {
     }
 
     public String getSenderCountry() {
+        String defaultSenderCountry = "United States";
+        if(senderCountry == null || senderCountry.isEmpty() || senderCountry == ""){
+            return defaultSenderCountry;
+        }
         return senderCountry;
     }
 
@@ -373,10 +389,16 @@ public class SenderDetail {
     }
 
     public void setReceiverCity(String receiverCity) {
+        String oldReceiverCity = this.receiverCity;
         this.receiverCity = receiverCity;
+        propertyChangeSupport.firePropertyChange("receiverCity", oldReceiverCity, receiverCity);
     }
 
     public String getReceiverCity() {
+        String defaultReceiverCity = "Austin";
+        if(receiverCity == null || receiverCity.isEmpty() || receiverCity == ""){
+            return defaultReceiverCity;
+        }
         return receiverCity;
     }
 
@@ -397,10 +419,16 @@ public class SenderDetail {
     }
 
     public void setReceiverCountry(String receiverCountry) {
+        String oldReceiverCountry = this.receiverCountry;
         this.receiverCountry = receiverCountry;
+        propertyChangeSupport.firePropertyChange("receiverCountry", oldReceiverCountry, receiverCountry);
     }
 
     public String getReceiverCountry() {
+        String defaultReceiverCountry = "United States";
+        if(receiverCountry == null || receiverCountry.isEmpty() || receiverCountry == ""){
+            return defaultReceiverCountry;
+        }
         return receiverCountry;
     }
 
