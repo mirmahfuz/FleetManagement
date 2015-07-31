@@ -22,6 +22,30 @@
         customTriggerEvent(element, "touchstart");
         customTriggerEvent(element, "touchend");
     }
+    
+    showTheftPopup = function () {
+        var element = document.getElementById("showtheft");
+        customTriggerEvent(element, "touchstart");
+        customTriggerEvent(element, "touchend");
+    }
+
+    closeTheftPopup = function () {
+        var element = document.getElementById("closetheft");
+        customTriggerEvent(element, "touchstart");
+        customTriggerEvent(element, "touchend");
+    }
+    
+     showLoadUnloadPopup = function () {
+        var element = document.getElementById("showloadunload");
+        customTriggerEvent(element, "touchstart");
+        customTriggerEvent(element, "touchend");
+    }
+
+    closeLoadUnloadPopup = function () {
+        var element = document.getElementById("closeloadunload");
+        customTriggerEvent(element, "touchstart");
+        customTriggerEvent(element, "touchend");
+    }
 
     closePromotionPopup = function () {
         var element = document.getElementById("promotion:closePromotion");

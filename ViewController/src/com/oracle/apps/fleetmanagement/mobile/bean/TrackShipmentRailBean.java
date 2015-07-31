@@ -86,6 +86,10 @@ public class TrackShipmentRailBean implements MqttCallback{
     boolean showHumidSensor;
     String macAddress;
 
+    boolean theftPopupOpen = false;
+    boolean tempPopupOpen = false;
+    boolean humidPopupOpen = false;
+    boolean loadunloadPopupOpen = false;
 
     public void setMacAddress(String macAddress) {
         String oldMacAddress = this.macAddress;
@@ -104,6 +108,17 @@ public class TrackShipmentRailBean implements MqttCallback{
         this.showTempSensor = showTempSensor;
         propertyChangeSupport.firePropertyChange("showTempSensor", oldShowTempSensor, showTempSensor);
         AdfmfJavaUtilities.flushDataChangeEvent();
+        
+        if(showTempSensor&&!isTempPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "showTempPopup", new Object[] { });
+            setTempPopupOpen(true);
+        }
+        else if(!showTempSensor&&isTempPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "closeTempPopup", new Object[] { });
+            setTempPopupOpen(false);
+        }
     }
 
     public boolean isShowTempSensor() {
@@ -115,6 +130,18 @@ public class TrackShipmentRailBean implements MqttCallback{
         this.showHumidSensor = showHumidSensor;
         propertyChangeSupport.firePropertyChange("showHumidSensor", oldShowHumidSensor, showHumidSensor);
         AdfmfJavaUtilities.flushDataChangeEvent();
+        
+        if(showHumidSensor&&!isHumidPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "showHumidPopup", new Object[] { });
+            setHumidPopupOpen(true);
+        }
+        else if(!showHumidSensor&&isHumidPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "closeHumidPopup", new Object[] { });
+            setHumidPopupOpen(false);
+        }
+        
     }
 
     public boolean isShowHumidSensor() {
@@ -126,6 +153,18 @@ public class TrackShipmentRailBean implements MqttCallback{
         this.showLightSensor = showLightSensor;
         propertyChangeSupport.firePropertyChange("showLightSensor", oldShowLightSensor, showLightSensor);
         AdfmfJavaUtilities.flushDataChangeEvent();
+        
+        
+        if(showLightSensor&&!isLoadunloadPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "showLoadUnloadPopup", new Object[] { });
+            setLoadunloadPopupOpen(true);
+        }
+        else if(!showLightSensor&&isLoadunloadPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "closeLoadUnloadPopup", new Object[] { });
+            setLoadunloadPopupOpen(false);
+        }
     }
 
     public boolean isShowLightSensor() {
@@ -137,6 +176,17 @@ public class TrackShipmentRailBean implements MqttCallback{
         this.showUltraSensor = showUltraSensor;
         propertyChangeSupport.firePropertyChange("showUltraSensor", oldShowUltraSensor, showUltraSensor);
         AdfmfJavaUtilities.flushDataChangeEvent();
+        
+        if(showUltraSensor&&!isTheftPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "showTheftPopup", new Object[] { });
+            setTheftPopupOpen(true);
+        }
+        else if(!showUltraSensor&&isTheftPopupOpen()){
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
+                                                                  "closeTheftPopup", new Object[] { });
+            setTheftPopupOpen(false);
+        }
     }
 
     public boolean isShowUltraSensor() {
@@ -676,4 +726,46 @@ public class TrackShipmentRailBean implements MqttCallback{
                                                                   "FACETIME" , mTel});
         
     }
+
+    public void setTheftPopupOpen(boolean theftPopupOpen) {
+        boolean oldTheftPopupOpen = this.theftPopupOpen;
+        this.theftPopupOpen = theftPopupOpen;
+        propertyChangeSupport.firePropertyChange("theftPopupOpen", oldTheftPopupOpen, theftPopupOpen);
+    }
+
+    public boolean isTheftPopupOpen() {
+        return theftPopupOpen;
+    }
+
+
+    public void setTempPopupOpen(boolean tempPopupOpen) {
+        boolean oldTempPopupOpen = this.tempPopupOpen;
+        this.tempPopupOpen = tempPopupOpen;
+        propertyChangeSupport.firePropertyChange("tempPopupOpen", oldTempPopupOpen, tempPopupOpen);
+    }
+
+    public boolean isTempPopupOpen() {
+        return tempPopupOpen;
+    }
+
+    public void setHumidPopupOpen(boolean humidPopupOpen) {
+        boolean oldHumidPopupOpen = this.humidPopupOpen;
+        this.humidPopupOpen = humidPopupOpen;
+        propertyChangeSupport.firePropertyChange("humidPopupOpen", oldHumidPopupOpen, humidPopupOpen);
+    }
+
+    public boolean isHumidPopupOpen() {
+        return humidPopupOpen;
+    }
+
+    public void setLoadunloadPopupOpen(boolean loadunloadPopupOpen) {
+        boolean oldLoadunloadPopupOpen = this.loadunloadPopupOpen;
+        this.loadunloadPopupOpen = loadunloadPopupOpen;
+        propertyChangeSupport.firePropertyChange("loadunloadPopupOpen", oldLoadunloadPopupOpen, loadunloadPopupOpen);
+    }
+
+    public boolean isLoadunloadPopupOpen() {
+        return loadunloadPopupOpen;
+    }
+
 }

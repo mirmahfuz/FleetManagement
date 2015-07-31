@@ -51,7 +51,7 @@
                                                    alignId="i16" decoration="anchor"/>
                         </amx:commandLink>
                         <amx:spacer id="s8" height="10" width="10"/>
-                        <amx:commandLink id="cl3">
+                        <amx:commandLink id="showtemp">
                             <amx:panelGroupLayout id="pgl5" halign="center" valign="middle">
                                 <amx:panelGroupLayout id="pgl42"
                                                       styleClass="#{pageFlowScope.TrackShipmentRailBean.showTempSensor ? 'sensorImageTrackBackRed' : 'sensorImageTrackBackGreen'}">
@@ -64,9 +64,12 @@
                             </amx:panelGroupLayout>
                             <amx:showPopupBehavior id="spb3" popupId="temp" type="action" align="startMiddle"
                                                    alignId="i15" decoration="anchor"/>
+                            <amx:setPropertyListener from="true"
+                                                     to="#{pageFlowScope.TrackShipmentRailBean.tempPopupOpen}"
+                                                     type="action"/>
                         </amx:commandLink>
                         <amx:spacer id="s5" height="10" width="10"/>
-                        <amx:commandLink id="cl8">
+                        <amx:commandLink id="showhumid">
                             <amx:panelGroupLayout id="pgl34" halign="center" valign="middle">
                                 <amx:panelGroupLayout id="pgl43"
                                                       styleClass="#{pageFlowScope.TrackShipmentRailBean.showHumidSensor ? 'sensorImageTrackBackRed' : 'sensorImageTrackBackGreen'}">
@@ -79,9 +82,12 @@
                             </amx:panelGroupLayout>
                             <amx:showPopupBehavior id="spb4" popupId="humid" type="action" align="startMiddle"
                                                    alignId="i17" decoration="anchor"/>
+                            <amx:setPropertyListener from="true"
+                                                     to="#{pageFlowScope.TrackShipmentRailBean.humidPopupOpen}"
+                                                     type="action"/>
                         </amx:commandLink>
                         <amx:spacer id="s6" height="10" width="10"/>
-                        <amx:commandLink id="cl11">
+                        <amx:commandLink id="showtheft">
                             <amx:panelGroupLayout id="pgl4" halign="center" valign="middle">
                                 <amx:panelGroupLayout id="pgl44"
                                                       styleClass="#{pageFlowScope.TrackShipmentRailBean.showUltraSensor ? 'sensorImageTrackBackRed' : 'sensorImageTrackBackGreen'}">
@@ -94,9 +100,12 @@
                             </amx:panelGroupLayout>
                             <amx:showPopupBehavior id="spb5" popupId="theft" type="action" align="startMiddle"
                                                    alignId="i18" decoration="anchor"/>
+                            <amx:setPropertyListener from="true"
+                                                     to="#{pageFlowScope.TrackShipmentRailBean.theftPopupOpen}"
+                                                     type="action"/>
                         </amx:commandLink>
                         <amx:spacer id="s7" height="10" width="10"/>
-                        <amx:commandLink id="cl12">
+                        <amx:commandLink id="showloadunload">
                             <amx:panelGroupLayout id="pgl33" halign="center" valign="middle">
                                 <amx:panelGroupLayout id="pgl45"
                                                       styleClass="#{pageFlowScope.TrackShipmentRailBean.showLightSensor ? 'sensorImageTrackBackRed' : 'sensorImageTrackBackGreen'}">
@@ -109,13 +118,16 @@
                             </amx:panelGroupLayout>
                             <amx:showPopupBehavior id="spb6" align="startMiddle" popupId="light" type="action"
                                                    alignId="i19" decoration="anchor"/>
+                            <amx:setPropertyListener from="true"
+                                                     to="#{pageFlowScope.TrackShipmentRailBean.loadunloadPopupOpen}"
+                                                     type="action"/>
                         </amx:commandLink>
                     </amx:panelGroupLayout>
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
     </amx:panelPage>
-    <amx:popup id="user" backgroundDimming="off" autoDismiss="true" inlineStyle="background-color:#d6d6ff;">
+    <amx:popup id="user" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="true">
         <amx:panelGroupLayout id="pgl35">
             <amx:outputText value="Customer Details" id="ot2" styleClass="large-text blue bold"/>
             <amx:spacer id="s3" height="5" width="5"/>
@@ -170,9 +182,18 @@
             </amx:tableLayout>
         </amx:panelGroupLayout>
     </amx:popup>
-    <amx:popup id="temp" backgroundDimming="off" autoDismiss="true" inlineStyle="background-color:#d6d6ff;">
+    <amx:popup id="temp" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl8">
-            <amx:outputText value="Preference Detail Of Temperature Sensor" id="ot8" styleClass="large-text blue"/>
+            <amx:panelGroupLayout layout="horizontal">
+                <amx:outputText value="Preference Detail Of Temperature Sensor" id="ot8" styleClass="large-text blue"/>
+                <amx:spacer width="20"/>
+                <amx:commandLink id="closetemp">
+                    <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
+                    <amx:closePopupBehavior popupId="temp"/>
+                    <amx:setPropertyListener from="false" to="#{pageFlowScope.TrackShipmentRailBean.tempPopupOpen}"
+                                             type="action"/>
+                </amx:commandLink>
+            </amx:panelGroupLayout>
             <amx:panelGroupLayout id="pgl9" layout="horizontal">
                 <amx:outputText value="Temperature" id="ot3" styleClass="small-text gray"/>
                 <amx:spacer id="s11" height="5" width="25"/>
@@ -255,9 +276,18 @@
             </amx:tableLayout>
         </amx:panelGroupLayout>
     </amx:popup>
-    <amx:popup id="theft" backgroundDimming="off" autoDismiss="true" inlineStyle="background-color:#d6d6ff;">
+    <amx:popup id="theft" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl14">
-            <amx:outputText value="Preference Detail Of Theft Sensor" id="ot11" styleClass="large-text blue"/>
+            <amx:panelGroupLayout layout="horizontal">
+                <amx:outputText value="Preference Detail Of Theft Sensor" id="ot11" styleClass="large-text blue"/>
+                <amx:spacer width="20"/>
+                <amx:commandLink id="closetheft">
+                    <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
+                    <amx:closePopupBehavior popupId="theft"/>
+                    <amx:setPropertyListener from="false" to="#{pageFlowScope.TrackShipmentRailBean.theftPopupOpen}"
+                                             type="action"/>
+                </amx:commandLink>
+            </amx:panelGroupLayout>
             <amx:panelGroupLayout id="pgl15" layout="horizontal">
                 <amx:outputText value="Theft" id="ot20" styleClass="small-text gray"/>
                 <amx:spacer id="s13" height="5" width="25"/>
@@ -290,7 +320,7 @@
                     <amx:cellFormat id="cf17">
                         <amx:spacer id="s1" height="20" width="30"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf12" valign="top" halign="start" rendered="false">
+                    <amx:cellFormat id="cf12" rendered="false" valign="top" halign="start">
                         <amx:tableLayout id="tl6" halign="start">
                             <amx:rowLayout id="rl12" rendered="false">
                                 <amx:cellFormat id="cf14">
@@ -335,9 +365,18 @@
             </amx:tableLayout>
         </amx:panelGroupLayout>
     </amx:popup>
-    <amx:popup id="humid" backgroundDimming="off" autoDismiss="true" inlineStyle="background-color:#d6d6ff;">
+    <amx:popup id="humid" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl3">
-            <amx:outputText value="Preference Detail Of Humidity Sensor" id="ot5" styleClass="large-text blue"/>
+            <amx:panelGroupLayout layout="horizontal">
+                <amx:outputText value="Preference Detail Of Humidity Sensor" id="ot5" styleClass="large-text blue"/>
+                <amx:spacer width="20"/>
+                <amx:commandLink id="closehumid">
+                    <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
+                    <amx:closePopupBehavior popupId="humid"/>
+                    <amx:setPropertyListener from="false" to="#{pageFlowScope.TrackShipmentRailBean.humidPopupOpen}"
+                                             type="action"/>
+                </amx:commandLink>
+            </amx:panelGroupLayout>
             <amx:panelGroupLayout id="pgl21" layout="horizontal">
                 <amx:outputText value="Humidity" id="ot6" styleClass="small-text gray"/>
                 <amx:spacer id="s2" height="5" width="25"/>
@@ -369,7 +408,7 @@
                     <amx:cellFormat id="cf19">
                         <amx:spacer id="s20" height="10" width="30"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf20" valign="top" halign="start" rendered="false">
+                    <amx:cellFormat id="cf20" rendered="false" valign="top" halign="start">
                         <amx:tableLayout id="tl9" halign="start">
                             <amx:rowLayout id="rl10">
                                 <amx:cellFormat id="cf21">
@@ -418,9 +457,19 @@
             </amx:tableLayout>
         </amx:panelGroupLayout>
     </amx:popup>
-    <amx:popup id="light" backgroundDimming="off" autoDismiss="true" inlineStyle="background-color:#d6d6ff;">
+    <amx:popup id="light" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl26">
-            <amx:outputText value="Preference Detail Of Light Sensor" id="ot12" styleClass="large-text blue"/>
+            <amx:panelGroupLayout layout="horizontal">
+                <amx:outputText value="Preference Detail Of Light Sensor" id="ot12" styleClass="large-text blue"/>
+                <amx:spacer width="20"/>
+                <amx:commandLink id="closeloadunload">
+                    <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
+                    <amx:closePopupBehavior popupId="light"/>
+                    <amx:setPropertyListener from="false"
+                                             to="#{pageFlowScope.TrackShipmentRailBean.loadunloadPopupOpen}"
+                                             type="action"/>
+                </amx:commandLink>
+            </amx:panelGroupLayout>
             <amx:panelGroupLayout id="pgl27" layout="horizontal">
                 <amx:outputText value="Light" id="ot35" styleClass="small-text gray"/>
                 <amx:spacer id="s22" height="5" width="25"/>
@@ -454,7 +503,7 @@
                     <amx:cellFormat id="cf25">
                         <amx:spacer id="s26" height="20" width="30"/>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf27" valign="top" halign="start" rendered="false">
+                    <amx:cellFormat id="cf27" rendered="false" valign="top" halign="start">
                         <amx:tableLayout id="tl12" halign="start">
                             <amx:rowLayout id="rl22">
                                 <amx:cellFormat id="cf28">
