@@ -15,7 +15,7 @@
       <amx:cellFormat width="60%">
       <amx:panelGroupLayout halign="center" layout="vertical">
       <amx:spacer id="s2" height="120"/>
-                <amx:outputText value="Fleet Management" inlineStyle="font-size: 180%"/>
+                <amx:outputText value="Sensor on Rails" inlineStyle="font-size: 180%"/>
                  <amx:spacer id="s44" height="30"/>
                 <amx:inputText label="Username:" value="#{bindings.userLoggedIn.inputValue}" inlineStyle="border: 1px solid rgb(176, 176, 176);"/>
        <amx:spacer id="s3" height="10"/>
