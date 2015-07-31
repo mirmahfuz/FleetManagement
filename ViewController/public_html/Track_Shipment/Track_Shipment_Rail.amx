@@ -185,7 +185,7 @@
     <amx:popup id="temp" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl8">
             <amx:panelGroupLayout layout="horizontal">
-                <amx:outputText value="Preference Detail Of Temperature Sensor" id="ot8" styleClass="large-text blue"/>
+                <amx:outputText value="Temperature Monitoring" id="ot8" styleClass="large-text blue"/>
                 <amx:spacer width="20"/>
                 <amx:commandLink id="closetemp">
                     <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
@@ -205,9 +205,8 @@
             <amx:spacer id="s10" height="5" width="5"/>
             <amx:tableLayout id="tl4">
                 <amx:rowLayout id="rl5">
-                    <amx:cellFormat id="cf5">
-                        <amx:panelGroupLayout id="pgl2" styleClass="dvtm-gallery-component-verticalGauge-cell"
-                                              halign="center" valign="middle">
+                    <amx:cellFormat id="cf5" halign="center" valign="middle">
+                        <amx:panelGroupLayout id="pgl2" styleClass="dvtm-gallery-component-verticalGauge-cell">
                             <dvtm:statusMeterGauge id="statusMeterGauge1" orientation="vertical"
                                                    inlineStyle="height:200px; width:40px;" minValue="0" maxValue="100"
                                                    thresholdDisplay="all" plotArea="on" visualEffects="auto"
@@ -219,19 +218,8 @@
                                 <dvtm:referenceLine color="#888888" value="#{applicationScope.tempThresh}" id="rl4"/>
                             </dvtm:statusMeterGauge>
                         </amx:panelGroupLayout>
-                        <amx:spacer id="s12" height="10" width="10"/>
-                        <amx:panelGroupLayout id="pgl11" layout="horizontal" halign="start">
-                            <amx:outputText value="Threshold Value : " id="ot14" styleClass="small-text gray"/>
-                            <amx:outputText value="#{applicationScope.tempThresh}" id="ot15"
-                                            styleClass="small-text red"/>
-                        </amx:panelGroupLayout>
-                        <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="start">
-                            <amx:outputText value="Sensor Value : " id="ot16" styleClass="small-text blue"/>
-                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.temperature}" id="ot17"
-                                            styleClass="large-text green"/>
-                        </amx:panelGroupLayout>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf6" valign="top" halign="start">
+                    <amx:cellFormat id="cf6" valign="top" halign="start" rendered="false">
                         <amx:tableLayout id="tl5" halign="start">
                             <amx:rowLayout id="rl8" rendered="false">
                                 <amx:cellFormat id="cf9">
@@ -241,7 +229,7 @@
                             </amx:rowLayout>
                             <amx:rowLayout id="rl9">
                                 <amx:cellFormat id="cf10">
-                                    <amx:spacer id="s14" height="5" width="30"/>
+                                    <amx:spacer id="s14" height="5" width="15"/>
                                 </amx:cellFormat>
                             </amx:rowLayout>
                             <amx:rowLayout id="rl6" rendered="false">
@@ -273,13 +261,28 @@
                         </amx:tableLayout>
                     </amx:cellFormat>
                 </amx:rowLayout>
+                <amx:rowLayout id="rl26">
+                    <amx:cellFormat id="cf2">
+                        <amx:spacer id="s12" height="10" width="10"/>
+                        <amx:panelGroupLayout id="pgl11" layout="horizontal" halign="start">
+                            <amx:outputText value="Threshold Value : " id="ot14" styleClass="small-text gray"/>
+                            <amx:outputText value="#{applicationScope.tempThresh}" id="ot15"
+                                            styleClass="small-text red"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="pgl12" layout="horizontal" halign="start">
+                            <amx:outputText value="Sensor Value : " id="ot16" styleClass="small-text blue"/>
+                            <amx:outputText value="#{pageFlowScope.TrackShipmentRailBean.temperature}" id="ot17"
+                                            styleClass="large-text green"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
             </amx:tableLayout>
         </amx:panelGroupLayout>
     </amx:popup>
     <amx:popup id="theft" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl14">
             <amx:panelGroupLayout layout="horizontal">
-                <amx:outputText value="Preference Detail Of Theft Sensor" id="ot11" styleClass="large-text blue"/>
+                <amx:outputText value="Theft Monitoring" id="ot11" styleClass="large-text blue"/>
                 <amx:spacer width="20"/>
                 <amx:commandLink id="closetheft">
                     <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
@@ -317,7 +320,7 @@
                                             styleClass="large-text green"/>
                         </amx:panelGroupLayout>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf17">
+                    <amx:cellFormat id="cf17" rendered="false">
                         <amx:spacer id="s1" height="20" width="30"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf12" rendered="false" valign="top" halign="start">
@@ -368,7 +371,7 @@
     <amx:popup id="humid" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl3">
             <amx:panelGroupLayout layout="horizontal">
-                <amx:outputText value="Preference Detail Of Humidity Sensor" id="ot5" styleClass="large-text blue"/>
+                <amx:outputText value="Humidity Monitoring" id="ot5" styleClass="large-text blue"/>
                 <amx:spacer width="20"/>
                 <amx:commandLink id="closehumid">
                     <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>
@@ -405,7 +408,7 @@
                                             styleClass="large-text green"/>
                         </amx:panelGroupLayout>
                     </amx:cellFormat>
-                    <amx:cellFormat id="cf19">
+                    <amx:cellFormat id="cf19" rendered="false">
                         <amx:spacer id="s20" height="10" width="30"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf20" rendered="false" valign="top" halign="start">
@@ -460,7 +463,7 @@
     <amx:popup id="light" inlineStyle="background-color:#d6d6ff;" backgroundDimming="off" autoDismiss="false">
         <amx:panelGroupLayout id="pgl26">
             <amx:panelGroupLayout layout="horizontal">
-                <amx:outputText value="Preference Detail Of Light Sensor" id="ot12" styleClass="large-text blue"/>
+                <amx:outputText value="Light Monitoring" id="ot12" styleClass="large-text blue"/>
                 <amx:spacer width="20"/>
                 <amx:commandLink id="closeloadunload">
                     <amx:image source="/images/cross.png" inlineStyle="height:30px;width:30px;"/>

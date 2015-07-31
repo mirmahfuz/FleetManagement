@@ -118,8 +118,8 @@
             </amx:commandLink>
             <amx:spacer id="s13" width="10"/>
         </amx:panelGroupLayout>
-        <amx:spacer id="s10" height="10" width="10"/>
-        <amx:outputText value="In Transit Overview" id="ot36" styleClass="gray xxl-text"/>
+        <amx:spacer id="s10" height="30" width="20"/>
+        <amx:outputText value="In Transit Overview" id="ot36" styleClass="xxl-text blue bold"/>
         <amx:spacer id="s1" height="5" width="5"/>
         <amx:tableLayout id="tl1" width="100%" rendered="true">
             <amx:rowLayout id="rl1">
@@ -146,108 +146,112 @@
             </amx:rowLayout>
         </amx:tableLayout>
         <amx:spacer height="25"/>
-        <amx:listView showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="rows">
-            <amx:listItem id="li1" showLinkIcon="false">
-                <amx:tableLayout id="tl2" width="100%">
+        <amx:listView showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="rows"
+                      inlineStyle="padding-left:10px;padding-right:10px;">
+            <amx:listItem id="li1" showLinkIcon="false" inlineStyle="padding-left:10px;padding-right:10px;">
+                <amx:tableLayout id="tl2" width="100%" inlineStyle="padding-left:10px;padding-right:10px;">
                     <amx:rowLayout id="rl14">
-                        <amx:cellFormat id="cf52" header="true">
+                        <amx:cellFormat id="cf52" width="16.5%" header="true">
                             <amx:outputText value="Tracking Id" id="ot37" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf2" header="true" width="100px">
+                        <amx:cellFormat id="cf2" header="true" width="16.5%">
                             <amx:outputText value="Type" id="ot12" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf66" header="true" width="100px" halign="start">
+                        <amx:cellFormat id="cf66" header="true" width="16.5%">
                             <amx:outputText value="Customer Name" id="ot61" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf65" header="true" halign="start" width="100px">
+                        <amx:cellFormat id="cf65" header="true" width="16.5%">
                             <amx:outputText value="From" id="ot60" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf64" header="true" halign="center" width="100">
+                        <amx:cellFormat id="cf64" header="true" width="16.5%">
                             <amx:outputText value="To" id="ot59" styleClass="large-text blue"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf3" header="true" halign="center" width="100">
+                        <amx:cellFormat id="cf3" header="true" width="16.5%">
                             <amx:outputText value="Shipping Date" id="ot21" styleClass="large-text blue"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:listItem>
-            <amx:listItem id="li2" showLinkIcon="false" action="trackrail">
+            <amx:listItem id="li2" showLinkIcon="false" action="trackrail"
+                          inlineStyle="padding-left:10px;padding-right:10px;">
                 <amx:tableLayout id="tl3" width="100%"
-                                 inlineStyle="background-color:#{!( pageFlowScope.TrackShipmentRailBean.showHumidSensor || pageFlowScope.TrackShipmentRailBean.showLightSensor || pageFlowScope.TrackShipmentRailBean.showTempSensor || pageFlowScope.TrackShipmentRailBean.showUltraSensor) ? '#ffffff' : '#ffd6d6'};">
+                                 inlineStyle="padding-left:10px;padding-right:10px;background-color:#{!( pageFlowScope.TrackShipmentRailBean.showHumidSensor || pageFlowScope.TrackShipmentRailBean.showLightSensor || pageFlowScope.TrackShipmentRailBean.showTempSensor || pageFlowScope.TrackShipmentRailBean.showUltraSensor) ? '#ffffff' : '#ffd6d6'};">
                     <amx:rowLayout id="rl15">
-                        <amx:cellFormat id="cf60" valign="middle" width="16.5%">
+                        <amx:cellFormat id="cf60" width="16.5%">
                             <amx:outputText value="976295" id="ot54" styleClass="bold"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf5" halign="center" valign="middle" width="16.5%">
+                        <amx:cellFormat id="cf5" width="16.5%">
                             <amx:outputText value="Rail" id="ot13" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf57" halign="center" valign="middle" width="16.5%">
+                        <amx:cellFormat id="cf57" width="16.5%">
                             <amx:outputText value="#{applicationScope.SenderDetail.senderName}" id="ot53"
                                             styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf54" halign="center" valign="middle" width="16.5%">
-                            <amx:outputText value="#{applicationScope.SenderDetail.senderCity} #{' , '} #{applicationScope.SenderDetail.senderCountry}"
+                        <amx:cellFormat id="cf54" width="16.5%">
+                            <amx:outputText value="#{applicationScope.SenderDetail.senderCity}"
                                             id="ot50" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf53" halign="center" valign="middle" width="16.5%">
-                            <amx:outputText value="#{applicationScope.SenderDetail.receiverCity} #{' , '} #{applicationScope.SenderDetail.receiverCountry}"
+                        <amx:cellFormat id="cf53" width="16.5%">
+                            <amx:outputText value="#{applicationScope.SenderDetail.receiverCity}"
                                             id="ot22" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf4" halign="center" valign="middle" width="16.5%">
+                        <amx:cellFormat id="cf4" width="16.5%">
                             <amx:outputText value="2015-07-31 16:00" id="ot24" styleClass="gray"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:listItem>
-            <amx:listItem id="li3" action="trackrail" showLinkIcon="false">
-            <amx:tableLayout id="tl5" width="100%">
+            <amx:listItem id="li3" action="trackrail" showLinkIcon="false"
+                          inlineStyle="padding-left:10px;padding-right:10px;">
+            <amx:tableLayout id="tl5" width="100%" inlineStyle="padding-left:10px;padding-right:10px;">
                     <amx:rowLayout id="rl3">
-                        <amx:cellFormat id="cf17" valign="middle">
+                        <amx:cellFormat id="cf17" width="16.5%">
                             <amx:outputText value="976290" id="ot35" styleClass="bold"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf19" halign="center" valign="middle">
+                        <amx:cellFormat id="cf19" width="16.5%">
                             <amx:outputText value="Rail" id="ot33" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf16" halign="center" valign="middle">
+                        <amx:cellFormat id="cf16" width="16.5%">
                             <amx:outputText value="#{'Amy Jackson'}" id="ot38"
                                             styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf18" halign="center" valign="middle">
-                            <amx:outputText value="#{'Santa Clara'} #{' , '} #{'United States'}"
+                        <amx:cellFormat id="cf18" width="16.5%">
+                            <amx:outputText value="#{'Santa Clara'}"
                                             id="ot39" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf8" halign="center" valign="middle">
-                            <amx:outputText value="#{'San Francisco'} #{' , '} #{'United States'}"
+                        <amx:cellFormat id="cf8" width="16.5%">
+                            <amx:outputText value="#{'San Francisco'}"
                                             id="ot25" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf9" halign="center" valign="middle">
+                        <amx:cellFormat id="cf9" width="16.5%">
                             <amx:outputText value="2015-07-31 15:30" id="ot26" styleClass="gray"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:listItem>
-            <amx:listItem id="li4" action="trackroad" showLinkIcon="false">
-            <amx:tableLayout id="tl4" width="100%">
+            <amx:listItem id="li4" action="trackroad" showLinkIcon="false"
+                          inlineStyle="padding-left:10px;padding-right:10px;">
+            <amx:tableLayout id="tl4" width="100%" inlineStyle="padding-left:10px;padding-right:10px;">
                     <amx:rowLayout id="rl2">
-                        <amx:cellFormat id="cf10" valign="middle">
+                        <amx:cellFormat id="cf10" width="16.5%">
                             <amx:outputText value="976275" id="ot28" styleClass="bold"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf11" halign="center" valign="middle">
+                        <amx:cellFormat id="cf11" width="16.5%">
                             <amx:outputText value="Road" id="ot29" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf12" halign="center" valign="middle">
+                        <amx:cellFormat id="cf12" width="16.5%">
                             <amx:outputText value="#{'Bruce Wayne'}" id="ot30"
                                             styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf13" halign="center" valign="middle">
-                            <amx:outputText value="#{'San Francisco'} #{' , '} #{'United States'}"
+                        <amx:cellFormat id="cf13" width="16.5%">
+                            <amx:outputText value="#{'San Francisco'}"
                                             id="ot31" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf14" halign="center" valign="middle">
-                            <amx:outputText value="#{'San Diego'} #{' , '} #{'United States'}"
+                        <amx:cellFormat id="cf14" width="16.5%">
+                            <amx:outputText value="#{'San Diego'}"
                                             id="ot32" styleClass="gray"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf15" halign="center" valign="middle">
+                        <amx:cellFormat id="cf15" width="16.5%">
                             <amx:outputText value="2015-07-29 16:00" id="ot34" styleClass="gray"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
