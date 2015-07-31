@@ -102,6 +102,7 @@ public class userDetailsService extends EntityCRUDService<UserDetails> {
 
     public void setUserAS(String user){
         setUserLoggedIn(user);
+        setDefaultThresholdValues();
     }
     
     public void setUserLoggedIn(String userLoggedIn) {
