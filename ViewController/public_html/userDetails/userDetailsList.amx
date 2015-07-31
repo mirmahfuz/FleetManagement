@@ -17,7 +17,8 @@
       <amx:panelGroupLayout id="pglsec" layout="horizontal" valign="middle">
      <amx:commandButton text="Edit" styleClass="white"/> 
          <amx:spacer width="10"/>
-         <amx:image id="i13" source="/images/headshot04.png" styleClass="headerPersonImage"/>           
+        <amx:image source="/images/headshot04.png" rendered="#{applicationScope.userLoggedIn!='admin'}" styleClass="headerPersonImage"/>
+        <amx:image source="/images/headshot20.png" rendered="#{applicationScope.userLoggedIn=='admin'}" styleClass="headerPersonImage"/>            
       </amx:panelGroupLayout>
     </amx:facet>
     <amx:panelStretchLayout id="psl1" scrollPolicy="scroll">
