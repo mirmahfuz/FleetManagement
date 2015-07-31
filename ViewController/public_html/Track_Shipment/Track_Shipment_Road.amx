@@ -7,20 +7,42 @@
             <amx:commandButton text="commandButton1" id="cb3"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandButton id="cb1" action="__back" icon="/images/func_caretleft_24_ena_white.png"
-                               iconPosition="leading"/>
+            <amx:commandLink id="cl17" action="__back">
+                <amx:image id="i37" source="/images/func_caretleft_24_ena_white.png"/>
+            </amx:commandLink>
         </amx:facet>
         <amx:facet name="secondary"></amx:facet>
         <dvtm:geographicMap id="geomp1" centerX="#{pageFlowScope.TrackingShipmentHomeBean.roadLongitude}"
                             centerY="#{pageFlowScope.TrackingShipmentHomeBean.roadLatitude}" mapType="ROADMAP"
-                            initialZooming="auto" shortDesc="Shipment Type :: Road" zoomLevel="15">
-            <dvtm:pointDataLayer id="pdl1">
-                <dvtm:pointLocation id="pl1" type="pointXY"
-                                    pointX="#{pageFlowScope.TrackingShipmentHomeBean.roadLongitude}"
-                                    pointY="#{pageFlowScope.TrackingShipmentHomeBean.roadLatitude}">
-                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true"/>
+                            initialZooming="auto" shortDesc="Shipment Type :: Road" zoomLevel="14">
+            <dvtm:route id="r1">
+                <dvtm:pointLocation id="pl1" type="pointXY" pointX="-122.264303" pointY="37.532161">
+                    <dvtm:marker id="mrk1" shortDesc="Hackathon" rendered="true">
+                        <amx:showPopupBehavior id="spb1" popupId="p1" type="action" align="topCenter" alignId="mrk1"
+                                               decoration="anchor"/>
+                    </dvtm:marker>
                 </dvtm:pointLocation>
-            </dvtm:pointDataLayer>
+                <dvtm:pointLocation id="pl2" type="pointXY"
+                                    pointY="#{pageFlowScope.TrackingShipmentHomeBean.roadLatitude}"
+                                    pointX="#{pageFlowScope.TrackingShipmentHomeBean.roadLongitude}">
+                    <dvtm:marker id="mrk2" shortDesc="Bee Location" rendered="true">
+                        <amx:showPopupBehavior id="spb2" popupId="p2" type="action" align="topCenter" alignId="mrk2"
+                                               decoration="anchor"/>
+                    </dvtm:marker>
+                </dvtm:pointLocation>
+            </dvtm:route>
         </dvtm:geographicMap>
     </amx:panelPage>
+    <amx:popup id="p1" autoDismiss="true" backgroundDimming="off">
+        <amx:panelGroupLayout id="pgl1" layout="horizontal">
+            <amx:outputText value="#{'Source Location : '}" id="ot2"/>
+            <amx:outputText value="#{'37.532161 , -122.264303'}" id="ot3"/>
+        </amx:panelGroupLayout>
+    </amx:popup>
+    <amx:popup id="p2" autoDismiss="true" backgroundDimming="off">
+        <amx:panelGroupLayout id="pgl2" layout="horizontal">
+            <amx:outputText value="#{'Bee Location : '}" id="ot4"/>
+            <amx:outputText value="#{pageFlowScope.TrackingShipmentHomeBean.roadLatitude} #{' , '} #{pageFlowScope.TrackingShipmentHomeBean.roadLongitude}" id="ot5"/>
+        </amx:panelGroupLayout>
+    </amx:popup>
 </amx:view>
