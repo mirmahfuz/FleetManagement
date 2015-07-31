@@ -172,10 +172,11 @@
                 </amx:tableLayout>
             </amx:listItem>
             <amx:listItem id="li2" showLinkIcon="false" action="trackrail">
-                <amx:tableLayout id="tl3" width="100%">
+                <amx:tableLayout id="tl3" width="100%"
+                                 inlineStyle="background-color:#{!( pageFlowScope.TrackShipmentRailBean.showHumidSensor || pageFlowScope.TrackShipmentRailBean.showLightSensor || pageFlowScope.TrackShipmentRailBean.showTempSensor || pageFlowScope.TrackShipmentRailBean.showUltraSensor) ? '#ffffff' : '#ffd6d6'};">
                     <amx:rowLayout id="rl15">
                         <amx:cellFormat id="cf60" valign="middle" width="16.5%">
-                            <amx:outputText value="976285" id="ot54" styleClass="bold"/>
+                            <amx:outputText value="976295" id="ot54" styleClass="bold"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf5" halign="center" valign="middle" width="16.5%">
                             <amx:outputText value="Rail" id="ot13" styleClass="gray"/>
@@ -193,17 +194,16 @@
                                             id="ot22" styleClass="gray"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf4" halign="center" valign="middle" width="16.5%">
-                            <amx:outputText value="2015-07-30 16:00" id="ot24" styleClass="gray"/>
+                            <amx:outputText value="2015-07-31 16:00" id="ot24" styleClass="gray"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:listItem>
             <amx:listItem id="li3" action="trackrail" showLinkIcon="false">
-            <amx:tableLayout id="tl5" width="100%"
-                             inlineStyle="background-color:#{!( pageFlowScope.TrackShipmentRailBean.showHumidSensor || pageFlowScope.TrackShipmentRailBean.showLightSensor || pageFlowScope.TrackShipmentRailBean.showTempSensor || pageFlowScope.TrackShipmentRailBean.showUltraSensor) ? '#ffffff' : '#ffd6d6'};">
+            <amx:tableLayout id="tl5" width="100%">
                     <amx:rowLayout id="rl3">
                         <amx:cellFormat id="cf17" valign="middle">
-                            <amx:outputText value="976280" id="ot35" styleClass="bold"/>
+                            <amx:outputText value="976290" id="ot35" styleClass="bold"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf19" halign="center" valign="middle">
                             <amx:outputText value="Rail" id="ot33" styleClass="gray"/>
@@ -221,7 +221,7 @@
                                             id="ot25" styleClass="gray"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf9" halign="center" valign="middle">
-                            <amx:outputText value="2015-07-30 12:00" id="ot26" styleClass="gray"/>
+                            <amx:outputText value="2015-07-31 15:30" id="ot26" styleClass="gray"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>

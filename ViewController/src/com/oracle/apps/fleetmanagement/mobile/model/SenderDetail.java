@@ -299,6 +299,10 @@ public class SenderDetail {
 
     public String getSenderAddr1() {
         
+        String defaultSenderAddr1 = "300 Oracle Parkway";
+        if(senderAddr1 == null || senderAddr1.isEmpty() || senderAddr1 == ""){
+            return defaultSenderAddr1;
+        }
         return senderAddr1;
     }
 
